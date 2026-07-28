@@ -144,7 +144,12 @@ Full list in `requirements-specification.md` §13. The ones that bite immediatel
 - **Site language is English**, `<html lang="en">`. Team and manager names appear exactly as exported.
 - **Never call `toLocaleString()` without a locale.** On a German browser 1848.60 renders as `1.848,60`. Use a single shared `Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })`. Points 2 decimals, percentages 1, records as `12–3` with an en dash.
 - **`dist/.nojekyll` must exist.** GitHub Pages runs Jekyll, which silently drops underscore-prefixed paths — `_validation.json` would vanish in production with no error.
-- **Base path**: publishing as a user site (`<user>.github.io`) keeps it `/`. If it becomes a project site, every absolute URL must go through a `BASE_PATH` constant.
+- **Base path**: this deploys as a GitHub **project** site at
+  `https://davidgro23.github.io/FailMaryFisters/`. `BASE_PATH` is `/FailMaryFisters/`.
+  Every absolute URL — pages, CSS, JSON fetches in `src/web/`, rule 16 redirect pages —
+  must be constructed through that constant. Never hardcode a leading `/`.
+  `npm run serve` must mirror this prefix locally, or production-only link breakage
+  will not be caught in development.
 - **`esc()` every interpolated value.** Player names contain apostrophes (`Ja'Marr Chase`). Templating is plain tagged template literals — no engine, no dependency.
 - **Never re-sort standings.** Use `overallRank` from the export; it already carries the league's tiebreak. 2025 has three teams at 7-8.
 - **Tests use `node:test`.** Do not add vitest or jest.
