@@ -444,23 +444,15 @@ succession?: { predecessorId?: ManagerId; successorId?: ManagerId; year: Year };
 
 Populated by the audit, rendered on the manager page as one line ("Took over the franchise from Alex, who managed 2017–20XX") and on the season page where the handover occurred. It never affects a computed statistic.
 
-### 9.8 Keepers — out of scope (do not re-attempt)
+### 9.8 Keepers — out of scope
 
-The league switched from redraft to keepers (max 3 per manager) in 2018, but **keeper display is deliberately excluded from the site**.
+Keepers are not displayed and not derived. They appear in the export as ordinary
+draft picks with no distinguishing flag. The derivation heuristic was tested on
+2024 → 2025 and produced 40 candidates with 8 of 10 teams exceeding the 3-keeper
+limit — it does not work.
 
-Keepers are not flagged anywhere in the export. Every team has exactly 15 picks and 15 rounds equals a full roster, so a kept player consumes a draft slot and is indistinguishable from an ordinary pick in `draft-history.json`.
-
-The only available heuristic — "drafted by the same team that rostered the player last season" — was tested on 2024 → 2025 and **fails decisively**:
-
-| | Result |
-|---|---|
-| Candidates found | 40, across all 10 teams |
-| Teams exceeding the 3-keeper limit | **8 of 10** |
-| Distribution | 5, 5, 4, 4, 4, 4, 4, 4, 3, 3 |
-
-Re-drafting your own player is common enough that the signal is unrecoverable. Any keeper display built on this would be confidently wrong.
-
-**Do not re-attempt this without new source data.** If keeper display is wanted later, the only honest route is a hand-maintained `keepers.json` (`year`, `teamId`, `playerId[]`) supplied by the league.
+If keeper display is ever wanted, the answer is a hand-maintained
+`raw-data/<leagueFolder>/keepers.json`, never a derivation from draft data.
 
 ## 10. Page Inventory
 
