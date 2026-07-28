@@ -1,0 +1,416 @@
+[
+  {
+    "year": 2018,
+    "transactionDate": "2018-09-29T06:33:00",
+    "transactionWeek": 4,
+    "transactionOwnerUserId": "5076030",
+    "transaction": [
+      {
+        "from": "10",
+        "to": "1",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2555466"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 9
+            }
+          }
+        ]
+      },
+      {
+        "from": "1",
+        "to": "10",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2560809"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 12
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2018,
+    "transactionDate": "2018-10-10T15:03:00",
+    "transactionWeek": 6,
+    "transactionOwnerUserId": "15472989",
+    "transaction": [
+      {
+        "from": "9",
+        "to": "2",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "100020"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 4
+            }
+          }
+        ]
+      },
+      {
+        "from": "2",
+        "to": "9",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2559169"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 13
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2018,
+    "transactionDate": "2018-11-01T06:42:00",
+    "transactionWeek": 9,
+    "transactionOwnerUserId": "15472989",
+    "transaction": [
+      {
+        "from": "7",
+        "to": "2",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2552469"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 10
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 14
+            }
+          }
+        ]
+      },
+      {
+        "from": "2",
+        "to": "7",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2506106"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 4
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2018,
+    "transactionDate": "2018-11-08T05:03:00",
+    "transactionWeek": 10,
+    "transactionOwnerUserId": "15011294",
+    "transaction": [
+      {
+        "from": "7",
+        "to": "3",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2540158"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 8
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 13
+            }
+          }
+        ]
+      },
+      {
+        "from": "3",
+        "to": "7",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "71265"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 4
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 6
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2018,
+    "transactionDate": "2018-11-11T04:20:00",
+    "transactionWeek": 10,
+    "transactionOwnerUserId": "9062581",
+    "transaction": [
+      {
+        "from": "9",
+        "to": "6",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2543468"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 11
+            }
+          }
+        ]
+      },
+      {
+        "from": "6",
+        "to": "9",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2555430"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 3
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2018,
+    "transactionDate": "2018-11-17T12:12:00",
+    "transactionWeek": 11,
+    "transactionOwnerUserId": "5076030",
+    "transaction": [
+      {
+        "from": "10",
+        "to": "1",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "100005"
+          },
+          {
+            "type": "player",
+            "playerId": "2555224"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 11
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 12
+            }
+          }
+        ]
+      },
+      {
+        "from": "1",
+        "to": "10",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "100002"
+          },
+          {
+            "type": "player",
+            "playerId": "2560835"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 4
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 7
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2018,
+    "transactionDate": "2018-11-21T09:50:00",
+    "transactionWeek": 12,
+    "transactionOwnerUserId": "5076030",
+    "transaction": [
+      {
+        "from": "2",
+        "to": "9",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2560907"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 6
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 10
+            }
+          }
+        ]
+      },
+      {
+        "from": "9",
+        "to": "2",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2495450"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 13
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 15
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2018,
+    "transactionDate": "2018-11-22T10:15:00",
+    "transactionWeek": 0,
+    "transactionOwnerUserId": "5076030",
+    "transaction": [
+      {
+        "from": "7",
+        "to": "1",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2543496"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 12
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 15
+            }
+          }
+        ]
+      },
+      {
+        "from": "1",
+        "to": "7",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2530747"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 9
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2019,
+              "round": 10
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

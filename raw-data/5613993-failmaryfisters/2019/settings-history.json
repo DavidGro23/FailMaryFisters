@@ -1,0 +1,64 @@
+[
+  {
+    "year": 2019,
+    "rosterPositions": {
+      "BN": {
+        "count": 7
+      },
+      "DEF": {
+        "count": 1
+      },
+      "QB": {
+        "count": 1
+      },
+      "RB": {
+        "count": 2
+      },
+      "TE": {
+        "count": 1
+      },
+      "WR": {
+        "count": 2
+      },
+      "WRRB_FLEX": {
+        "count": 1
+      }
+    },
+    "offenseSettings": {
+      "fum_lost": -2,
+      "fum_rec_td": 6,
+      "pass_2pt": 2,
+      "pass_int": -2,
+      "pass_td": 4,
+      "pass_yd": 0.04,
+      "rec": 0.5,
+      "rec_2pt": 2,
+      "rec_td": 6,
+      "rec_yd": 0.1,
+      "rush_2pt": 2,
+      "rush_td": 6,
+      "rush_yd": 0.1
+    },
+    "kickingSettings": {},
+    "dstSettings": {
+      "def_2pt": 2,
+      "def_td": 6,
+      "fum_rec": 2,
+      "int": 2,
+      "pts_allow_0": 10,
+      "pts_allow_14_20": 1,
+      "pts_allow_1_6": 7,
+      "pts_allow_21_27": 0,
+      "pts_allow_28_34": -1,
+      "pts_allow_35p": -4,
+      "pts_allow_7_13": 4,
+      "sack": 1,
+      "safe": 2
+    },
+    "otherSettings": {
+      "Def 2-point Return": "2 points",
+      "Use Fractional Pts": "Yes",
+      "Use Negative Pts": "Yes"
+    }
+  }
+]

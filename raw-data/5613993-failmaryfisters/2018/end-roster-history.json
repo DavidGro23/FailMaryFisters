@@ -1,0 +1,1352 @@
+[
+  {
+    "year": 2018,
+    "teamId": "1",
+    "playerId": "2555224",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "DAL",
+    "pts": 290.6
+  },
+  {
+    "year": 2018,
+    "teamId": "1",
+    "playerId": "2558008",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "CHI",
+    "pts": 263.02
+  },
+  {
+    "year": 2018,
+    "teamId": "1",
+    "playerId": "2558204",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "GB",
+    "pts": 100.9
+  },
+  {
+    "year": 2018,
+    "teamId": "1",
+    "playerId": "2530747",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "SEA",
+    "pts": 116.8
+  },
+  {
+    "year": 2018,
+    "teamId": "1",
+    "playerId": "2543495",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "GB",
+    "pts": 274.1
+  },
+  {
+    "year": 2018,
+    "teamId": "1",
+    "playerId": "2557858",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "NYG",
+    "pts": 103.8
+  },
+  {
+    "year": 2018,
+    "teamId": "1",
+    "playerId": "2559947",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "DEN",
+    "pts": 205.3
+  },
+  {
+    "year": 2018,
+    "teamId": "1",
+    "playerId": "2540269",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LA",
+    "pts": 64.9
+  },
+  {
+    "year": 2018,
+    "teamId": "1",
+    "playerId": "2543600",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "HOU",
+    "pts": 87.3
+  },
+  {
+    "year": 2018,
+    "teamId": "1",
+    "playerId": "2552475",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LA",
+    "pts": 342.6
+  },
+  {
+    "year": 2018,
+    "teamId": "1",
+    "playerId": "2561002",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "DEN",
+    "pts": 51.3
+  },
+  {
+    "year": 2018,
+    "teamId": "1",
+    "playerId": "2506121",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LAC",
+    "pts": 285.02
+  },
+  {
+    "year": 2018,
+    "teamId": "1",
+    "playerId": "2555466",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CIN",
+    "pts": 183.1
+  },
+  {
+    "year": 2018,
+    "teamId": "1",
+    "playerId": "2506922",
+    "status": "ST",
+    "pos": "K",
+    "nflTeam": "NE",
+    "pts": 138
+  },
+  {
+    "year": 2018,
+    "teamId": "1",
+    "playerId": "100005",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "CHI",
+    "pts": 187
+  },
+  {
+    "year": 2018,
+    "teamId": "2",
+    "playerId": "2540165",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "HOU",
+    "pts": 276
+  },
+  {
+    "year": 2018,
+    "teamId": "2",
+    "playerId": "2543773",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "NE",
+    "pts": 233.1
+  },
+  {
+    "year": 2018,
+    "teamId": "2",
+    "playerId": "2506363",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "GB",
+    "pts": 312.58
+  },
+  {
+    "year": 2018,
+    "teamId": "2",
+    "playerId": "2552469",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "LAC",
+    "pts": 250.5
+  },
+  {
+    "year": 2018,
+    "teamId": "2",
+    "playerId": "2557973",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "JAX",
+    "pts": 109.4
+  },
+  {
+    "year": 2018,
+    "teamId": "2",
+    "playerId": "2533039",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "PHI",
+    "pts": 152.8
+  },
+  {
+    "year": 2018,
+    "teamId": "2",
+    "playerId": "100015",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "JAX",
+    "pts": 115
+  },
+  {
+    "year": 2018,
+    "teamId": "2",
+    "playerId": "2540258",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "KC",
+    "pts": 243.1
+  },
+  {
+    "year": 2018,
+    "teamId": "2",
+    "playerId": "2558123",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "IND",
+    "pts": 169.6
+  },
+  {
+    "year": 2018,
+    "teamId": "2",
+    "playerId": "2556601",
+    "status": "ST",
+    "pos": "K",
+    "nflTeam": "NO",
+    "pts": 151
+  },
+  {
+    "year": 2018,
+    "teamId": "2",
+    "playerId": "2558116",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "GB",
+    "pts": 158.4
+  },
+  {
+    "year": 2018,
+    "teamId": "2",
+    "playerId": "2540204",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "KC",
+    "pts": 69
+  },
+  {
+    "year": 2018,
+    "teamId": "2",
+    "playerId": "2560800",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CLE",
+    "pts": 240.1
+  },
+  {
+    "year": 2018,
+    "teamId": "2",
+    "playerId": "2543801",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "SF",
+    "pts": 48.02
+  },
+  {
+    "year": 2018,
+    "teamId": "2",
+    "playerId": "2543466",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "IND",
+    "pts": 189.2
+  },
+  {
+    "year": 2018,
+    "teamId": "3",
+    "playerId": "2560888",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "DEN",
+    "pts": 115.3
+  },
+  {
+    "year": 2018,
+    "teamId": "3",
+    "playerId": "2536340",
+    "status": "ST",
+    "pos": "K",
+    "nflTeam": "BAL",
+    "pts": 160
+  },
+  {
+    "year": 2018,
+    "teamId": "3",
+    "playerId": "2560756",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LAC",
+    "pts": 53.6
+  },
+  {
+    "year": 2018,
+    "teamId": "3",
+    "playerId": "2555259",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "PHI",
+    "pts": 193.16
+  },
+  {
+    "year": 2018,
+    "teamId": "3",
+    "playerId": "2557978",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "PIT",
+    "pts": 252.5
+  },
+  {
+    "year": 2018,
+    "teamId": "3",
+    "playerId": "2560938",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "SF",
+    "pts": 38.4
+  },
+  {
+    "year": 2018,
+    "teamId": "3",
+    "playerId": "2557898",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LA",
+    "pts": 115.1
+  },
+  {
+    "year": 2018,
+    "teamId": "3",
+    "playerId": "2552652",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "KC",
+    "pts": 75.4
+  },
+  {
+    "year": 2018,
+    "teamId": "3",
+    "playerId": "100013",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "HOU",
+    "pts": 146
+  },
+  {
+    "year": 2018,
+    "teamId": "3",
+    "playerId": "2506109",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "PIT",
+    "pts": 341.36
+  },
+  {
+    "year": 2018,
+    "teamId": "3",
+    "playerId": "2540158",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "PHI",
+    "pts": 222.3
+  },
+  {
+    "year": 2018,
+    "teamId": "3",
+    "playerId": "2540154",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "LAC",
+    "pts": 211.6
+  },
+  {
+    "year": 2018,
+    "teamId": "3",
+    "playerId": "238498",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "NE",
+    "pts": 170.42
+  },
+  {
+    "year": 2018,
+    "teamId": "3",
+    "playerId": "2557997",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "CAR",
+    "pts": 332
+  },
+  {
+    "year": 2018,
+    "teamId": "3",
+    "playerId": "2553435",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "ARI",
+    "pts": 221.6
+  },
+  {
+    "year": 2018,
+    "teamId": "4",
+    "playerId": "2556521",
+    "status": "ST",
+    "pos": "K",
+    "nflTeam": "HOU",
+    "pts": 170
+  },
+  {
+    "year": 2018,
+    "teamId": "4",
+    "playerId": "100017",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "LAR",
+    "pts": 150
+  },
+  {
+    "year": 2018,
+    "teamId": "4",
+    "playerId": "2561029",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "HOU",
+    "pts": 48.7
+  },
+  {
+    "year": 2018,
+    "teamId": "4",
+    "playerId": "2561000",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "WAS",
+    "pts": 0
+  },
+  {
+    "year": 2018,
+    "teamId": "4",
+    "playerId": "2560765",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "DET",
+    "pts": 123.4
+  },
+  {
+    "year": 2018,
+    "teamId": "4",
+    "playerId": "2558865",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "SEA",
+    "pts": 191.4
+  },
+  {
+    "year": 2018,
+    "teamId": "4",
+    "playerId": "2555415",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "ATL",
+    "pts": 127.5
+  },
+  {
+    "year": 2018,
+    "teamId": "4",
+    "playerId": "310",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "ATL",
+    "pts": 354.46
+  },
+  {
+    "year": 2018,
+    "teamId": "4",
+    "playerId": "2558149",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "PIT",
+    "pts": 241.4
+  },
+  {
+    "year": 2018,
+    "teamId": "4",
+    "playerId": "2550656",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "TB",
+    "pts": 77.9
+  },
+  {
+    "year": 2018,
+    "teamId": "4",
+    "playerId": "2556214",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "KC",
+    "pts": 284.5
+  },
+  {
+    "year": 2018,
+    "teamId": "4",
+    "playerId": "2552487",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "DAL",
+    "pts": 178
+  },
+  {
+    "year": 2018,
+    "teamId": "4",
+    "playerId": "2558019",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "NO",
+    "pts": 313.7
+  },
+  {
+    "year": 2018,
+    "teamId": "4",
+    "playerId": "2557991",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "MIN",
+    "pts": 132
+  },
+  {
+    "year": 2018,
+    "teamId": "4",
+    "playerId": "2532820",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "MIN",
+    "pts": 282.62
+  },
+  {
+    "year": 2018,
+    "teamId": "5",
+    "playerId": "2495454",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "ATL",
+    "pts": 269.4
+  },
+  {
+    "year": 2018,
+    "teamId": "5",
+    "playerId": "2557917",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "",
+    "pts": 217.2
+  },
+  {
+    "year": 2018,
+    "teamId": "5",
+    "playerId": "2555295",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "NYG",
+    "pts": 149.5
+  },
+  {
+    "year": 2018,
+    "teamId": "5",
+    "playerId": "2552453",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "ATL",
+    "pts": 177.6
+  },
+  {
+    "year": 2018,
+    "teamId": "5",
+    "playerId": "2495469",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "TEN",
+    "pts": 131.2
+  },
+  {
+    "year": 2018,
+    "teamId": "5",
+    "playerId": "2495455",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "CAR",
+    "pts": 282.6
+  },
+  {
+    "year": 2018,
+    "teamId": "5",
+    "playerId": "2557895",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "JAX",
+    "pts": 140.5
+  },
+  {
+    "year": 2018,
+    "teamId": "5",
+    "playerId": "497328",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "HOU",
+    "pts": 127.2
+  },
+  {
+    "year": 2018,
+    "teamId": "5",
+    "playerId": "2506122",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "NO",
+    "pts": 69.5
+  },
+  {
+    "year": 2018,
+    "teamId": "5",
+    "playerId": "2495143",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CIN",
+    "pts": 174.54
+  },
+  {
+    "year": 2018,
+    "teamId": "5",
+    "playerId": "1032",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LV",
+    "pts": 125.2
+  },
+  {
+    "year": 2018,
+    "teamId": "5",
+    "playerId": "2552600",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "PHI",
+    "pts": 133.4
+  },
+  {
+    "year": 2018,
+    "teamId": "5",
+    "playerId": "2543498",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LA",
+    "pts": 203.2
+  },
+  {
+    "year": 2018,
+    "teamId": "5",
+    "playerId": "2507232",
+    "status": "ST",
+    "pos": "K",
+    "nflTeam": "GB",
+    "pts": 145
+  },
+  {
+    "year": 2018,
+    "teamId": "5",
+    "playerId": "100027",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "PIT",
+    "pts": 110
+  },
+  {
+    "year": 2018,
+    "teamId": "6",
+    "playerId": "497326",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "PHI",
+    "pts": 145.9
+  },
+  {
+    "year": 2018,
+    "teamId": "6",
+    "playerId": "2558918",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "SF",
+    "pts": 149
+  },
+  {
+    "year": 2018,
+    "teamId": "6",
+    "playerId": "100020",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "MIN",
+    "pts": 124
+  },
+  {
+    "year": 2018,
+    "teamId": "6",
+    "playerId": "2534797",
+    "status": "ST",
+    "pos": "K",
+    "nflTeam": "LA",
+    "pts": 128
+  },
+  {
+    "year": 2018,
+    "teamId": "6",
+    "playerId": "2555341",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LAC",
+    "pts": 0
+  },
+  {
+    "year": 2018,
+    "teamId": "6",
+    "playerId": "2555334",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LA",
+    "pts": 310.32
+  },
+  {
+    "year": 2018,
+    "teamId": "6",
+    "playerId": "2557934",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "NYJ",
+    "pts": 76.4
+  },
+  {
+    "year": 2018,
+    "teamId": "6",
+    "playerId": "2560968",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "NYG",
+    "pts": 340.3
+  },
+  {
+    "year": 2018,
+    "teamId": "6",
+    "playerId": "2540169",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "LA",
+    "pts": 222.6
+  },
+  {
+    "year": 2018,
+    "teamId": "6",
+    "playerId": "2556370",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "NO",
+    "pts": 253
+  },
+  {
+    "year": 2018,
+    "teamId": "6",
+    "playerId": "2504211",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "NE",
+    "pts": 280.8
+  },
+  {
+    "year": 2018,
+    "teamId": "6",
+    "playerId": "497240",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "NE",
+    "pts": 107.7
+  },
+  {
+    "year": 2018,
+    "teamId": "6",
+    "playerId": "2495466",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "NO",
+    "pts": 132
+  },
+  {
+    "year": 2018,
+    "teamId": "6",
+    "playerId": "2555346",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "HOU",
+    "pts": 90.3
+  },
+  {
+    "year": 2018,
+    "teamId": "6",
+    "playerId": "2560949",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "PHI",
+    "pts": 78.4
+  },
+  {
+    "year": 2018,
+    "teamId": "7",
+    "playerId": "100021",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "NE",
+    "pts": 135
+  },
+  {
+    "year": 2018,
+    "teamId": "7",
+    "playerId": "2555418",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "CHI",
+    "pts": 170
+  },
+  {
+    "year": 2018,
+    "teamId": "7",
+    "playerId": "2506106",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "ARI",
+    "pts": 151.18
+  },
+  {
+    "year": 2018,
+    "teamId": "7",
+    "playerId": "2543496",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "NYG",
+    "pts": 191.84
+  },
+  {
+    "year": 2018,
+    "teamId": "7",
+    "playerId": "2560878",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "NO",
+    "pts": 86.7
+  },
+  {
+    "year": 2018,
+    "teamId": "7",
+    "playerId": "2506677",
+    "status": "ST",
+    "pos": "K",
+    "nflTeam": "DET",
+    "pts": 129.32
+  },
+  {
+    "year": 2018,
+    "teamId": "7",
+    "playerId": "2559924",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "ATL",
+    "pts": 84.2
+  },
+  {
+    "year": 2018,
+    "teamId": "7",
+    "playerId": "2552430",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "SEA",
+    "pts": 193.9
+  },
+  {
+    "year": 2018,
+    "teamId": "7",
+    "playerId": "71265",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "LV",
+    "pts": 159.6
+  },
+  {
+    "year": 2018,
+    "teamId": "7",
+    "playerId": "2552461",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CLE",
+    "pts": 108.5
+  },
+  {
+    "year": 2018,
+    "teamId": "7",
+    "playerId": "2560854",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "ATL",
+    "pts": 174.8
+  },
+  {
+    "year": 2018,
+    "teamId": "7",
+    "playerId": "2537931",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "NE",
+    "pts": 118.2
+  },
+  {
+    "year": 2018,
+    "teamId": "7",
+    "playerId": "2532975",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "SEA",
+    "pts": 298.92
+  },
+  {
+    "year": 2018,
+    "teamId": "7",
+    "playerId": "2541161",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "MIN",
+    "pts": 120.9
+  },
+  {
+    "year": 2018,
+    "teamId": "7",
+    "playerId": "2560862",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "PIT",
+    "pts": 76.5
+  },
+  {
+    "year": 2018,
+    "teamId": "8",
+    "playerId": "2540215",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "PIT",
+    "pts": 108
+  },
+  {
+    "year": 2018,
+    "teamId": "8",
+    "playerId": "2532899",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "LV",
+    "pts": 110.9
+  },
+  {
+    "year": 2018,
+    "teamId": "8",
+    "playerId": "2540020",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "DET",
+    "pts": 86
+  },
+  {
+    "year": 2018,
+    "teamId": "8",
+    "playerId": "2533031",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "IND",
+    "pts": 327.42
+  },
+  {
+    "year": 2018,
+    "teamId": "8",
+    "playerId": "2532884",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "DET",
+    "pts": 98.3
+  },
+  {
+    "year": 2018,
+    "teamId": "8",
+    "playerId": "2561324",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "BAL",
+    "pts": 88.8
+  },
+  {
+    "year": 2018,
+    "teamId": "8",
+    "playerId": "2560781",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "ARI",
+    "pts": 102
+  },
+  {
+    "year": 2018,
+    "teamId": "8",
+    "playerId": "2508061",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "PIT",
+    "pts": 271.7
+  },
+  {
+    "year": 2018,
+    "teamId": "8",
+    "playerId": "2550284",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CHI",
+    "pts": 120.1
+  },
+  {
+    "year": 2018,
+    "teamId": "8",
+    "playerId": "2557976",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "CIN",
+    "pts": 221.9
+  },
+  {
+    "year": 2018,
+    "teamId": "8",
+    "playerId": "2552608",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "MIN",
+    "pts": 215.3
+  },
+  {
+    "year": 2018,
+    "teamId": "8",
+    "playerId": "2560813",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CAR",
+    "pts": 129.5
+  },
+  {
+    "year": 2018,
+    "teamId": "8",
+    "playerId": "2550380",
+    "status": "ST",
+    "pos": "K",
+    "nflTeam": "CHI",
+    "pts": 122
+  },
+  {
+    "year": 2018,
+    "teamId": "8",
+    "playerId": "100012",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "TEN",
+    "pts": 119
+  },
+  {
+    "year": 2018,
+    "teamId": "8",
+    "playerId": "2504775",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "NO",
+    "pts": 304.48
+  },
+  {
+    "year": 2018,
+    "teamId": "9",
+    "playerId": "2543488",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "CLE",
+    "pts": 176.62
+  },
+  {
+    "year": 2018,
+    "teamId": "9",
+    "playerId": "2558125",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "KC",
+    "pts": 417.08
+  },
+  {
+    "year": 2018,
+    "teamId": "9",
+    "playerId": "2550325",
+    "status": "ST",
+    "pos": "K",
+    "nflTeam": "CAR",
+    "pts": 84
+  },
+  {
+    "year": 2018,
+    "teamId": "9",
+    "playerId": "2559169",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LAC",
+    "pts": 149.3
+  },
+  {
+    "year": 2018,
+    "teamId": "9",
+    "playerId": "2552033",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "TB",
+    "pts": 195.78
+  },
+  {
+    "year": 2018,
+    "teamId": "9",
+    "playerId": "2557856",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "TB",
+    "pts": 103.5
+  },
+  {
+    "year": 2018,
+    "teamId": "9",
+    "playerId": "2553913",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LAC",
+    "pts": 117.3
+  },
+  {
+    "year": 2018,
+    "teamId": "9",
+    "playerId": "2552471",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "JAX",
+    "pts": 145.6
+  },
+  {
+    "year": 2018,
+    "teamId": "9",
+    "playerId": "2539964",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "SF",
+    "pts": 75.9
+  },
+  {
+    "year": 2018,
+    "teamId": "9",
+    "playerId": "2556466",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "TB",
+    "pts": 140.3
+  },
+  {
+    "year": 2018,
+    "teamId": "9",
+    "playerId": "2557986",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "CLE",
+    "pts": 115.9
+  },
+  {
+    "year": 2018,
+    "teamId": "9",
+    "playerId": "2553895",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "TB",
+    "pts": 150.7
+  },
+  {
+    "year": 2018,
+    "teamId": "9",
+    "playerId": "100032",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "Washington Redskins",
+    "pts": 120
+  },
+  {
+    "year": 2018,
+    "teamId": "9",
+    "playerId": "2561021",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "CLE",
+    "pts": 184.5
+  },
+  {
+    "year": 2018,
+    "teamId": "9",
+    "playerId": "2558250",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "CHI",
+    "pts": 198.44
+  },
+  {
+    "year": 2018,
+    "teamId": "10",
+    "playerId": "2558063",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "HOU",
+    "pts": 331.7
+  },
+  {
+    "year": 2018,
+    "teamId": "10",
+    "playerId": "100009",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "DEN",
+    "pts": 124
+  },
+  {
+    "year": 2018,
+    "teamId": "10",
+    "playerId": "100008",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "DAL",
+    "pts": 98
+  },
+  {
+    "year": 2018,
+    "teamId": "10",
+    "playerId": "2558245",
+    "status": "ST",
+    "pos": "K",
+    "nflTeam": "KC",
+    "pts": 147
+  },
+  {
+    "year": 2018,
+    "teamId": "10",
+    "playerId": "2558846",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LAC",
+    "pts": 158.7
+  },
+  {
+    "year": 2018,
+    "teamId": "10",
+    "playerId": "2560836",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "SF",
+    "pts": 90
+  },
+  {
+    "year": 2018,
+    "teamId": "10",
+    "playerId": "2557994",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "HOU",
+    "pts": 9.7
+  },
+  {
+    "year": 2018,
+    "teamId": "10",
+    "playerId": "2560967",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "MIA",
+    "pts": 33.2
+  },
+  {
+    "year": 2018,
+    "teamId": "10",
+    "playerId": "2558052",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "DET",
+    "pts": 172.1
+  },
+  {
+    "year": 2018,
+    "teamId": "10",
+    "playerId": "2560809",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "NE",
+    "pts": 135.6
+  },
+  {
+    "year": 2018,
+    "teamId": "10",
+    "playerId": "2558266",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "SF",
+    "pts": 214.7
+  },
+  {
+    "year": 2018,
+    "teamId": "10",
+    "playerId": "2541785",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "MIN",
+    "pts": 250.8
+  },
+  {
+    "year": 2018,
+    "teamId": "10",
+    "playerId": "2532865",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "IND",
+    "pts": 201
+  },
+  {
+    "year": 2018,
+    "teamId": "10",
+    "playerId": "2556075",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "TEN",
+    "pts": 193.86
+  },
+  {
+    "year": 2018,
+    "teamId": "10",
+    "playerId": "2550512",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "KC",
+    "pts": 87.1
+  }
+]

@@ -1,0 +1,749 @@
+[
+  {
+    "year": 2022,
+    "week": 1,
+    "matchupId": "2022-1-1-2",
+    "team1Id": "1",
+    "team2Id": "2",
+    "team1Points": 93.56,
+    "team2Points": 164.1
+  },
+  {
+    "year": 2022,
+    "week": 1,
+    "matchupId": "2022-1-3-8",
+    "team1Id": "3",
+    "team2Id": "8",
+    "team1Points": 99.96,
+    "team2Points": 109.58
+  },
+  {
+    "year": 2022,
+    "week": 1,
+    "matchupId": "2022-1-4-6",
+    "team1Id": "4",
+    "team2Id": "6",
+    "team1Points": 86.72,
+    "team2Points": 85.4
+  },
+  {
+    "year": 2022,
+    "week": 1,
+    "matchupId": "2022-1-5-10",
+    "team1Id": "5",
+    "team2Id": "10",
+    "team1Points": 100.38,
+    "team2Points": 113.92
+  },
+  {
+    "year": 2022,
+    "week": 1,
+    "matchupId": "2022-1-7-9",
+    "team1Id": "7",
+    "team2Id": "9",
+    "team1Points": 117.72,
+    "team2Points": 140.32
+  },
+  {
+    "year": 2022,
+    "week": 10,
+    "matchupId": "2022-10-1-2",
+    "team1Id": "1",
+    "team2Id": "2",
+    "team1Points": 90.74,
+    "team2Points": 135.14
+  },
+  {
+    "year": 2022,
+    "week": 10,
+    "matchupId": "2022-10-3-8",
+    "team1Id": "3",
+    "team2Id": "8",
+    "team1Points": 119.44,
+    "team2Points": 102.52
+  },
+  {
+    "year": 2022,
+    "week": 10,
+    "matchupId": "2022-10-4-6",
+    "team1Id": "4",
+    "team2Id": "6",
+    "team1Points": 75.7,
+    "team2Points": 94.4
+  },
+  {
+    "year": 2022,
+    "week": 10,
+    "matchupId": "2022-10-5-10",
+    "team1Id": "5",
+    "team2Id": "10",
+    "team1Points": 95.2,
+    "team2Points": 140.38
+  },
+  {
+    "year": 2022,
+    "week": 10,
+    "matchupId": "2022-10-7-9",
+    "team1Id": "7",
+    "team2Id": "9",
+    "team1Points": 107.3,
+    "team2Points": 117.56
+  },
+  {
+    "year": 2022,
+    "week": 11,
+    "matchupId": "2022-11-1-5",
+    "team1Id": "1",
+    "team2Id": "5",
+    "team1Points": 107.1,
+    "team2Points": 89.94
+  },
+  {
+    "year": 2022,
+    "week": 11,
+    "matchupId": "2022-11-2-3",
+    "team1Id": "2",
+    "team2Id": "3",
+    "team1Points": 129.26,
+    "team2Points": 76.14
+  },
+  {
+    "year": 2022,
+    "week": 11,
+    "matchupId": "2022-11-4-9",
+    "team1Id": "4",
+    "team2Id": "9",
+    "team1Points": 97.72,
+    "team2Points": 116.8
+  },
+  {
+    "year": 2022,
+    "week": 11,
+    "matchupId": "2022-11-6-10",
+    "team1Id": "6",
+    "team2Id": "10",
+    "team1Points": 111.14,
+    "team2Points": 127.62
+  },
+  {
+    "year": 2022,
+    "week": 11,
+    "matchupId": "2022-11-7-8",
+    "team1Id": "7",
+    "team2Id": "8",
+    "team1Points": 123.76,
+    "team2Points": 79.48
+  },
+  {
+    "year": 2022,
+    "week": 12,
+    "matchupId": "2022-12-1-3",
+    "team1Id": "1",
+    "team2Id": "3",
+    "team1Points": 106.46,
+    "team2Points": 136.34
+  },
+  {
+    "year": 2022,
+    "week": 12,
+    "matchupId": "2022-12-2-7",
+    "team1Id": "2",
+    "team2Id": "7",
+    "team1Points": 102.4,
+    "team2Points": 135.52
+  },
+  {
+    "year": 2022,
+    "week": 12,
+    "matchupId": "2022-12-4-8",
+    "team1Id": "4",
+    "team2Id": "8",
+    "team1Points": 77.18,
+    "team2Points": 118.82
+  },
+  {
+    "year": 2022,
+    "week": 12,
+    "matchupId": "2022-12-5-6",
+    "team1Id": "5",
+    "team2Id": "6",
+    "team1Points": 125.62,
+    "team2Points": 115.24
+  },
+  {
+    "year": 2022,
+    "week": 12,
+    "matchupId": "2022-12-9-10",
+    "team1Id": "9",
+    "team2Id": "10",
+    "team1Points": 132.14,
+    "team2Points": 76.76
+  },
+  {
+    "year": 2022,
+    "week": 13,
+    "matchupId": "2022-13-1-7",
+    "team1Id": "1",
+    "team2Id": "7",
+    "team1Points": 76.1,
+    "team2Points": 160.6
+  },
+  {
+    "year": 2022,
+    "week": 13,
+    "matchupId": "2022-13-2-4",
+    "team1Id": "2",
+    "team2Id": "4",
+    "team1Points": 99.42,
+    "team2Points": 73.84
+  },
+  {
+    "year": 2022,
+    "week": 13,
+    "matchupId": "2022-13-3-5",
+    "team1Id": "3",
+    "team2Id": "5",
+    "team1Points": 130.1,
+    "team2Points": 108.22
+  },
+  {
+    "year": 2022,
+    "week": 13,
+    "matchupId": "2022-13-6-9",
+    "team1Id": "6",
+    "team2Id": "9",
+    "team1Points": 127.56,
+    "team2Points": 110.44
+  },
+  {
+    "year": 2022,
+    "week": 13,
+    "matchupId": "2022-13-8-10",
+    "team1Id": "8",
+    "team2Id": "10",
+    "team1Points": 119.82,
+    "team2Points": 96.66
+  },
+  {
+    "year": 2022,
+    "week": 14,
+    "matchupId": "2022-14-1-4",
+    "team1Id": "1",
+    "team2Id": "4",
+    "team1Points": 67.48,
+    "team2Points": 133.3
+  },
+  {
+    "year": 2022,
+    "week": 14,
+    "matchupId": "2022-14-2-10",
+    "team1Id": "2",
+    "team2Id": "10",
+    "team1Points": 105.88,
+    "team2Points": 109.8
+  },
+  {
+    "year": 2022,
+    "week": 14,
+    "matchupId": "2022-14-3-7",
+    "team1Id": "3",
+    "team2Id": "7",
+    "team1Points": 75.56,
+    "team2Points": 136.48
+  },
+  {
+    "year": 2022,
+    "week": 14,
+    "matchupId": "2022-14-5-9",
+    "team1Id": "5",
+    "team2Id": "9",
+    "team1Points": 132.86,
+    "team2Points": 95.36
+  },
+  {
+    "year": 2022,
+    "week": 14,
+    "matchupId": "2022-14-6-8",
+    "team1Id": "6",
+    "team2Id": "8",
+    "team1Points": 128.32,
+    "team2Points": 96.28
+  },
+  {
+    "year": 2022,
+    "week": 15,
+    "matchupId": "2022-15-1-10",
+    "team1Id": "1",
+    "team2Id": "10",
+    "team1Points": 49.22,
+    "team2Points": 152.28
+  },
+  {
+    "year": 2022,
+    "week": 15,
+    "matchupId": "2022-15-2-6",
+    "team1Id": "2",
+    "team2Id": "6",
+    "team1Points": 130.64,
+    "team2Points": 97.9
+  },
+  {
+    "year": 2022,
+    "week": 15,
+    "matchupId": "2022-15-3-4",
+    "team1Id": "3",
+    "team2Id": "4",
+    "team1Points": 99.04,
+    "team2Points": 96.18
+  },
+  {
+    "year": 2022,
+    "week": 15,
+    "matchupId": "2022-15-5-7",
+    "team1Id": "5",
+    "team2Id": "7",
+    "team1Points": 114.22,
+    "team2Points": 114.2
+  },
+  {
+    "year": 2022,
+    "week": 15,
+    "matchupId": "2022-15-8-9",
+    "team1Id": "8",
+    "team2Id": "9",
+    "team1Points": 133.86,
+    "team2Points": 142.7
+  },
+  {
+    "year": 2022,
+    "week": 16,
+    "matchupId": "2022-16-2-8",
+    "team1Id": "2",
+    "team2Id": "8",
+    "team1Points": 85.16,
+    "team2Points": 137.98
+  },
+  {
+    "year": 2022,
+    "week": 16,
+    "matchupId": "2022-16-3-5",
+    "team1Id": "3",
+    "team2Id": "5",
+    "team1Points": 104.48,
+    "team2Points": 89.1
+  },
+  {
+    "year": 2022,
+    "week": 16,
+    "matchupId": "2022-16-6-10",
+    "team1Id": "6",
+    "team2Id": "10",
+    "team1Points": 92.26,
+    "team2Points": 112.36
+  },
+  {
+    "year": 2022,
+    "week": 16,
+    "matchupId": "2022-16-7-9",
+    "team1Id": "7",
+    "team2Id": "9",
+    "team1Points": 130.86,
+    "team2Points": 155.6
+  },
+  {
+    "year": 2022,
+    "week": 17,
+    "matchupId": "2022-17-2-7",
+    "team1Id": "2",
+    "team2Id": "7",
+    "team1Points": 92.92,
+    "team2Points": 122.8
+  },
+  {
+    "year": 2022,
+    "week": 17,
+    "matchupId": "2022-17-3-10",
+    "team1Id": "3",
+    "team2Id": "10",
+    "team1Points": 92.58,
+    "team2Points": 127.2
+  },
+  {
+    "year": 2022,
+    "week": 17,
+    "matchupId": "2022-17-5-6",
+    "team1Id": "5",
+    "team2Id": "6",
+    "team1Points": 77.82,
+    "team2Points": 112.48
+  },
+  {
+    "year": 2022,
+    "week": 17,
+    "matchupId": "2022-17-8-9",
+    "team1Id": "8",
+    "team2Id": "9",
+    "team1Points": 86.4,
+    "team2Points": 66.4
+  },
+  {
+    "year": 2022,
+    "week": 2,
+    "matchupId": "2022-2-1-5",
+    "team1Id": "1",
+    "team2Id": "5",
+    "team1Points": 122.96,
+    "team2Points": 133.9
+  },
+  {
+    "year": 2022,
+    "week": 2,
+    "matchupId": "2022-2-2-3",
+    "team1Id": "2",
+    "team2Id": "3",
+    "team1Points": 105.3,
+    "team2Points": 126.26
+  },
+  {
+    "year": 2022,
+    "week": 2,
+    "matchupId": "2022-2-4-9",
+    "team1Id": "4",
+    "team2Id": "9",
+    "team1Points": 88.88,
+    "team2Points": 115.86
+  },
+  {
+    "year": 2022,
+    "week": 2,
+    "matchupId": "2022-2-6-10",
+    "team1Id": "6",
+    "team2Id": "10",
+    "team1Points": 110.66,
+    "team2Points": 135.42
+  },
+  {
+    "year": 2022,
+    "week": 2,
+    "matchupId": "2022-2-7-8",
+    "team1Id": "7",
+    "team2Id": "8",
+    "team1Points": 109.22,
+    "team2Points": 129.08
+  },
+  {
+    "year": 2022,
+    "week": 3,
+    "matchupId": "2022-3-1-3",
+    "team1Id": "1",
+    "team2Id": "3",
+    "team1Points": 113.68,
+    "team2Points": 81.84
+  },
+  {
+    "year": 2022,
+    "week": 3,
+    "matchupId": "2022-3-2-7",
+    "team1Id": "2",
+    "team2Id": "7",
+    "team1Points": 95.18,
+    "team2Points": 123.6
+  },
+  {
+    "year": 2022,
+    "week": 3,
+    "matchupId": "2022-3-4-8",
+    "team1Id": "4",
+    "team2Id": "8",
+    "team1Points": 88.36,
+    "team2Points": 97
+  },
+  {
+    "year": 2022,
+    "week": 3,
+    "matchupId": "2022-3-5-6",
+    "team1Id": "5",
+    "team2Id": "6",
+    "team1Points": 81.86,
+    "team2Points": 105.64
+  },
+  {
+    "year": 2022,
+    "week": 3,
+    "matchupId": "2022-3-9-10",
+    "team1Id": "9",
+    "team2Id": "10",
+    "team1Points": 87.3,
+    "team2Points": 150.12
+  },
+  {
+    "year": 2022,
+    "week": 4,
+    "matchupId": "2022-4-1-7",
+    "team1Id": "1",
+    "team2Id": "7",
+    "team1Points": 90.6,
+    "team2Points": 100.96
+  },
+  {
+    "year": 2022,
+    "week": 4,
+    "matchupId": "2022-4-2-4",
+    "team1Id": "2",
+    "team2Id": "4",
+    "team1Points": 132.46,
+    "team2Points": 115.48
+  },
+  {
+    "year": 2022,
+    "week": 4,
+    "matchupId": "2022-4-3-5",
+    "team1Id": "3",
+    "team2Id": "5",
+    "team1Points": 102.6,
+    "team2Points": 158.08
+  },
+  {
+    "year": 2022,
+    "week": 4,
+    "matchupId": "2022-4-6-9",
+    "team1Id": "6",
+    "team2Id": "9",
+    "team1Points": 122.82,
+    "team2Points": 121.88
+  },
+  {
+    "year": 2022,
+    "week": 4,
+    "matchupId": "2022-4-8-10",
+    "team1Id": "8",
+    "team2Id": "10",
+    "team1Points": 121.52,
+    "team2Points": 82.66
+  },
+  {
+    "year": 2022,
+    "week": 5,
+    "matchupId": "2022-5-1-4",
+    "team1Id": "1",
+    "team2Id": "4",
+    "team1Points": 120.22,
+    "team2Points": 115.8
+  },
+  {
+    "year": 2022,
+    "week": 5,
+    "matchupId": "2022-5-2-10",
+    "team1Id": "2",
+    "team2Id": "10",
+    "team1Points": 132.78,
+    "team2Points": 75.56
+  },
+  {
+    "year": 2022,
+    "week": 5,
+    "matchupId": "2022-5-3-7",
+    "team1Id": "3",
+    "team2Id": "7",
+    "team1Points": 115.18,
+    "team2Points": 173.06
+  },
+  {
+    "year": 2022,
+    "week": 5,
+    "matchupId": "2022-5-5-9",
+    "team1Id": "5",
+    "team2Id": "9",
+    "team1Points": 100.16,
+    "team2Points": 110.6
+  },
+  {
+    "year": 2022,
+    "week": 5,
+    "matchupId": "2022-5-6-8",
+    "team1Id": "6",
+    "team2Id": "8",
+    "team1Points": 95.96,
+    "team2Points": 97.76
+  },
+  {
+    "year": 2022,
+    "week": 6,
+    "matchupId": "2022-6-1-10",
+    "team1Id": "1",
+    "team2Id": "10",
+    "team1Points": 68.92,
+    "team2Points": 118.6
+  },
+  {
+    "year": 2022,
+    "week": 6,
+    "matchupId": "2022-6-2-6",
+    "team1Id": "2",
+    "team2Id": "6",
+    "team1Points": 128.72,
+    "team2Points": 76.12
+  },
+  {
+    "year": 2022,
+    "week": 6,
+    "matchupId": "2022-6-3-4",
+    "team1Id": "3",
+    "team2Id": "4",
+    "team1Points": 115.08,
+    "team2Points": 71.14
+  },
+  {
+    "year": 2022,
+    "week": 6,
+    "matchupId": "2022-6-5-7",
+    "team1Id": "5",
+    "team2Id": "7",
+    "team1Points": 92.98,
+    "team2Points": 93.8
+  },
+  {
+    "year": 2022,
+    "week": 6,
+    "matchupId": "2022-6-8-9",
+    "team1Id": "8",
+    "team2Id": "9",
+    "team1Points": 122.66,
+    "team2Points": 106.5
+  },
+  {
+    "year": 2022,
+    "week": 7,
+    "matchupId": "2022-7-1-6",
+    "team1Id": "1",
+    "team2Id": "6",
+    "team1Points": 88.12,
+    "team2Points": 86.48
+  },
+  {
+    "year": 2022,
+    "week": 7,
+    "matchupId": "2022-7-2-9",
+    "team1Id": "2",
+    "team2Id": "9",
+    "team1Points": 148.92,
+    "team2Points": 121.84
+  },
+  {
+    "year": 2022,
+    "week": 7,
+    "matchupId": "2022-7-3-10",
+    "team1Id": "3",
+    "team2Id": "10",
+    "team1Points": 77.78,
+    "team2Points": 97.8
+  },
+  {
+    "year": 2022,
+    "week": 7,
+    "matchupId": "2022-7-4-7",
+    "team1Id": "4",
+    "team2Id": "7",
+    "team1Points": 85.36,
+    "team2Points": 104.74
+  },
+  {
+    "year": 2022,
+    "week": 7,
+    "matchupId": "2022-7-5-8",
+    "team1Id": "5",
+    "team2Id": "8",
+    "team1Points": 136.2,
+    "team2Points": 114.62
+  },
+  {
+    "year": 2022,
+    "week": 8,
+    "matchupId": "2022-8-1-9",
+    "team1Id": "1",
+    "team2Id": "9",
+    "team1Points": 91.08,
+    "team2Points": 108.84
+  },
+  {
+    "year": 2022,
+    "week": 8,
+    "matchupId": "2022-8-2-8",
+    "team1Id": "2",
+    "team2Id": "8",
+    "team1Points": 104.88,
+    "team2Points": 125.92
+  },
+  {
+    "year": 2022,
+    "week": 8,
+    "matchupId": "2022-8-3-6",
+    "team1Id": "3",
+    "team2Id": "6",
+    "team1Points": 148.52,
+    "team2Points": 136.5
+  },
+  {
+    "year": 2022,
+    "week": 8,
+    "matchupId": "2022-8-4-5",
+    "team1Id": "4",
+    "team2Id": "5",
+    "team1Points": 101.44,
+    "team2Points": 124.08
+  },
+  {
+    "year": 2022,
+    "week": 8,
+    "matchupId": "2022-8-7-10",
+    "team1Id": "7",
+    "team2Id": "10",
+    "team1Points": 140.5,
+    "team2Points": 140.38
+  },
+  {
+    "year": 2022,
+    "week": 9,
+    "matchupId": "2022-9-1-8",
+    "team1Id": "1",
+    "team2Id": "8",
+    "team1Points": 88.8,
+    "team2Points": 172.1
+  },
+  {
+    "year": 2022,
+    "week": 9,
+    "matchupId": "2022-9-2-5",
+    "team1Id": "2",
+    "team2Id": "5",
+    "team1Points": 84.34,
+    "team2Points": 97.6
+  },
+  {
+    "year": 2022,
+    "week": 9,
+    "matchupId": "2022-9-3-9",
+    "team1Id": "3",
+    "team2Id": "9",
+    "team1Points": 101.02,
+    "team2Points": 107.34
+  },
+  {
+    "year": 2022,
+    "week": 9,
+    "matchupId": "2022-9-4-10",
+    "team1Id": "4",
+    "team2Id": "10",
+    "team1Points": 107.54,
+    "team2Points": 107.42
+  },
+  {
+    "year": 2022,
+    "week": 9,
+    "matchupId": "2022-9-6-7",
+    "team1Id": "6",
+    "team2Id": "7",
+    "team1Points": 91.46,
+    "team2Points": 131.82
+  }
+]

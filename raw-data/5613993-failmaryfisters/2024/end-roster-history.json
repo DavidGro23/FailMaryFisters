@@ -1,0 +1,1388 @@
+[
+  {
+    "year": 2024,
+    "teamId": "1",
+    "playerId": "2565899",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CAR",
+    "pts": 220.1
+  },
+  {
+    "year": 2024,
+    "teamId": "1",
+    "playerId": "100030",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "SEA",
+    "pts": 129
+  },
+  {
+    "year": 2024,
+    "teamId": "1",
+    "playerId": "2572003",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "DEN",
+    "pts": 316.7
+  },
+  {
+    "year": 2024,
+    "teamId": "1",
+    "playerId": "2556075",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "BAL",
+    "pts": 326.9
+  },
+  {
+    "year": 2024,
+    "teamId": "1",
+    "playerId": "2570062",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "MIA",
+    "pts": 260.9
+  },
+  {
+    "year": 2024,
+    "teamId": "1",
+    "playerId": "2560888",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "DEN",
+    "pts": 199.8
+  },
+  {
+    "year": 2024,
+    "teamId": "1",
+    "playerId": "2567334",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "BUF",
+    "pts": 144.5
+  },
+  {
+    "year": 2024,
+    "teamId": "1",
+    "playerId": "2567658",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "TEN",
+    "pts": 87.6
+  },
+  {
+    "year": 2024,
+    "teamId": "1",
+    "playerId": "2543495",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "LAR",
+    "pts": 198.8
+  },
+  {
+    "year": 2024,
+    "teamId": "1",
+    "playerId": "2569795",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "TEN",
+    "pts": 98.6
+  },
+  {
+    "year": 2024,
+    "teamId": "1",
+    "playerId": "2552374",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LV",
+    "pts": 105.2
+  },
+  {
+    "year": 2024,
+    "teamId": "1",
+    "playerId": "2569882",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "JAX",
+    "pts": 125.5
+  },
+  {
+    "year": 2024,
+    "teamId": "1",
+    "playerId": "2569477",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CAR",
+    "pts": 8
+  },
+  {
+    "year": 2024,
+    "teamId": "1",
+    "playerId": "2571994",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "DEN",
+    "pts": 46.2
+  },
+  {
+    "year": 2024,
+    "teamId": "1",
+    "playerId": "2569921",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "KC",
+    "pts": 52.9
+  },
+  {
+    "year": 2024,
+    "teamId": "2",
+    "playerId": "2568216",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "SF",
+    "pts": 266.86
+  },
+  {
+    "year": 2024,
+    "teamId": "2",
+    "playerId": "100014",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "IND",
+    "pts": 89
+  },
+  {
+    "year": 2024,
+    "teamId": "2",
+    "playerId": "2555334",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "DET",
+    "pts": 323.96
+  },
+  {
+    "year": 2024,
+    "teamId": "2",
+    "playerId": "2558116",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "MIN",
+    "pts": 216.1
+  },
+  {
+    "year": 2024,
+    "teamId": "2",
+    "playerId": "2570335",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "SEA",
+    "pts": 165.9
+  },
+  {
+    "year": 2024,
+    "teamId": "2",
+    "playerId": "2565941",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "CIN",
+    "pts": 339.5
+  },
+  {
+    "year": 2024,
+    "teamId": "2",
+    "playerId": "2570341",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "SEA",
+    "pts": 203
+  },
+  {
+    "year": 2024,
+    "teamId": "2",
+    "playerId": "2568117",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "ARI",
+    "pts": 194.3
+  },
+  {
+    "year": 2024,
+    "teamId": "2",
+    "playerId": "2569558",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "ATL",
+    "pts": 311.2
+  },
+  {
+    "year": 2024,
+    "teamId": "2",
+    "playerId": "2572498",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "SF",
+    "pts": 86.7
+  },
+  {
+    "year": 2024,
+    "teamId": "2",
+    "playerId": "2564319",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "MIN",
+    "pts": 86.2
+  },
+  {
+    "year": 2024,
+    "teamId": "2",
+    "playerId": "2567469",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CLE",
+    "pts": 115.5
+  },
+  {
+    "year": 2024,
+    "teamId": "2",
+    "playerId": "2572342",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "NYG",
+    "pts": 219.1
+  },
+  {
+    "year": 2024,
+    "teamId": "2",
+    "playerId": "2562721",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "WAS",
+    "pts": 128.1
+  },
+  {
+    "year": 2024,
+    "teamId": "2",
+    "playerId": "2569726",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "DET",
+    "pts": 144.6
+  },
+  {
+    "year": 2024,
+    "teamId": "3",
+    "playerId": "2560957",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "BAL",
+    "pts": 161.3
+  },
+  {
+    "year": 2024,
+    "teamId": "3",
+    "playerId": "100003",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "BUF",
+    "pts": 133
+  },
+  {
+    "year": 2024,
+    "teamId": "3",
+    "playerId": "2572564",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "WAS",
+    "pts": 355.82
+  },
+  {
+    "year": 2024,
+    "teamId": "3",
+    "playerId": "2557976",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "HOU",
+    "pts": 222.5
+  },
+  {
+    "year": 2024,
+    "teamId": "3",
+    "playerId": "2568030",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "NYJ",
+    "pts": 212.4
+  },
+  {
+    "year": 2024,
+    "teamId": "3",
+    "playerId": "2566127",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "HOU",
+    "pts": 176.6
+  },
+  {
+    "year": 2024,
+    "teamId": "3",
+    "playerId": "2572477",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "LAC",
+    "pts": 199.9
+  },
+  {
+    "year": 2024,
+    "teamId": "3",
+    "playerId": "2562378",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "MIN",
+    "pts": 66
+  },
+  {
+    "year": 2024,
+    "teamId": "3",
+    "playerId": "2562489",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "WAS",
+    "pts": 226.8
+  },
+  {
+    "year": 2024,
+    "teamId": "3",
+    "playerId": "2572162",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "JAX",
+    "pts": 240.5
+  },
+  {
+    "year": 2024,
+    "teamId": "3",
+    "playerId": "2572189",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LAR",
+    "pts": 30
+  },
+  {
+    "year": 2024,
+    "teamId": "3",
+    "playerId": "2566448",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LAC",
+    "pts": 186.6
+  },
+  {
+    "year": 2024,
+    "teamId": "3",
+    "playerId": "2562502",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "DET",
+    "pts": 203.72
+  },
+  {
+    "year": 2024,
+    "teamId": "3",
+    "playerId": "2567586",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "GB",
+    "pts": 109.1
+  },
+  {
+    "year": 2024,
+    "teamId": "3",
+    "playerId": "2540165",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "BAL",
+    "pts": 119
+  },
+  {
+    "year": 2024,
+    "teamId": "4",
+    "playerId": "2567250",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "ATL",
+    "pts": 230.8
+  },
+  {
+    "year": 2024,
+    "teamId": "4",
+    "playerId": "100009",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "DEN",
+    "pts": 181
+  },
+  {
+    "year": 2024,
+    "teamId": "4",
+    "playerId": "2564148",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "IND",
+    "pts": 235.7
+  },
+  {
+    "year": 2024,
+    "teamId": "4",
+    "playerId": "2565295",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "CAR",
+    "pts": 178.3
+  },
+  {
+    "year": 2024,
+    "teamId": "4",
+    "playerId": "2540154",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "CHI",
+    "pts": 149.4
+  },
+  {
+    "year": 2024,
+    "teamId": "4",
+    "playerId": "2568159",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "DAL",
+    "pts": 134.9
+  },
+  {
+    "year": 2024,
+    "teamId": "4",
+    "playerId": "2572219",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "LV",
+    "pts": 206.7
+  },
+  {
+    "year": 2024,
+    "teamId": "4",
+    "playerId": "2562492",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "LV",
+    "pts": 174.5
+  },
+  {
+    "year": 2024,
+    "teamId": "4",
+    "playerId": "2560757",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "BAL",
+    "pts": 430.38
+  },
+  {
+    "year": 2024,
+    "teamId": "4",
+    "playerId": "2563548",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LAC",
+    "pts": 175.8
+  },
+  {
+    "year": 2024,
+    "teamId": "4",
+    "playerId": "2558019",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "NO",
+    "pts": 231.3
+  },
+  {
+    "year": 2024,
+    "teamId": "4",
+    "playerId": "2570149",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "NO",
+    "pts": 26.6
+  },
+  {
+    "year": 2024,
+    "teamId": "4",
+    "playerId": "2572486",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LAC",
+    "pts": 30.2
+  },
+  {
+    "year": 2024,
+    "teamId": "4",
+    "playerId": "2572552",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "TB",
+    "pts": 116.9
+  },
+  {
+    "year": 2024,
+    "teamId": "4",
+    "playerId": "2571922",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CIN",
+    "pts": 12.7
+  },
+  {
+    "year": 2024,
+    "teamId": "5",
+    "playerId": "2560800",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "TB",
+    "pts": 365.8
+  },
+  {
+    "year": 2024,
+    "teamId": "5",
+    "playerId": "2571859",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "BUF",
+    "pts": 97
+  },
+  {
+    "year": 2024,
+    "teamId": "5",
+    "playerId": "2562699",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "TEN",
+    "pts": 180.2
+  },
+  {
+    "year": 2024,
+    "teamId": "5",
+    "playerId": "2559169",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "WAS",
+    "pts": 114.8
+  },
+  {
+    "year": 2024,
+    "teamId": "5",
+    "playerId": "2558125",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "KC",
+    "pts": 282.52
+  },
+  {
+    "year": 2024,
+    "teamId": "5",
+    "playerId": "2565114",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "SF",
+    "pts": 172
+  },
+  {
+    "year": 2024,
+    "teamId": "5",
+    "playerId": "2563896",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "CLE",
+    "pts": 195.9
+  },
+  {
+    "year": 2024,
+    "teamId": "5",
+    "playerId": "2568282",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "SEA",
+    "pts": 158.2
+  },
+  {
+    "year": 2024,
+    "teamId": "5",
+    "playerId": "2540258",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "KC",
+    "pts": 146.9
+  },
+  {
+    "year": 2024,
+    "teamId": "5",
+    "playerId": "2566073",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "DET",
+    "pts": 258.68
+  },
+  {
+    "year": 2024,
+    "teamId": "5",
+    "playerId": "2556214",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "MIA",
+    "pts": 177.7
+  },
+  {
+    "year": 2024,
+    "teamId": "5",
+    "playerId": "2567328",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "BUF",
+    "pts": 250.7
+  },
+  {
+    "year": 2024,
+    "teamId": "5",
+    "playerId": "2553728",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "LV",
+    "pts": 61.4
+  },
+  {
+    "year": 2024,
+    "teamId": "5",
+    "playerId": "100016",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "KC",
+    "pts": 104
+  },
+  {
+    "year": 2024,
+    "teamId": "5",
+    "playerId": "2567715",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "IND",
+    "pts": 142.9
+  },
+  {
+    "year": 2024,
+    "teamId": "6",
+    "playerId": "2567808",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "KC",
+    "pts": 50.9
+  },
+  {
+    "year": 2024,
+    "teamId": "6",
+    "playerId": "2570275",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "LAC",
+    "pts": 147.2
+  },
+  {
+    "year": 2024,
+    "teamId": "6",
+    "playerId": "2560955",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "BUF",
+    "pts": 379.04
+  },
+  {
+    "year": 2024,
+    "teamId": "6",
+    "playerId": "2572351",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "NYG",
+    "pts": 163.3
+  },
+  {
+    "year": 2024,
+    "teamId": "6",
+    "playerId": "2562238",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "PHI",
+    "pts": 183.4
+  },
+  {
+    "year": 2024,
+    "teamId": "6",
+    "playerId": "100020",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "MIN",
+    "pts": 158
+  },
+  {
+    "year": 2024,
+    "teamId": "6",
+    "playerId": "100028",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "LAC",
+    "pts": 126
+  },
+  {
+    "year": 2024,
+    "teamId": "6",
+    "playerId": "2569681",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CLE",
+    "pts": 65.9
+  },
+  {
+    "year": 2024,
+    "teamId": "6",
+    "playerId": "2567973",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "NO",
+    "pts": 60.7
+  },
+  {
+    "year": 2024,
+    "teamId": "6",
+    "playerId": "2564040",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "SF",
+    "pts": 28.3
+  },
+  {
+    "year": 2024,
+    "teamId": "6",
+    "playerId": "2569257",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "MIN",
+    "pts": 109.5
+  },
+  {
+    "year": 2024,
+    "teamId": "6",
+    "playerId": "2561021",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CLE",
+    "pts": 60.8
+  },
+  {
+    "year": 2024,
+    "teamId": "6",
+    "playerId": "2569747",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "DET",
+    "pts": 336.9
+  },
+  {
+    "year": 2024,
+    "teamId": "6",
+    "playerId": "2560854",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "TEN",
+    "pts": 167.2
+  },
+  {
+    "year": 2024,
+    "teamId": "6",
+    "playerId": "2558266",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "SF",
+    "pts": 197.6
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2568348",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "WAS",
+    "pts": 149.8
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2569768",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "GB",
+    "pts": 138.3
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2558105",
+    "status": "RES",
+    "pos": "RES",
+    "nflTeam": "TB",
+    "pts": 112.8
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2563617",
+    "status": "RES",
+    "pos": "RES",
+    "nflTeam": "CIN",
+    "pts": 70.4
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2566292",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "MIA",
+    "pts": 120.6
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2552487",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "BUF",
+    "pts": 100.7
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2566049",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "DAL",
+    "pts": 131.9
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2568493",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "PIT",
+    "pts": 105.1
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2568984",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LV",
+    "pts": 24.2
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2571862",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "BUF",
+    "pts": 107.6
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2570074",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "MIN",
+    "pts": 181
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2558207",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "MIA",
+    "pts": 178.3
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "100024",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "NYJ",
+    "pts": 91
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2569765",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "GB",
+    "pts": 169.5
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2564007",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "GB",
+    "pts": 233.86
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2566343",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "NE",
+    "pts": 159.4
+  },
+  {
+    "year": 2024,
+    "teamId": "7",
+    "playerId": "2569573",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "BAL",
+    "pts": 172.5
+  },
+  {
+    "year": 2024,
+    "teamId": "8",
+    "playerId": "2563707",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "ATL",
+    "pts": 161.2
+  },
+  {
+    "year": 2024,
+    "teamId": "8",
+    "playerId": "2572546",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "TB",
+    "pts": 220.9
+  },
+  {
+    "year": 2024,
+    "teamId": "8",
+    "playerId": "100019",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "MIA",
+    "pts": 84
+  },
+  {
+    "year": 2024,
+    "teamId": "8",
+    "playerId": "2563722",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "CIN",
+    "pts": 372.82
+  },
+  {
+    "year": 2024,
+    "teamId": "8",
+    "playerId": "2563704",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CHI",
+    "pts": 96.9
+  },
+  {
+    "year": 2024,
+    "teamId": "8",
+    "playerId": "2562377",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "GB",
+    "pts": 275.1
+  },
+  {
+    "year": 2024,
+    "teamId": "8",
+    "playerId": "2557978",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "ARI",
+    "pts": 230.3
+  },
+  {
+    "year": 2024,
+    "teamId": "8",
+    "playerId": "2562682",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "MIA",
+    "pts": 119.4
+  },
+  {
+    "year": 2024,
+    "teamId": "8",
+    "playerId": "100005",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CHI",
+    "pts": 117
+  },
+  {
+    "year": 2024,
+    "teamId": "8",
+    "playerId": "2569819",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "HOU",
+    "pts": 220.38
+  },
+  {
+    "year": 2024,
+    "teamId": "8",
+    "playerId": "2572411",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "ARI",
+    "pts": 165.5
+  },
+  {
+    "year": 2024,
+    "teamId": "8",
+    "playerId": "2567565",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "DET",
+    "pts": 183.2
+  },
+  {
+    "year": 2024,
+    "teamId": "8",
+    "playerId": "2568312",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "TB",
+    "pts": 111.1
+  },
+  {
+    "year": 2024,
+    "teamId": "8",
+    "playerId": "2563731",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "CIN",
+    "pts": 185.6
+  },
+  {
+    "year": 2024,
+    "teamId": "8",
+    "playerId": "2560813",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "CHI",
+    "pts": 189.1
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "2567232",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "ATL",
+    "pts": 99.7
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "2560995",
+    "status": "RES",
+    "pos": "RES",
+    "nflTeam": "PHI",
+    "pts": 82.6
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "2562382",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "ARI",
+    "pts": 297.24
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "2568315",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "TB",
+    "pts": 174.1
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "2543468",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "TB",
+    "pts": 203.4
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "2564556",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "MIN",
+    "pts": 265.98
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "2565830",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "ATL",
+    "pts": 107.7
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "2566409",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "PHI",
+    "pts": 165.4
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "2568048",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "NYJ",
+    "pts": 201.4
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "2565045",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "LAC",
+    "pts": 285.4
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "2572354",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "NYJ",
+    "pts": 75.7
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "100026",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "ARI",
+    "pts": 100
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "2571907",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CHI",
+    "pts": 117.9
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "2541785",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CAR",
+    "pts": 115.5
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "2560781",
+    "status": "RES",
+    "pos": "RES",
+    "nflTeam": "HOU",
+    "pts": 57.4
+  },
+  {
+    "year": 2024,
+    "teamId": "9",
+    "playerId": "2560968",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "PHI",
+    "pts": 338.8
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "2570026",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "LAR",
+    "pts": 167.1
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "100011",
+    "status": "ST",
+    "pos": "DEF",
+    "nflTeam": "GB",
+    "pts": 144
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "2569110",
+    "status": "RES",
+    "pos": "RES",
+    "nflTeam": "NO",
+    "pts": 63.8
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "2572186",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "KC",
+    "pts": 157.7
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "2569861",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "IND",
+    "pts": 147.5
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "2569813",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "HOU",
+    "pts": 114.5
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "2572920",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "CAR",
+    "pts": 76.56
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "2572261",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "MIA",
+    "pts": 25.2
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "2572405",
+    "status": "BN",
+    "pos": "BN",
+    "nflTeam": "ARI",
+    "pts": 44
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "2569642",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "CIN",
+    "pts": 228
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "2566157",
+    "status": "ST",
+    "pos": "FLEX",
+    "nflTeam": "JAX",
+    "pts": 110.7
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "2569594",
+    "status": "ST",
+    "pos": "TE",
+    "nflTeam": "BUF",
+    "pts": 78.8
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "2571889",
+    "status": "ST",
+    "pos": "WR",
+    "nflTeam": "CAR",
+    "pts": 100.6
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "2561036",
+    "status": "ST",
+    "pos": "QB",
+    "nflTeam": "SEA",
+    "pts": 307.96
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "2563965",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "CHI",
+    "pts": 193.5
+  },
+  {
+    "year": 2024,
+    "teamId": "10",
+    "playerId": "2567862",
+    "status": "ST",
+    "pos": "RB",
+    "nflTeam": "LAR",
+    "pts": 255.1
+  }
+]

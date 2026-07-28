@@ -1,0 +1,749 @@
+[
+  {
+    "year": 2025,
+    "week": 1,
+    "matchupId": "2025-1-1-10",
+    "team1Id": "1",
+    "team2Id": "10",
+    "team1Points": 115.16,
+    "team2Points": 127.88
+  },
+  {
+    "year": 2025,
+    "week": 1,
+    "matchupId": "2025-1-2-7",
+    "team1Id": "2",
+    "team2Id": "7",
+    "team1Points": 107.22,
+    "team2Points": 81.82
+  },
+  {
+    "year": 2025,
+    "week": 1,
+    "matchupId": "2025-1-3-9",
+    "team1Id": "3",
+    "team2Id": "9",
+    "team1Points": 91.54,
+    "team2Points": 110.02
+  },
+  {
+    "year": 2025,
+    "week": 1,
+    "matchupId": "2025-1-4-8",
+    "team1Id": "4",
+    "team2Id": "8",
+    "team1Points": 148.76,
+    "team2Points": 99.32
+  },
+  {
+    "year": 2025,
+    "week": 1,
+    "matchupId": "2025-1-5-6",
+    "team1Id": "5",
+    "team2Id": "6",
+    "team1Points": 66.82,
+    "team2Points": 87.48
+  },
+  {
+    "year": 2025,
+    "week": 10,
+    "matchupId": "2025-10-1-6",
+    "team1Id": "1",
+    "team2Id": "6",
+    "team1Points": 123.74,
+    "team2Points": 133.02
+  },
+  {
+    "year": 2025,
+    "week": 10,
+    "matchupId": "2025-10-2-4",
+    "team1Id": "2",
+    "team2Id": "4",
+    "team1Points": 121.1,
+    "team2Points": 100.44
+  },
+  {
+    "year": 2025,
+    "week": 10,
+    "matchupId": "2025-10-3-5",
+    "team1Id": "3",
+    "team2Id": "5",
+    "team1Points": 142.08,
+    "team2Points": 138.8
+  },
+  {
+    "year": 2025,
+    "week": 10,
+    "matchupId": "2025-10-7-9",
+    "team1Id": "7",
+    "team2Id": "9",
+    "team1Points": 116.5,
+    "team2Points": 46.32
+  },
+  {
+    "year": 2025,
+    "week": 10,
+    "matchupId": "2025-10-8-10",
+    "team1Id": "8",
+    "team2Id": "10",
+    "team1Points": 71.52,
+    "team2Points": 147.1
+  },
+  {
+    "year": 2025,
+    "week": 11,
+    "matchupId": "2025-11-1-9",
+    "team1Id": "1",
+    "team2Id": "9",
+    "team1Points": 121.78,
+    "team2Points": 43.92
+  },
+  {
+    "year": 2025,
+    "week": 11,
+    "matchupId": "2025-11-2-6",
+    "team1Id": "2",
+    "team2Id": "6",
+    "team1Points": 80.54,
+    "team2Points": 88.5
+  },
+  {
+    "year": 2025,
+    "week": 11,
+    "matchupId": "2025-11-3-4",
+    "team1Id": "3",
+    "team2Id": "4",
+    "team1Points": 112.86,
+    "team2Points": 103.42
+  },
+  {
+    "year": 2025,
+    "week": 11,
+    "matchupId": "2025-11-5-10",
+    "team1Id": "5",
+    "team2Id": "10",
+    "team1Points": 98.14,
+    "team2Points": 111.9
+  },
+  {
+    "year": 2025,
+    "week": 11,
+    "matchupId": "2025-11-7-8",
+    "team1Id": "7",
+    "team2Id": "8",
+    "team1Points": 111.82,
+    "team2Points": 108.02
+  },
+  {
+    "year": 2025,
+    "week": 12,
+    "matchupId": "2025-12-1-8",
+    "team1Id": "1",
+    "team2Id": "8",
+    "team1Points": 81.22,
+    "team2Points": 97.34
+  },
+  {
+    "year": 2025,
+    "week": 12,
+    "matchupId": "2025-12-2-7",
+    "team1Id": "2",
+    "team2Id": "7",
+    "team1Points": 85.48,
+    "team2Points": 122.32
+  },
+  {
+    "year": 2025,
+    "week": 12,
+    "matchupId": "2025-12-3-6",
+    "team1Id": "3",
+    "team2Id": "6",
+    "team1Points": 74.06,
+    "team2Points": 167.56
+  },
+  {
+    "year": 2025,
+    "week": 12,
+    "matchupId": "2025-12-4-10",
+    "team1Id": "4",
+    "team2Id": "10",
+    "team1Points": 120.82,
+    "team2Points": 101.22
+  },
+  {
+    "year": 2025,
+    "week": 12,
+    "matchupId": "2025-12-5-9",
+    "team1Id": "5",
+    "team2Id": "9",
+    "team1Points": 119.66,
+    "team2Points": 67.66
+  },
+  {
+    "year": 2025,
+    "week": 13,
+    "matchupId": "2025-13-1-7",
+    "team1Id": "1",
+    "team2Id": "7",
+    "team1Points": 124.72,
+    "team2Points": 96.14
+  },
+  {
+    "year": 2025,
+    "week": 13,
+    "matchupId": "2025-13-2-3",
+    "team1Id": "2",
+    "team2Id": "3",
+    "team1Points": 91.14,
+    "team2Points": 78.06
+  },
+  {
+    "year": 2025,
+    "week": 13,
+    "matchupId": "2025-13-4-6",
+    "team1Id": "4",
+    "team2Id": "6",
+    "team1Points": 130.24,
+    "team2Points": 139.2
+  },
+  {
+    "year": 2025,
+    "week": 13,
+    "matchupId": "2025-13-5-8",
+    "team1Id": "5",
+    "team2Id": "8",
+    "team1Points": 87.68,
+    "team2Points": 76.84
+  },
+  {
+    "year": 2025,
+    "week": 13,
+    "matchupId": "2025-13-9-10",
+    "team1Id": "9",
+    "team2Id": "10",
+    "team1Points": 69,
+    "team2Points": 111.82
+  },
+  {
+    "year": 2025,
+    "week": 14,
+    "matchupId": "2025-14-1-2",
+    "team1Id": "1",
+    "team2Id": "2",
+    "team1Points": 107.74,
+    "team2Points": 98
+  },
+  {
+    "year": 2025,
+    "week": 14,
+    "matchupId": "2025-14-3-9",
+    "team1Id": "3",
+    "team2Id": "9",
+    "team1Points": 111.86,
+    "team2Points": 42.34
+  },
+  {
+    "year": 2025,
+    "week": 14,
+    "matchupId": "2025-14-4-8",
+    "team1Id": "4",
+    "team2Id": "8",
+    "team1Points": 138.96,
+    "team2Points": 48.9
+  },
+  {
+    "year": 2025,
+    "week": 14,
+    "matchupId": "2025-14-5-7",
+    "team1Id": "5",
+    "team2Id": "7",
+    "team1Points": 94.78,
+    "team2Points": 101.96
+  },
+  {
+    "year": 2025,
+    "week": 14,
+    "matchupId": "2025-14-6-10",
+    "team1Id": "6",
+    "team2Id": "10",
+    "team1Points": 81.3,
+    "team2Points": 125.44
+  },
+  {
+    "year": 2025,
+    "week": 15,
+    "matchupId": "2025-15-1-3",
+    "team1Id": "1",
+    "team2Id": "3",
+    "team1Points": 112.52,
+    "team2Points": 126.04
+  },
+  {
+    "year": 2025,
+    "week": 15,
+    "matchupId": "2025-15-2-10",
+    "team1Id": "2",
+    "team2Id": "10",
+    "team1Points": 95.66,
+    "team2Points": 141.32
+  },
+  {
+    "year": 2025,
+    "week": 15,
+    "matchupId": "2025-15-4-5",
+    "team1Id": "4",
+    "team2Id": "5",
+    "team1Points": 136.5,
+    "team2Points": 145.2
+  },
+  {
+    "year": 2025,
+    "week": 15,
+    "matchupId": "2025-15-6-7",
+    "team1Id": "6",
+    "team2Id": "7",
+    "team1Points": 106,
+    "team2Points": 119.7
+  },
+  {
+    "year": 2025,
+    "week": 15,
+    "matchupId": "2025-15-8-9",
+    "team1Id": "8",
+    "team2Id": "9",
+    "team1Points": 80.5,
+    "team2Points": 63.06
+  },
+  {
+    "year": 2025,
+    "week": 16,
+    "matchupId": "2025-16-1-4",
+    "team1Id": "1",
+    "team2Id": "4",
+    "team1Points": 105.5,
+    "team2Points": 104.34
+  },
+  {
+    "year": 2025,
+    "week": 16,
+    "matchupId": "2025-16-2-3",
+    "team1Id": "2",
+    "team2Id": "3",
+    "team1Points": 107.4,
+    "team2Points": 61.68
+  },
+  {
+    "year": 2025,
+    "week": 16,
+    "matchupId": "2025-16-5-10",
+    "team1Id": "5",
+    "team2Id": "10",
+    "team1Points": 90.1,
+    "team2Points": 196.76
+  },
+  {
+    "year": 2025,
+    "week": 16,
+    "matchupId": "2025-16-6-7",
+    "team1Id": "6",
+    "team2Id": "7",
+    "team1Points": 109.5,
+    "team2Points": 139.12
+  },
+  {
+    "year": 2025,
+    "week": 17,
+    "matchupId": "2025-17-1-2",
+    "team1Id": "1",
+    "team2Id": "2",
+    "team1Points": 101.08,
+    "team2Points": 113.92
+  },
+  {
+    "year": 2025,
+    "week": 17,
+    "matchupId": "2025-17-3-4",
+    "team1Id": "3",
+    "team2Id": "4",
+    "team1Points": 123.22,
+    "team2Points": 96.8
+  },
+  {
+    "year": 2025,
+    "week": 17,
+    "matchupId": "2025-17-5-6",
+    "team1Id": "5",
+    "team2Id": "6",
+    "team1Points": 117.64,
+    "team2Points": 80
+  },
+  {
+    "year": 2025,
+    "week": 17,
+    "matchupId": "2025-17-7-10",
+    "team1Id": "7",
+    "team2Id": "10",
+    "team1Points": 92.22,
+    "team2Points": 146.26
+  },
+  {
+    "year": 2025,
+    "week": 2,
+    "matchupId": "2025-2-1-7",
+    "team1Id": "1",
+    "team2Id": "7",
+    "team1Points": 98.42,
+    "team2Points": 123.1
+  },
+  {
+    "year": 2025,
+    "week": 2,
+    "matchupId": "2025-2-2-3",
+    "team1Id": "2",
+    "team2Id": "3",
+    "team1Points": 140.88,
+    "team2Points": 101.88
+  },
+  {
+    "year": 2025,
+    "week": 2,
+    "matchupId": "2025-2-4-6",
+    "team1Id": "4",
+    "team2Id": "6",
+    "team1Points": 119.9,
+    "team2Points": 68.34
+  },
+  {
+    "year": 2025,
+    "week": 2,
+    "matchupId": "2025-2-5-10",
+    "team1Id": "5",
+    "team2Id": "10",
+    "team1Points": 133.48,
+    "team2Points": 123.7
+  },
+  {
+    "year": 2025,
+    "week": 2,
+    "matchupId": "2025-2-8-9",
+    "team1Id": "8",
+    "team2Id": "9",
+    "team1Points": 85.34,
+    "team2Points": 79.1
+  },
+  {
+    "year": 2025,
+    "week": 3,
+    "matchupId": "2025-3-1-5",
+    "team1Id": "1",
+    "team2Id": "5",
+    "team1Points": 107.52,
+    "team2Points": 135
+  },
+  {
+    "year": 2025,
+    "week": 3,
+    "matchupId": "2025-3-2-8",
+    "team1Id": "2",
+    "team2Id": "8",
+    "team1Points": 65.86,
+    "team2Points": 76.92
+  },
+  {
+    "year": 2025,
+    "week": 3,
+    "matchupId": "2025-3-3-7",
+    "team1Id": "3",
+    "team2Id": "7",
+    "team1Points": 105.78,
+    "team2Points": 101.82
+  },
+  {
+    "year": 2025,
+    "week": 3,
+    "matchupId": "2025-3-4-10",
+    "team1Id": "4",
+    "team2Id": "10",
+    "team1Points": 84.62,
+    "team2Points": 123.82
+  },
+  {
+    "year": 2025,
+    "week": 3,
+    "matchupId": "2025-3-6-9",
+    "team1Id": "6",
+    "team2Id": "9",
+    "team1Points": 140.34,
+    "team2Points": 117.94
+  },
+  {
+    "year": 2025,
+    "week": 4,
+    "matchupId": "2025-4-1-4",
+    "team1Id": "1",
+    "team2Id": "4",
+    "team1Points": 111.66,
+    "team2Points": 127.38
+  },
+  {
+    "year": 2025,
+    "week": 4,
+    "matchupId": "2025-4-2-6",
+    "team1Id": "2",
+    "team2Id": "6",
+    "team1Points": 89.7,
+    "team2Points": 113.2
+  },
+  {
+    "year": 2025,
+    "week": 4,
+    "matchupId": "2025-4-3-8",
+    "team1Id": "3",
+    "team2Id": "8",
+    "team1Points": 118.44,
+    "team2Points": 104.68
+  },
+  {
+    "year": 2025,
+    "week": 4,
+    "matchupId": "2025-4-5-7",
+    "team1Id": "5",
+    "team2Id": "7",
+    "team1Points": 116.12,
+    "team2Points": 145.48
+  },
+  {
+    "year": 2025,
+    "week": 4,
+    "matchupId": "2025-4-9-10",
+    "team1Id": "9",
+    "team2Id": "10",
+    "team1Points": 120.48,
+    "team2Points": 135.76
+  },
+  {
+    "year": 2025,
+    "week": 5,
+    "matchupId": "2025-5-1-9",
+    "team1Id": "1",
+    "team2Id": "9",
+    "team1Points": 118.32,
+    "team2Points": 115.98
+  },
+  {
+    "year": 2025,
+    "week": 5,
+    "matchupId": "2025-5-2-10",
+    "team1Id": "2",
+    "team2Id": "10",
+    "team1Points": 109.48,
+    "team2Points": 168.28
+  },
+  {
+    "year": 2025,
+    "week": 5,
+    "matchupId": "2025-5-3-6",
+    "team1Id": "3",
+    "team2Id": "6",
+    "team1Points": 136.02,
+    "team2Points": 108.1
+  },
+  {
+    "year": 2025,
+    "week": 5,
+    "matchupId": "2025-5-4-5",
+    "team1Id": "4",
+    "team2Id": "5",
+    "team1Points": 113.62,
+    "team2Points": 117.64
+  },
+  {
+    "year": 2025,
+    "week": 5,
+    "matchupId": "2025-5-7-8",
+    "team1Id": "7",
+    "team2Id": "8",
+    "team1Points": 98.34,
+    "team2Points": 87.78
+  },
+  {
+    "year": 2025,
+    "week": 6,
+    "matchupId": "2025-6-1-2",
+    "team1Id": "1",
+    "team2Id": "2",
+    "team1Points": 111.8,
+    "team2Points": 121.48
+  },
+  {
+    "year": 2025,
+    "week": 6,
+    "matchupId": "2025-6-3-10",
+    "team1Id": "3",
+    "team2Id": "10",
+    "team1Points": 109.2,
+    "team2Points": 115.44
+  },
+  {
+    "year": 2025,
+    "week": 6,
+    "matchupId": "2025-6-4-7",
+    "team1Id": "4",
+    "team2Id": "7",
+    "team1Points": 93.74,
+    "team2Points": 117.54
+  },
+  {
+    "year": 2025,
+    "week": 6,
+    "matchupId": "2025-6-5-9",
+    "team1Id": "5",
+    "team2Id": "9",
+    "team1Points": 109.68,
+    "team2Points": 65.14
+  },
+  {
+    "year": 2025,
+    "week": 6,
+    "matchupId": "2025-6-6-8",
+    "team1Id": "6",
+    "team2Id": "8",
+    "team1Points": 95.42,
+    "team2Points": 95.58
+  },
+  {
+    "year": 2025,
+    "week": 7,
+    "matchupId": "2025-7-1-3",
+    "team1Id": "1",
+    "team2Id": "3",
+    "team1Points": 122.66,
+    "team2Points": 80.64
+  },
+  {
+    "year": 2025,
+    "week": 7,
+    "matchupId": "2025-7-2-5",
+    "team1Id": "2",
+    "team2Id": "5",
+    "team1Points": 142.44,
+    "team2Points": 137.8
+  },
+  {
+    "year": 2025,
+    "week": 7,
+    "matchupId": "2025-7-4-9",
+    "team1Id": "4",
+    "team2Id": "9",
+    "team1Points": 128.84,
+    "team2Points": 87.46
+  },
+  {
+    "year": 2025,
+    "week": 7,
+    "matchupId": "2025-7-6-7",
+    "team1Id": "6",
+    "team2Id": "7",
+    "team1Points": 131.04,
+    "team2Points": 129.94
+  },
+  {
+    "year": 2025,
+    "week": 7,
+    "matchupId": "2025-7-8-10",
+    "team1Id": "8",
+    "team2Id": "10",
+    "team1Points": 92.82,
+    "team2Points": 104.62
+  },
+  {
+    "year": 2025,
+    "week": 8,
+    "matchupId": "2025-8-1-8",
+    "team1Id": "1",
+    "team2Id": "8",
+    "team1Points": 111.12,
+    "team2Points": 85.98
+  },
+  {
+    "year": 2025,
+    "week": 8,
+    "matchupId": "2025-8-2-4",
+    "team1Id": "2",
+    "team2Id": "4",
+    "team1Points": 114.86,
+    "team2Points": 111
+  },
+  {
+    "year": 2025,
+    "week": 8,
+    "matchupId": "2025-8-3-5",
+    "team1Id": "3",
+    "team2Id": "5",
+    "team1Points": 129.92,
+    "team2Points": 154.18
+  },
+  {
+    "year": 2025,
+    "week": 8,
+    "matchupId": "2025-8-6-10",
+    "team1Id": "6",
+    "team2Id": "10",
+    "team1Points": 128.72,
+    "team2Points": 104.38
+  },
+  {
+    "year": 2025,
+    "week": 8,
+    "matchupId": "2025-8-7-9",
+    "team1Id": "7",
+    "team2Id": "9",
+    "team1Points": 115.6,
+    "team2Points": 54.02
+  },
+  {
+    "year": 2025,
+    "week": 9,
+    "matchupId": "2025-9-1-6",
+    "team1Id": "1",
+    "team2Id": "6",
+    "team1Points": 135.32,
+    "team2Points": 90.5
+  },
+  {
+    "year": 2025,
+    "week": 9,
+    "matchupId": "2025-9-2-9",
+    "team1Id": "2",
+    "team2Id": "9",
+    "team1Points": 94.4,
+    "team2Points": 82.4
+  },
+  {
+    "year": 2025,
+    "week": 9,
+    "matchupId": "2025-9-3-4",
+    "team1Id": "3",
+    "team2Id": "4",
+    "team1Points": 118.54,
+    "team2Points": 162.36
+  },
+  {
+    "year": 2025,
+    "week": 9,
+    "matchupId": "2025-9-5-8",
+    "team1Id": "5",
+    "team2Id": "8",
+    "team1Points": 117.5,
+    "team2Points": 124.76
+  },
+  {
+    "year": 2025,
+    "week": 9,
+    "matchupId": "2025-9-7-10",
+    "team1Id": "7",
+    "team2Id": "10",
+    "team1Points": 99.72,
+    "team2Points": 105.92
+  }
+]

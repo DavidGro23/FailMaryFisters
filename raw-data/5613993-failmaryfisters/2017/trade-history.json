@@ -1,0 +1,182 @@
+[
+  {
+    "year": 2017,
+    "transactionDate": "2017-10-01T00:36:00",
+    "transactionWeek": 4,
+    "transactionOwnerUserId": "2035166",
+    "transaction": [
+      {
+        "from": "7",
+        "to": "5",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2540158"
+          }
+        ]
+      },
+      {
+        "from": "5",
+        "to": "7",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2506106"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2017,
+    "transactionDate": "2017-10-17T00:32:00",
+    "transactionWeek": 7,
+    "transactionOwnerUserId": "15472989",
+    "transaction": [
+      {
+        "from": "4",
+        "to": "2",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2556075"
+          },
+          {
+            "type": "player",
+            "playerId": "2557898"
+          }
+        ]
+      },
+      {
+        "from": "2",
+        "to": "4",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "284"
+          },
+          {
+            "type": "player",
+            "playerId": "2552600"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2017,
+    "transactionDate": "2017-10-17T00:32:00",
+    "transactionWeek": 7,
+    "transactionOwnerUserId": "15011294",
+    "transaction": [
+      {
+        "from": "1",
+        "to": "3",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2557976"
+          }
+        ]
+      },
+      {
+        "from": "3",
+        "to": "1",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2555295"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2017,
+    "transactionDate": "2017-10-29T00:33:00",
+    "transactionWeek": 8,
+    "transactionOwnerUserId": "9062581",
+    "transaction": [
+      {
+        "from": "10",
+        "to": "6",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2552586"
+          }
+        ]
+      },
+      {
+        "from": "6",
+        "to": "10",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "100013"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2017,
+    "transactionDate": "2017-11-08T00:41:00",
+    "transactionWeek": 10,
+    "transactionOwnerUserId": "15007746",
+    "transaction": [
+      {
+        "from": "5",
+        "to": "7",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2507164"
+          }
+        ]
+      },
+      {
+        "from": "7",
+        "to": "5",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "497322"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2017,
+    "transactionDate": "2017-12-02T02:11:00",
+    "transactionWeek": 0,
+    "transactionOwnerUserId": "15007746",
+    "transaction": [
+      {
+        "from": "9",
+        "to": "7",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2555259"
+          }
+        ]
+      },
+      {
+        "from": "7",
+        "to": "9",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2543491"
+          },
+          {
+            "type": "player",
+            "playerId": "2552374"
+          }
+        ]
+      }
+    ]
+  }
+]

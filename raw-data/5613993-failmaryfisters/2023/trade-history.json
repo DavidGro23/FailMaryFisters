@@ -1,0 +1,430 @@
+[
+  {
+    "year": 2023,
+    "transactionDate": "2023-10-04T02:09:00",
+    "transactionWeek": 5,
+    "transactionOwnerUserId": "15479554",
+    "transaction": [
+      {
+        "from": "2",
+        "to": "4",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2558125"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 15
+            }
+          }
+        ]
+      },
+      {
+        "from": "4",
+        "to": "2",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2562299"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 3
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2023,
+    "transactionDate": "2023-10-08T09:19:00",
+    "transactionWeek": 5,
+    "transactionOwnerUserId": "15472989",
+    "transaction": [
+      {
+        "from": "9",
+        "to": "2",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2558204"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 3
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 9
+            }
+          }
+        ]
+      },
+      {
+        "from": "2",
+        "to": "9",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2540258"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 13
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 14
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2023,
+    "transactionDate": "2023-10-17T09:54:00",
+    "transactionWeek": 7,
+    "transactionOwnerUserId": "15007746",
+    "transaction": [
+      {
+        "from": "8",
+        "to": "7",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2560787"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 3
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 7
+            }
+          }
+        ]
+      },
+      {
+        "from": "7",
+        "to": "8",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2559169"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 15
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 12
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2023,
+    "transactionDate": "2023-10-17T11:02:00",
+    "transactionWeek": 7,
+    "transactionOwnerUserId": "15011294",
+    "transaction": [
+      {
+        "from": "1",
+        "to": "3",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2532820"
+          },
+          {
+            "type": "player",
+            "playerId": "2564007"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 4
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 9
+            }
+          }
+        ]
+      },
+      {
+        "from": "3",
+        "to": "1",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2560995"
+          },
+          {
+            "type": "player",
+            "playerId": "2564832"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 11
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 14
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2023,
+    "transactionDate": "2023-10-19T14:28:00",
+    "transactionWeek": 7,
+    "transactionOwnerUserId": "15472989",
+    "transaction": [
+      {
+        "from": "6",
+        "to": "2",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2562682"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 5
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 9
+            }
+          }
+        ]
+      },
+      {
+        "from": "2",
+        "to": "6",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2558116"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 12
+            }
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 11
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2023,
+    "transactionDate": "2023-10-26T05:30:00",
+    "transactionWeek": 8,
+    "transactionOwnerUserId": "15472989",
+    "transaction": [
+      {
+        "from": "10",
+        "to": "2",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2567232"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 8
+            }
+          }
+        ]
+      },
+      {
+        "from": "2",
+        "to": "10",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2568315"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 9
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2023,
+    "transactionDate": "2023-10-29T07:29:00",
+    "transactionWeek": 0,
+    "transactionOwnerUserId": "5076030",
+    "transaction": [
+      {
+        "from": "5",
+        "to": "1",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2568282"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 5
+            }
+          }
+        ]
+      },
+      {
+        "from": "1",
+        "to": "5",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2567952"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 3
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2023,
+    "transactionDate": "2023-11-18T00:28:00",
+    "transactionWeek": 11,
+    "transactionOwnerUserId": "9062581",
+    "transaction": [
+      {
+        "from": "3",
+        "to": "6",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2567496"
+          }
+        ]
+      },
+      {
+        "from": "6",
+        "to": "3",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2566127"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2023,
+    "transactionDate": "2023-11-18T00:28:00",
+    "transactionWeek": 11,
+    "transactionOwnerUserId": "5076030",
+    "transaction": [
+      {
+        "from": "7",
+        "to": "1",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2566409"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 14
+            }
+          }
+        ]
+      },
+      {
+        "from": "1",
+        "to": "7",
+        "sends": [
+          {
+            "type": "player",
+            "playerId": "2563896"
+          },
+          {
+            "type": "draftPick",
+            "draftPick": {
+              "year": 2024,
+              "round": 6
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

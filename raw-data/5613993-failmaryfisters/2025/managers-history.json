@@ -1,0 +1,102 @@
+[
+  {
+    "year": 2025,
+    "managerName": "moritz",
+    "userId": "5076030",
+    "coManagerName": null,
+    "coUserId": null,
+    "teamName": "Slicerkompanie",
+    "teamId": "1",
+    "teamImgUrl": "https://fantasy.nfl.com/image/65bcf4e0e819b1d7c1500037a7e52437.jpg?\u0026x=40\u0026y=40"
+  },
+  {
+    "year": 2025,
+    "managerName": "dave",
+    "userId": "15472989",
+    "coManagerName": null,
+    "coUserId": null,
+    "teamName": "true 07 thugs",
+    "teamId": "2",
+    "teamImgUrl": "https://fantasy.nfl.com/image/d7530df39aac83b21827a48b72a4ec2f.jpg?\u0026x=40\u0026y=40"
+  },
+  {
+    "year": 2025,
+    "managerName": "Daniel",
+    "userId": "15011294",
+    "coManagerName": null,
+    "coUserId": null,
+    "teamName": "Oakland Mambas",
+    "teamId": "3",
+    "teamImgUrl": "https://fantasy.nfl.com/image/b626d8588494a7c8abbdabf54f6554ce.jpg?\u0026x=40\u0026y=40"
+  },
+  {
+    "year": 2025,
+    "managerName": "Felix",
+    "userId": "15479554",
+    "coManagerName": null,
+    "coUserId": null,
+    "teamName": "TSV Allach 09",
+    "teamId": "4",
+    "teamImgUrl": "https://fantasy.nfl.com/image/0864122b20410b49ea294145a340a988.jpg?\u0026x=40\u0026y=40"
+  },
+  {
+    "year": 2025,
+    "managerName": "Christian",
+    "userId": "19557057",
+    "coManagerName": null,
+    "coUserId": null,
+    "teamName": "NHS Bengalz",
+    "teamId": "5",
+    "teamImgUrl": "https://fantasy.nfl.com/image/72b823ff8699ea3be2fba5c1edfdba47.jpg?\u0026x=40\u0026y=40"
+  },
+  {
+    "year": 2025,
+    "managerName": "Benjamin",
+    "userId": "9062581",
+    "coManagerName": null,
+    "coUserId": null,
+    "teamName": "Saintology",
+    "teamId": "6",
+    "teamImgUrl": "https://fantasy.nfl.com/image/2a1bfef82b1d4e6e3f588a00fb1ebd10.jpg?\u0026x=40\u0026y=40"
+  },
+  {
+    "year": 2025,
+    "managerName": "leonard",
+    "userId": "15007746",
+    "coManagerName": null,
+    "coUserId": null,
+    "teamName": "OHood Cardinals",
+    "teamId": "7",
+    "teamImgUrl": "https://fantasy.nfl.com/image/8901d5af1a996d8eb24bab482842575f.jpg?\u0026x=40\u0026y=40"
+  },
+  {
+    "year": 2025,
+    "managerName": "Chris",
+    "userId": "5071362",
+    "coManagerName": null,
+    "coUserId": null,
+    "teamName": "Magico Iguanas",
+    "teamId": "8",
+    "teamImgUrl": "https://fantasy.nfl.com/image/389c78398852d2fe0647cd8932a5d716.jpg?\u0026x=40\u0026y=40"
+  },
+  {
+    "year": 2025,
+    "managerName": "Slow",
+    "userId": "15317028",
+    "coManagerName": null,
+    "coUserId": null,
+    "teamName": "SG Drugs-Bucs",
+    "teamId": "9",
+    "teamImgUrl": "https://static.www.nfl.com/league/apps/fantasy/logos/avatar/240x240/DEF.png"
+  },
+  {
+    "year": 2025,
+    "managerName": "Sebastian",
+    "userId": "15007328",
+    "coManagerName": null,
+    "coUserId": null,
+    "teamName": "Railgunners",
+    "teamId": "10",
+    "teamImgUrl": "https://fantasy.nfl.com/image/b7a3eb3d2a641e681b4174fc12a7d472.jpg?\u0026x=40\u0026y=40"
+  }
+]
