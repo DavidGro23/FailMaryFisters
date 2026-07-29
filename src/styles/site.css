@@ -1,0 +1,892 @@
+/*
+ * Dark NFL broadcast graphics (§12). Mobile-first: the base styles are the phone
+ * layout and media queries add the desktop, never the reverse.
+ *
+ * All colours come from the tokens below. No hardcoded hex anywhere else.
+ */
+
+:root {
+	--bg:          #0A0A0B;
+	--surface:     #131316;
+	--surface-2:   #1B1B1F;
+	--line:        #26262B;
+
+	--text:        #F2F1EE;
+	--text-muted:  #9C9C98;
+	--text-on-navy:#9CB4D4;
+
+	--navy:        #0D2B4E;
+	--navy-line:   #1D4F91;
+	--red:         #E8483A;
+	--red-bg:      #3A1512;
+	--red-text:    #F09590;
+
+	--gold:   #D4A24C;  --on-gold:   #3A2A08;
+	--silver: #B8B8B4;  --on-silver: #26262B;
+	--bronze: #C08552;  --on-bronze: #31190A;
+
+	--pos:    #7DBB4A;
+	--neg:    #E8483A;
+
+	--radius: 8px;
+	--line-w: 0.5px;
+	--tap:    44px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	/* Weights stay at 400/500 — 600 and above bloom badly on black. */
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1.45;
+	-webkit-text-size-adjust: 100%;
+}
+
+/* Room for the fixed bottom bar so the last row is never hidden behind it. */
+body { padding-bottom: calc(var(--tap) + 16px); }
+
+.page { padding: 20px 14px 40px; }
+
+/* --- Navigation --------------------------------------------------------- */
+/* One set of markup. CSS moves it from a bottom bar to a top band at 900px;
+   the DOM is never duplicated. No JavaScript, no hamburger. */
+
+.nav {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 10;
+	background: var(--navy);
+	border-top: var(--line-w) solid var(--navy-line);
+}
+
+.nav-inner { display: flex; }
+
+.nav-link {
+	flex: 1 1 0;
+	min-width: 0;
+	/* Touch targets >= 44px (§12.3). */
+	min-height: var(--tap);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-on-navy);
+	text-decoration: none;
+	/*
+	 * 12px rather than the 13px used elsewhere: six items share the width of a
+	 * 360px screen, so "All-time" and "Rulebook" need to fit a ~60px slot. Still
+	 * above the 11px floor §12.2 sets.
+	 */
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0 2px;
+}
+
+/* Red marks the active item, and is the only decorative use of the accent
+   outside a champion's name (§12.4). */
+.nav-link[aria-current="page"] { color: var(--red); }
+
+.nav-link:hover,
+.nav-link:focus-visible { color: var(--text); }
+
+.page-title {
+	font-size: 20px;
+	font-weight: 500;
+	margin: 0 0 4px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.page-title-avatar {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	object-fit: cover;
+	background: var(--surface-2);
+	flex: 0 0 auto;
+}
+
+/* The team switcher carries avatars, so its links need room for one. */
+.teams-switcher .season-link { padding: 4px 11px 4px 6px; }
+.teams-switcher .team-cell { gap: 6px; }
+
+.page-meta {
+	color: var(--text-muted);
+	font-size: 11px;
+	margin: 0 0 24px;
+}
+
+.section-title {
+	font-size: 17px;
+	font-weight: 500;
+	margin: 0 0 12px;
+}
+
+/*
+ * One rule owns the gap between sections, so a heading is never tight against
+ * the table above it. Set here rather than on each section's own margin, which
+ * is how the spacing drifted apart in the first place.
+ */
+.page > section + section { margin-top: 34px; }
+
+.section-note {
+	color: var(--text-muted);
+	font-size: 11px;
+	margin: -6px 0 14px;
+	max-width: 60ch;
+}
+
+/* Every numeric cell aligns. Non-aligning digits in a standings table is the
+   single most common polish failure (§12.2). */
+.col-num, .col-rank { font-variant-numeric: tabular-nums; }
+
+/* --- Rank badge --------------------------------------------------------- */
+
+.rank {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 22px;
+	height: 22px;
+	color: var(--text-muted);
+	font-size: 13px;
+}
+
+.rank-gold, .rank-silver, .rank-bronze {
+	border-radius: 50%;
+	font-weight: 500;
+}
+
+.rank-gold   { background: var(--gold);   color: var(--on-gold); }
+.rank-silver { background: var(--silver); color: var(--on-silver); }
+.rank-bronze { background: var(--bronze); color: var(--on-bronze); }
+
+/* --- Season switcher ---------------------------------------------------- */
+
+.seasons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	margin: 0 0 22px;
+}
+
+.season-link {
+	min-height: 36px;
+	padding: 0 11px;
+	display: inline-flex;
+	align-items: center;
+	border: var(--line-w) solid var(--line);
+	border-radius: var(--radius);
+	color: var(--text-muted);
+	text-decoration: none;
+	font-size: 13px;
+	font-variant-numeric: tabular-nums;
+}
+
+.season-link:hover,
+.season-link:focus-visible { color: var(--text); background: var(--surface-2); }
+
+.season-link[aria-current="page"] {
+	background: var(--surface-2);
+	border-color: var(--navy-line);
+	color: var(--text);
+	font-weight: 500;
+}
+
+/* --- Sorting ------------------------------------------------------------ */
+/* All of this is injected by table-sort.ts. With scripting off none of it
+   exists, and the table keeps the order the build emitted. */
+
+.sort-btn {
+	appearance: none;
+	background: none;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+	/* Header cells are right-aligned, so the control fills the cell to keep the
+	   whole width tappable. */
+	width: 100%;
+	min-height: var(--tap);
+	text-align: right;
+}
+
+.sort-btn:hover,
+.sort-btn:focus-visible { color: var(--text); }
+
+/* The arrow is generated from aria-sort, so the indicator can never disagree
+   with what assistive technology is told. */
+th[aria-sort="descending"] .sort-btn::after { content: " ↓"; }
+th[aria-sort="ascending"] .sort-btn::after { content: " ↑"; }
+th[aria-sort="descending"] .sort-btn,
+th[aria-sort="ascending"] .sort-btn { color: var(--text); }
+
+/* Mobile sort bar: the header row is hidden in the card layout, so the same
+   controls appear above the table instead. */
+.sort-bar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+	margin: 0 0 10px;
+}
+
+.sort-bar-label {
+	color: var(--text-muted);
+	font-size: 11px;
+	margin-right: 2px;
+}
+
+.sort-chip {
+	appearance: none;
+	min-height: var(--tap);
+	padding: 0 12px;
+	background: var(--surface);
+	border: var(--line-w) solid var(--line);
+	border-radius: var(--radius);
+	color: var(--text-muted);
+	font: inherit;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.sort-chip.is-active {
+	background: var(--surface-2);
+	border-color: var(--navy-line);
+	color: var(--text);
+}
+
+.sort-chip.is-active[data-direction="descending"]::after { content: " ↓"; }
+.sort-chip.is-active[data-direction="ascending"]::after { content: " ↑"; }
+
+@media (min-width: 600px) {
+	.sort-bar { display: none; }
+}
+
+/* --- Rulebook ----------------------------------------------------------- */
+/* Long-form prose, so it gets a reading measure rather than the full width. */
+
+.rulebook { max-width: 68ch; }
+
+/* Anchor targets clear the top edge when jumped to from the contents. */
+.rulebook-h2, .rulebook-h3, .rulebook-h4 { scroll-margin-top: 16px; }
+
+/* --- Table of contents -------------------------------------------------- */
+
+.toc { margin-bottom: 8px; }
+
+.toc-list, .toc-sub {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.toc-item {
+	margin-bottom: 10px;
+	break-inside: avoid;
+}
+
+.toc-sub {
+	margin: 3px 0 0 14px;
+	border-left: var(--line-w) solid var(--line);
+	padding-left: 10px;
+}
+
+.toc-sub li { margin-bottom: 1px; }
+
+.toc-link {
+	display: block;
+	color: var(--text-muted);
+	text-decoration: none;
+	font-size: 13px;
+	/* Touch targets: comfortable rather than the full 44px, which would make a
+	   56-entry list absurdly tall on a phone. */
+	padding: 5px 0;
+	line-height: 1.3;
+}
+
+.toc-list > .toc-item > .toc-link {
+	color: var(--text);
+	font-weight: 500;
+}
+
+.toc-link-sub { font-size: 12px; }
+
+.toc-link:hover,
+.toc-link:focus-visible { color: var(--red); }
+
+/* Two columns once there is room; the list is long. */
+@media (min-width: 700px) {
+	.toc-list { columns: 2; column-gap: 32px; }
+}
+
+.rulebook-h2 {
+	font-size: 17px;
+	font-weight: 500;
+	margin: 32px 0 10px;
+	padding-top: 14px;
+	border-top: var(--line-w) solid var(--line);
+}
+
+.rulebook-h3 {
+	font-size: 14px;
+	font-weight: 500;
+	margin: 22px 0 6px;
+}
+
+.rulebook-h4 {
+	font-size: 13px;
+	font-weight: 500;
+	margin: 16px 0 4px;
+	color: var(--text-muted);
+}
+
+.rulebook-p { margin: 0 0 10px; }
+
+/*
+ * The league's sign-off. A deliberate exception to two house rules: §12.2 caps
+ * weights at 500 because heavier ones bloom on black, and §12.4 reserves red
+ * for the active nav item. This one line is the document's own flourish and was
+ * asked for explicitly — it is the only place either rule is broken.
+ */
+.rulebook-shout {
+	color: var(--red);
+	font-weight: 700;
+	margin-top: 16px;
+	letter-spacing: 0.01em;
+}
+
+.rulebook-list { margin: 0 0 12px; padding-left: 20px; }
+.rulebook-list li { margin-bottom: 4px; }
+
+/* Rulebook tables are content, not data tables — they keep their own quiet
+   styling rather than borrowing the standings look. */
+.rulebook-table-wrap { overflow-x: auto; margin: 0 0 16px; }
+
+.rulebook-table {
+	border-collapse: collapse;
+	width: 100%;
+	font-size: 13px;
+}
+
+.rulebook-table caption {
+	caption-side: bottom;
+	text-align: left;
+	color: var(--text-muted);
+	font-size: 11px;
+	padding-top: 6px;
+}
+
+.rulebook-table th,
+.rulebook-table td {
+	text-align: left;
+	padding: 6px 12px 6px 0;
+	border-bottom: var(--line-w) solid var(--line);
+	vertical-align: top;
+}
+
+.rulebook-table th {
+	color: var(--text-muted);
+	font-size: 11px;
+	font-weight: 400;
+}
+
+.rulebook-table td:last-child { font-variant-numeric: tabular-nums; }
+
+.rulebook-figure { margin: 0 0 16px; }
+
+.rulebook-figure img {
+	max-width: 100%;
+	height: auto;
+	border: var(--line-w) solid var(--line);
+	border-radius: var(--radius);
+}
+
+.rulebook-figure figcaption {
+	color: var(--text-muted);
+	font-size: 11px;
+	padding-top: 6px;
+}
+
+/* --- Hall of Fame ------------------------------------------------------- */
+
+.hall-of-fame {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border-top: var(--line-w) solid var(--line);
+}
+
+.hall-of-fame-item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 9px 0;
+	border-bottom: var(--line-w) solid var(--line);
+}
+
+.hall-of-fame-year {
+	flex: 0 0 auto;
+	min-width: 42px;
+	color: var(--text-muted);
+	font-variant-numeric: tabular-nums;
+	font-size: 13px;
+	text-decoration: none;
+}
+
+.hall-of-fame-year:hover,
+.hall-of-fame-year:focus-visible { color: var(--text); }
+
+.hall-of-fame-team {
+	flex: 1 1 auto;
+	min-width: 0;
+	text-decoration: none;
+	color: var(--text);
+}
+
+.hall-of-fame-team:hover .team-name,
+.hall-of-fame-team:focus-visible .team-name { text-decoration: underline; }
+
+.hall-of-fame-counts {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 14px;
+	margin-top: 12px;
+}
+
+.title-count { font-variant-numeric: tabular-nums; }
+.title-count a { color: var(--text-muted); text-decoration: none; }
+.title-count a:hover, .title-count a:focus-visible { color: var(--text); }
+
+.section-note a { color: var(--red); text-decoration: none; }
+.section-note a:hover, .section-note a:focus-visible { text-decoration: underline; }
+
+/* --- Manager profile ---------------------------------------------------- */
+
+.honours {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	gap: 10px;
+	margin-bottom: 26px;
+}
+
+.honour {
+	background: var(--surface);
+	border: var(--line-w) solid var(--line);
+	border-radius: var(--radius);
+	padding: 14px;
+}
+
+.honour-earned { border-color: var(--navy-line); }
+
+.honour-count {
+	margin: 0;
+	font-size: 30px;
+	font-weight: 500;
+	line-height: 1;
+	color: var(--text-muted);
+	font-variant-numeric: tabular-nums;
+}
+
+.honour-earned .honour-count { color: var(--text); }
+
+.honour-label { margin: 6px 0 0; font-size: 13px; }
+
+.honour-years {
+	margin: 4px 0 0;
+	font-size: 11px;
+	color: var(--text-muted);
+	font-variant-numeric: tabular-nums;
+}
+
+.honour-years a { color: var(--text-muted); text-decoration: none; }
+.honour-years a:hover, .honour-years a:focus-visible { color: var(--red); }
+.honour-years a + a::before { content: ", "; color: var(--text-muted); }
+
+/* Two scopes inside one section (regular / postseason) need breathing room too,
+   without the full between-section gap. */
+.scope + .scope { margin-top: 22px; }
+
+.record-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: 10px;
+	margin-top: 8px;
+}
+
+.record-tile {
+	background: var(--surface);
+	border: var(--line-w) solid var(--line);
+	border-radius: var(--radius);
+	padding: 12px;
+}
+
+.record-label { margin: 0; font-size: 11px; color: var(--text-muted); }
+
+.record-points {
+	margin: 4px 0 6px;
+	font-size: 22px;
+	font-weight: 500;
+	font-variant-numeric: tabular-nums;
+}
+
+.record-tile-high .record-points { color: var(--pos); }
+.record-tile-low .record-points { color: var(--neg); }
+
+.record-detail {
+	margin: 2px 0 0;
+	font-size: 11px;
+	color: var(--text-muted);
+	font-variant-numeric: tabular-nums;
+}
+
+.record-detail a { color: var(--text-muted); }
+.record-outcome-won { color: var(--pos); }
+.record-outcome-lost { color: var(--neg); }
+
+.manager-link { text-decoration: none; color: inherit; display: block; }
+.manager-link:hover .team-name,
+.manager-link:focus-visible .team-name { color: var(--red); }
+
+/* --- Trades ------------------------------------------------------------- */
+
+.trade-year { margin-bottom: 18px; }
+.trade-year a { color: inherit; text-decoration: none; }
+.trade-year a:hover, .trade-year a:focus-visible { color: var(--red); }
+
+.trade {
+	background: var(--surface);
+	border: var(--line-w) solid var(--line);
+	border-radius: var(--radius);
+	padding: 10px 12px;
+	margin-top: 8px;
+}
+
+.trade-head { margin: 0 0 6px; font-size: 13px; }
+.trade-when { color: var(--text-muted); font-size: 11px; }
+
+.trade-side {
+	display: flex;
+	gap: 8px;
+	margin: 4px 0 0;
+	font-size: 13px;
+	color: var(--text-muted);
+}
+
+.trade-side-in { color: var(--text); }
+
+.trade-arrow {
+	flex: 0 0 auto;
+	width: 14px;
+	text-align: center;
+}
+
+.trade-side-in .trade-arrow { color: var(--pos); }
+
+/* --- Playoff bracket ---------------------------------------------------- */
+/* Base: a plain vertical stack, which is all that fits at 360px. The tree and
+   its connectors appear from 600px, where there is room for two columns. */
+
+/* Spacing comes from the shared `.page > section + section` rule above. */
+.champion { color: var(--red); font-weight: 500; }
+
+.bracket { display: flex; flex-direction: column; gap: 18px; }
+
+.bracket-round { display: flex; flex-direction: column; gap: 12px; }
+
+.bracket-round-title {
+	font-size: 11px;
+	font-weight: 400;
+	color: var(--text-muted);
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.bracket-game {
+	background: var(--surface);
+	border: var(--line-w) solid var(--line);
+	border-radius: var(--radius);
+	padding: 10px 12px;
+}
+
+.bracket-game-final { border-color: var(--navy-line); }
+
+.bracket-side {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 4px 0;
+	color: var(--text-muted);
+}
+
+/* The winner is marked by weight and a leading rule as well as by colour, so
+   the result never depends on colour alone. */
+.bracket-side-won {
+	color: var(--text);
+	font-weight: 500;
+}
+
+.bracket-seed {
+	min-width: 16px;
+	font-size: 11px;
+	color: var(--text-muted);
+	font-variant-numeric: tabular-nums;
+}
+
+.bracket-side .team-cell { flex: 1 1 auto; min-width: 0; }
+
+.bracket-points {
+	font-variant-numeric: tabular-nums;
+	font-size: 13px;
+	margin-left: auto;
+	padding-left: 8px;
+}
+
+.bracket-side-won .bracket-points { color: var(--pos); }
+
+.bracket-meta {
+	margin: 6px 0 0;
+	padding-top: 6px;
+	border-top: var(--line-w) solid var(--line);
+	color: var(--text-muted);
+	font-size: 11px;
+	font-variant-numeric: tabular-nums;
+}
+
+.bracket-third { margin-top: 18px; max-width: 420px; }
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+@media (min-width: 600px) {
+	/* Two columns: semifinals feed the final. The final is centred against the
+	   pair beside it, which is what makes it read as a tree. */
+	.bracket {
+		flex-direction: row;
+		align-items: stretch;
+		gap: 0;
+	}
+
+	.bracket-round { flex: 1 1 0; justify-content: center; min-width: 0; }
+
+	.bracket-round-final {
+		justify-content: center;
+		/* Space for the connector drawn on the left edge. */
+		padding-left: 34px;
+		position: relative;
+	}
+
+	/* Elbow connectors: a vertical spine spanning the two semifinals, and a stub
+	   into the final. Decoration only — hidden from assistive technology by
+	   virtue of being generated content on an empty pseudo-element. */
+	.bracket-round-final::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 25%;
+		bottom: 25%;
+		width: 17px;
+		border: var(--line-w) solid var(--line);
+		border-right: 0;
+		border-radius: 6px 0 0 6px;
+	}
+
+	.bracket-round-final::after {
+		content: "";
+		position: absolute;
+		left: 17px;
+		top: 50%;
+		width: 17px;
+		border-top: var(--line-w) solid var(--line);
+	}
+
+	.bracket-third { margin-top: 22px; }
+}
+
+/* --- Avatar ------------------------------------------------------------- */
+
+.team-cell {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	min-width: 0; /* lets the text truncate rather than push the avatar */
+}
+
+.team-text { min-width: 0; }
+
+/* Both variants occupy the same box, so a team without an avatar shifts
+   nothing. The width/height attributes on the <img> reserve it before the
+   image loads; these rules must agree with them. */
+.avatar {
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	flex: 0 0 auto;
+	/* Custom uploads are not guaranteed square. */
+	object-fit: cover;
+	background: var(--surface-2);
+}
+
+.avatar-fallback {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-muted);
+	font-size: 11px;
+	font-weight: 500;
+	/* Rendered text, so it needs the box the img gets from its attributes. */
+	line-height: 1;
+	user-select: none;
+}
+
+.team-name { font-weight: 500; }
+
+.team-alias {
+	color: var(--text-muted);
+	font-size: 11px;
+	font-weight: 400;
+}
+
+/* --- Base (< 600px): stacked cards -------------------------------------- */
+/* A standings table must never scroll horizontally on a phone (§12.3). */
+
+/* The table element and its row group become blocks so the rows can be grid
+   cards. Leaving tbody as `table-row-group` around grid rows makes engines
+   generate anonymous table boxes, which reintroduces the overflow this layout
+   exists to avoid. */
+.standings { width: 100%; border-collapse: collapse; display: block; }
+
+.standings tbody { display: block; }
+
+.standings thead { display: none; }
+
+.standings tr {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 2px 10px;
+	background: var(--surface);
+	border: var(--line-w) solid var(--line);
+	border-radius: var(--radius);
+	padding: 12px;
+	margin-bottom: 8px;
+}
+
+.standings td { display: block; padding: 0; }
+
+.standings .col-rank { grid-row: 1 / span 2; align-self: center; }
+.standings .col-team { grid-column: 2; }
+
+/* The four figures sit in a row beneath the name, each labelled by its header. */
+.standings .col-num {
+	grid-column: 2;
+	display: inline-flex;
+	gap: 5px;
+	margin-right: 14px;
+	color: var(--text);
+	font-size: 13px;
+}
+
+.standings .col-num::before {
+	content: attr(data-label);
+	color: var(--text-muted);
+	font-size: 11px;
+	align-self: center;
+}
+
+.standings .col-emph { font-weight: 500; }
+
+/* --- >= 600px: a real table --------------------------------------------- */
+
+@media (min-width: 600px) {
+	.page { padding: 28px 24px 56px; }
+
+	/* Hairline separators only: no zebra striping, no vertical rules, no outer
+	   border (§12.4). */
+	.standings { display: table; }
+	.standings tbody { display: table-row-group; }
+	.standings thead { display: table-header-group; }
+	.standings tr {
+		display: table-row;
+		background: none;
+		border: 0;
+		border-bottom: var(--line-w) solid var(--line);
+		border-radius: 0;
+		padding: 0;
+		margin: 0;
+	}
+
+	.standings th {
+		text-align: right;
+		color: var(--text-muted);
+		font-size: 11px;
+		font-weight: 400;
+		padding: 0 0 8px 14px;
+		border-bottom: var(--line-w) solid var(--line);
+	}
+
+	.standings td {
+		display: table-cell;
+		text-align: right;
+		padding: 10px 0 10px 14px;
+		vertical-align: middle;
+	}
+
+	.standings th.col-rank, .standings td.col-rank { text-align: left; padding-left: 0; width: 34px; }
+	.standings th.col-team, .standings td.col-team { text-align: left; }
+
+	.standings .col-num { display: table-cell; margin: 0; }
+	.standings .col-num::before { content: none; }
+}
+
+@media (min-width: 900px) {
+	.page { max-width: 960px; margin: 0 auto; }
+	body { font-size: 15px; padding-bottom: 0; }
+	.page-title { font-size: 22px; }
+	.section-title { font-size: 18px; }
+
+	/* Bottom bar becomes a top band. The band is full-bleed; only its contents
+	   are constrained, so the navy reads as structure rather than a floating box. */
+	.nav {
+		position: static;
+		border-top: 0;
+		border-bottom: var(--line-w) solid var(--navy-line);
+	}
+
+	.nav-inner {
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 0 24px;
+	}
+
+	/* The top band has room, so the type returns to the body size. */
+	.nav-link {
+		flex: 0 0 auto;
+		padding: 0 18px;
+		justify-content: flex-start;
+		font-size: 13px;
+		overflow: visible;
+	}
+
+	.nav-link:first-child { padding-left: 0; }
+}

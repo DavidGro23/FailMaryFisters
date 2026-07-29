@@ -9,12 +9,13 @@
     "node": ">=24"
   },
   "scripts": {
-    "build": "echo \"stages 2-4 not implemented\" && exit 1",
+    "build": "tsc -p tsconfig.web.json && node pipeline/cli/build.ts",
     "build:data": "node pipeline/cli/build-data.ts",
     "typecheck": "tsc --noEmit -p tsconfig.pipeline.json && tsc --noEmit -p tsconfig.web.json",
     "test": "node --test \"pipeline/**/*.test.ts\"",
     "serve": "node pipeline/cli/serve.ts",
-    "audit:managers": "node pipeline/cli/audit-managers.ts"
+    "audit:managers": "node pipeline/cli/audit-managers.ts",
+    "fetch:avatars": "node pipeline/cli/fetch-avatars.ts"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",

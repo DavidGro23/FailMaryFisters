@@ -35,6 +35,13 @@ export const HAND_WRITTEN = {
 	assets: "assets",
 } as const;
 
+/**
+ * Directories inside a league folder that are ours rather than the export's.
+ * Anything else that is not a season year gets a warning, which is how a
+ * stray or misnamed folder announces itself.
+ */
+const KNOWN_NON_SEASON_DIRS: ReadonlySet<string> = new Set([HAND_WRITTEN.assets, "rulebook"]);
+
 export interface DiscoveredSeason {
 	year: number;
 	path: string;
@@ -92,8 +99,7 @@ export function discoverLeagues(
 			const childPath = join(path, child);
 			if (!isDirectory(childPath)) continue;
 			if (!/^\d+$/.test(child)) {
-				// `assets/` is a known, expected non-season directory.
-				if (child !== HAND_WRITTEN.assets) {
+				if (!KNOWN_NON_SEASON_DIRS.has(child)) {
 					v.warn(CODES.UNEXPECTED_ENTRY, `Ignoring directory "${child}": not a season year.`, {
 						league: entry,
 					});

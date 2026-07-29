@@ -56,7 +56,10 @@ npm run typecheck      # tsc --noEmit on both tsconfigs
 npm run test           # unit tests (stage 1 loader today, stage 3 aggregate later)
 npm run serve          # local static server on dist/
 npm run audit:managers # D2 manager identity report — run this before trusting cross-season data
+npm run fetch:avatars  # MANUAL, network-touching. Downloads avatars into raw-data/<league>/assets/
 ```
+
+**`fetch:avatars` is the only script that touches the network, and it is never part of a build.** Its output is committed and the build reads only those local files (rule 19, NFR-8, D10). Re-run it when a season is added or someone changes their avatar; pass `--force` to re-download existing files.
 
 Run `npm run typecheck` and `npm run test` before considering any change done.
 
@@ -92,7 +95,7 @@ These come from real defects found in the 2025 export. Violating any of them pro
 
 11. **Resolve roster and scoring rules per season. Never generalise from 2025.** All nine seasons have a populated `dstSettings`, including 2025 which has no DEF roster slot and no DEF player anywhere — vestigial platform default, filter it out by `rosterPositions`. Measured transitions: **K dropped in 2019, IR added in 2020, DEF dropped in 2025**, and `WRRB_FLEX` went 1 → 2 (2021) → 3 (2025). Starter counts are 9, except **8 in 2019 and 2020**. Any position-aware code reads that season's slot definition; nothing hardcodes the position set.
 
-12. **`WRRB_FLEX` accepts WR and RB only.** Not TE. Relevant to any optimal-lineup logic.
+12. **`WRRB_FLEX` accepts WR, RB *and* TE — the slot name lies.** The league's own rulebook (§2.2) specifies "3 FLEX (RB/WR/TE)", and the data agrees: of 2459 FLEX starts across nine seasons, **58 are tight ends**, the first being Vernon Davis in 2017 week 10. Never infer eligibility from the platform's slot name. Relevant to any optimal-lineup logic (§9.6), which would otherwise exclude a legal option.
 
 13. **Never match on `roundLabel`.** The final is `"Championship"` in **2017–2018** and `"Fantasy Super Bowl"` from **2019 on**. Identify it as `bracketType === "Championship"` with the highest `round` that season. Early consolation rounds have `roundLabel: ""`.
 
@@ -196,7 +199,12 @@ Full list in `requirements-specification.md` §13. The ones that bite immediatel
 - **Site language is English**, `<html lang="en">`. Team and manager names appear exactly as exported.
 - **Never call `toLocaleString()` without a locale.** On a German browser 1848.60 renders as `1.848,60`. Use a single shared `Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })`. Points 2 decimals, percentages 1, records as `12–3` with an en dash.
 - **`dist/.nojekyll` must exist.** GitHub Pages runs Jekyll, which silently drops underscore-prefixed paths — `_validation.json` would vanish in production with no error.
-- **Base path**: publishing as a user site (`<user>.github.io`) keeps it `/`. If it becomes a project site, every absolute URL must go through a `BASE_PATH` constant.
+- **Base path**: this deploys as a GitHub **project** site at
+  `https://davidgro23.github.io/FailMaryFisters/`. `BASE_PATH` is `/FailMaryFisters/`.
+  Every absolute URL — pages, CSS, JSON fetches in `src/web/`, rule 16 redirect pages —
+  must be constructed through that constant. Never hardcode a leading `/`.
+  `npm run serve` must mirror this prefix locally, or production-only link breakage
+  will not be caught in development.
 - **`esc()` every interpolated value.** Player names contain apostrophes (`Ja'Marr Chase`). Templating is plain tagged template literals — no engine, no dependency.
 - **Never re-sort standings.** Use `overallRank` from the export; it already carries the league's tiebreak. 2025 has three teams at 7-8.
 - **Tests use `node:test`.** Do not add vitest or jest.

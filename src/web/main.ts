@@ -1,10 +1,14 @@
-// Placeholder so `tsc -p tsconfig.web.json` has an input to compile.
-// Stage 4 replaces this with the real progressive-enhancement entry point
-// (H2H matrix, table sorting, lazy-loaded box scores).
-//
-// Reminder for whoever writes that code: relative imports in `src/web/` must
-// carry the `.js` extension (`import { x } from "./h2h.js"`) because the
-// browser loads these as native ES modules with no bundler. This is the
-// opposite of `pipeline/`, which uses `.ts` extensions and runs under Node's
-// native type stripping.
-export {};
+/**
+ * Browser entry point.
+ *
+ * Everything here is progressive enhancement: each page renders complete and
+ * correctly ordered as static HTML, and this script only adds interaction
+ * (NFR-7). Nothing fetches, and no page depends on it having run.
+ *
+ * Relative imports carry the `.js` extension because the browser loads these as
+ * native ES modules with no bundler — the compiled file is what resolves.
+ */
+
+import { initTableSort } from "./table-sort.js";
+
+initTableSort();

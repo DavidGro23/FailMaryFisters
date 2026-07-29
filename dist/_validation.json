@@ -1,12 +1,12 @@
 {
 	"issues": [
 		{
-			"stage": "load",
+			"stage": "normalize",
 			"severity": "info",
-			"code": "hand-written-file-absent",
-			"message": "Hand-maintained assets is not present; avatars are not yet vendored locally.",
+			"code": "avatar-missing",
+			"message": "26 of 90 team-seasons have no vendored avatar; those render as an initial.",
 			"league": "5613993-failmaryfisters",
-			"file": "assets"
+			"file": "assets/avatars.json"
 		},
 		{
 			"stage": "load",
@@ -19,20 +19,21 @@
 		{
 			"stage": "load",
 			"severity": "info",
-			"code": "hand-written-file-absent",
-			"message": "Hand-maintained manager-aliases.json is not present; URL slugs stay underived until it exists.",
-			"league": "5613993-failmaryfisters",
-			"file": "manager-aliases.json"
-		},
-		{
-			"stage": "load",
-			"severity": "info",
 			"code": "empty-field",
 			"message": "8 record(s) have an empty nflTeam; those players have no season-accurate team.",
 			"league": "5613993-failmaryfisters",
 			"year": 2017,
 			"file": "player-matchup-statistics-history.json",
 			"field": "nflTeam"
+		},
+		{
+			"stage": "normalize",
+			"severity": "info",
+			"code": "player-score-sign-corrected",
+			"message": "13 player score(s) in 2017 were stored as the magnitude of a negative value and have been negated (D17).",
+			"league": "5613993-failmaryfisters",
+			"year": 2017,
+			"file": "player-matchup-statistics-history.json"
 		},
 		{
 			"stage": "load",
@@ -65,6 +66,15 @@
 			"field": "nflTeam"
 		},
 		{
+			"stage": "normalize",
+			"severity": "info",
+			"code": "player-score-sign-corrected",
+			"message": "12 player score(s) in 2018 were stored as the magnitude of a negative value and have been negated (D17).",
+			"league": "5613993-failmaryfisters",
+			"year": 2018,
+			"file": "player-matchup-statistics-history.json"
+		},
+		{
 			"stage": "load",
 			"severity": "info",
 			"code": "player-not-in-registry",
@@ -83,6 +93,15 @@
 			"year": 2019,
 			"file": "player-matchup-statistics-history.json",
 			"field": "nflTeam"
+		},
+		{
+			"stage": "normalize",
+			"severity": "info",
+			"code": "player-score-sign-corrected",
+			"message": "15 player score(s) in 2019 were stored as the magnitude of a negative value and have been negated (D17).",
+			"league": "5613993-failmaryfisters",
+			"year": 2019,
+			"file": "player-matchup-statistics-history.json"
 		},
 		{
 			"stage": "load",
@@ -105,6 +124,15 @@
 			"field": "nflTeam"
 		},
 		{
+			"stage": "normalize",
+			"severity": "info",
+			"code": "player-score-sign-corrected",
+			"message": "10 player score(s) in 2020 were stored as the magnitude of a negative value and have been negated (D17).",
+			"league": "5613993-failmaryfisters",
+			"year": 2020,
+			"file": "player-matchup-statistics-history.json"
+		},
+		{
 			"stage": "load",
 			"severity": "info",
 			"code": "empty-field",
@@ -125,6 +153,15 @@
 			"field": "nflTeam"
 		},
 		{
+			"stage": "normalize",
+			"severity": "info",
+			"code": "player-score-sign-corrected",
+			"message": "11 player score(s) in 2021 were stored as the magnitude of a negative value and have been negated (D17).",
+			"league": "5613993-failmaryfisters",
+			"year": 2021,
+			"file": "player-matchup-statistics-history.json"
+		},
+		{
 			"stage": "load",
 			"severity": "info",
 			"code": "empty-field",
@@ -133,6 +170,15 @@
 			"year": 2022,
 			"file": "player-matchup-statistics-history.json",
 			"field": "nflTeam"
+		},
+		{
+			"stage": "normalize",
+			"severity": "info",
+			"code": "player-score-sign-corrected",
+			"message": "10 player score(s) in 2022 were stored as the magnitude of a negative value and have been negated (D17).",
+			"league": "5613993-failmaryfisters",
+			"year": 2022,
+			"file": "player-matchup-statistics-history.json"
 		},
 		{
 			"stage": "load",
@@ -145,6 +191,24 @@
 			"field": "nflTeam"
 		},
 		{
+			"stage": "normalize",
+			"severity": "info",
+			"code": "player-score-sign-corrected",
+			"message": "15 player score(s) in 2023 were stored as the magnitude of a negative value and have been negated (D17).",
+			"league": "5613993-failmaryfisters",
+			"year": 2023,
+			"file": "player-matchup-statistics-history.json"
+		},
+		{
+			"stage": "normalize",
+			"severity": "info",
+			"code": "player-score-sign-corrected",
+			"message": "17 player score(s) in 2024 were stored as the magnitude of a negative value and have been negated (D17).",
+			"league": "5613993-failmaryfisters",
+			"year": 2024,
+			"file": "player-matchup-statistics-history.json"
+		},
+		{
 			"stage": "load",
 			"severity": "info",
 			"code": "player-not-in-registry",
@@ -153,16 +217,27 @@
 			"year": 2024,
 			"file": "players.json",
 			"field": "playerId"
+		},
+		{
+			"stage": "normalize",
+			"severity": "info",
+			"code": "player-score-sign-corrected",
+			"message": "3 player score(s) in 2025 were stored as the magnitude of a negative value and have been negated (D17).",
+			"league": "5613993-failmaryfisters",
+			"year": 2025,
+			"file": "player-matchup-statistics-history.json"
 		}
 	],
 	"summary": {
 		"errors": 0,
 		"warnings": 0,
-		"infos": 16,
+		"infos": 24,
 		"byCode": {
+			"avatar-missing": 1,
 			"empty-field": 9,
-			"hand-written-file-absent": 3,
-			"player-not-in-registry": 4
+			"hand-written-file-absent": 1,
+			"player-not-in-registry": 4,
+			"player-score-sign-corrected": 9
 		}
 	}
 }

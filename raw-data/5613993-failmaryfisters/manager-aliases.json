@@ -1,0 +1,56 @@
+[
+	{
+		"userId": "5076030",
+		"slug": "slicerkompanie",
+		"note": "moritz. Commissioner: records several trades they are not a party to."
+	},
+	{
+		"userId": "15472989",
+		"slug": "true-07-thugs"
+	},
+	{
+		"userId": "15011294",
+		"slug": "oakland-mambas"
+	},
+	{
+		"userId": "15479554",
+		"slug": "tsv-allach-09"
+	},
+	{
+		"userId": "2035166",
+		"slug": "soft-gay-fisting",
+		"note": "Alex. Played 2017-2018 only, then teamId 5 passed to 21881840."
+	},
+	{
+		"userId": "9062581",
+		"slug": "saintology",
+		"retiredSlugs": ["larsvegasraiders"],
+		"note": "Benjamin. The only manager who ever renamed a team (LarsVegasRaiders -> Saintology, 2018). The slug was frozen from the current name; the retired slug is recorded so a redirect can be emitted if that name was ever shared."
+	},
+	{
+		"userId": "15007746",
+		"slug": "ohood-cardinals"
+	},
+	{
+		"userId": "5071362",
+		"slug": "magico-iguanas"
+	},
+	{
+		"userId": "15317028",
+		"slug": "sg-drugs-bucs"
+	},
+	{
+		"userId": "15007328",
+		"slug": "railgunners"
+	},
+	{
+		"userId": "21881840",
+		"slug": "crazy-caught-carps",
+		"note": "Christian. Managed teamId 5 for 2019-2024. A different person from 19557057 despite the shared managerName - confirmed by the league."
+	},
+	{
+		"userId": "19557057",
+		"slug": "nhs-bengalz",
+		"note": "Christian. Took over teamId 5 in 2025. A different person from 21881840."
+	}
+]

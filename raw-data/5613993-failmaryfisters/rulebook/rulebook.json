@@ -1,0 +1,337 @@
+{
+	"title": "FailMaryFisters Rulebook",
+	"version": "3.0",
+	"source": "Rulebook/FailMaryFisters_Rulebook_v3.pdf",
+	"sourceNote": "Transcribed from the PDF with `pdftotext -raw`, which pairs table cells correctly where `-layout` shifts them by a row. Text is reproduced verbatim, including the document's own typos and its duplicate section numbering. The change history is moved to the end: it sits on page 3 of the PDF, which reads as a wall of metadata before the rules on a web page. The scoring tables were cross-checked against settings-history.json and match exactly.",
+	"blocks": [
+		{ "type": "heading", "level": 2, "number": "1.", "text": "Code of Conduct" },
+		{ "type": "paragraph", "text": "While fantasy football is usually an extremely competitive endeavor, it is important to remember that enjoyment of the game is predicated on a certain level of sportsmanship displayed by the participants. Occasionally, some team owners intentionally or unknowingly cross the line." },
+
+		{ "type": "heading", "level": 3, "number": "1.1.", "text": "Collusion" },
+		{ "type": "paragraph", "text": "Collusion occurs when one team makes moves to benefit another team, without trying to improve its own position. One-sided trades are an obvious example of this. Another example is when a player drop is made so another team can pick up that player." },
+
+		{ "type": "heading", "level": 3, "number": "1.2.", "text": "Illegal Trades and Rent of Players" },
+		{ "type": "paragraph", "text": "Certain transactions made solely to impede other owners is not allowed. Tanking games for the sole purpose of denying another player's chance to make the playoffs is against the rules. In particular, cycling through players in free agency to put them on waivers and make them unavailable to other teams in your league is strictly prohibited." },
+
+		{ "type": "heading", "level": 3, "number": "1.3.", "text": "Communication" },
+		{ "type": "paragraph", "text": "Owners should always be polite and gracious when dealing with one another. Threats and obscenities are not only against the Rules, they are illegal in many jurisdictions. Owners that are found to have sent threatening email to another owner will be warned and/or kicked out of the game completely. This extends to message board posts as well. Any posts (including league and team names) of a derogatory nature are strictly prohibited, whether it is in a chat room, message board or on a league's bulletin board. This includes personal attacks and sexist or racist remarks. There will be a zero-tolerance level." },
+
+		{ "type": "heading", "level": 3, "number": "1.4.", "text": "Inactivity" },
+		{ "type": "paragraph", "text": "To maintain the integrity of the league, the commissioner may contact owners of teams that remain inactive for extended periods of time. The commissioner will send notification to the email of record. Shortly thereafter, if the team remains inactive, the commissioner reserves the right to reassign ownership of the inactive team." },
+
+		{ "type": "heading", "level": 3, "number": "1.5.", "text": "Integrity" },
+		{ "type": "paragraph", "text": "It is forbidden to intentionally leave a roster spot empty on game day and a team must always start a competitive line-up." },
+
+		{ "type": "heading", "level": 2, "number": "1.", "text": "General" },
+		{ "type": "heading", "level": 3, "number": "1.1.", "text": "Commissioner" },
+		{ "type": "paragraph", "text": "The Commissioners of the League “FailMaryFisters” are:" },
+		{ "type": "list", "items": ["Moritz Overbeck", "Christopher Plehn"] },
+
+		{ "type": "heading", "level": 3, "number": "1.2.", "text": "Platform" },
+		{ "type": "paragraph", "text": "The League will be played on NFL.com." },
+
+		{ "type": "heading", "level": 3, "number": "1.3.", "text": "Ownerships" },
+		{ "type": "paragraph", "text": "Each team must have at least one owner. Multi owner teams can only be managed through one account." },
+		{ "type": "paragraph", "text": "Team names shall be fixed throughout the season. Renaming of a team is only allowed in the off-season. Deadline to fix your Team name is the draft day of the respective season." },
+		{
+			"type": "table",
+			"columns": ["Team", "Owner"],
+			"rows": [
+				["Saintology", "Benni"],
+				["Magico Iguanas", "Jesus"],
+				["Oakland Mambas", "Dani"],
+				["OHood Cardinals", "Leo"],
+				["Railgunners", "Basti"],
+				["SG Drucs-Bucs", "Gigi"],
+				["Slicerkompanie", "Moe"],
+				["NHS Bengalz", "Zäch"],
+				["true 07 thugs", "Dave"],
+				["TSV Allach 09", "Felix"]
+			]
+		},
+
+		{ "type": "heading", "level": 2, "number": "2.", "text": "League Rules" },
+		{ "type": "heading", "level": 3, "number": "2.1.", "text": "League Size" },
+		{ "type": "paragraph", "text": "The League will be played as a 10-Team league. Each team must be owned by at least one person. Owning or coaching two teams in the same league at the same time is strictly prohibited." },
+
+		{ "type": "heading", "level": 3, "number": "2.2.", "text": "Team size" },
+		{ "type": "paragraph", "text": "Each team may consist of 15 players." },
+		{ "type": "paragraph", "text": "The starting lineup consists of 9 players:" },
+		{ "type": "list", "items": ["1 Quarterback", "2 Running back", "2 Wide Receiver", "1 Tight End", "3 FLEX (RB/WR/TE)"] },
+		{ "type": "paragraph", "text": "In Addition, every owner may hold up to" },
+		{ "type": "list", "items": ["6 Bench players", "2 Injured Reserve"] },
+
+		{ "type": "heading", "level": 3, "number": "2.3.", "text": "Scoring" },
+		{ "type": "heading", "level": 4, "number": "2.3.1.", "text": "Offense" },
+		{ "type": "heading", "level": 5, "number": "2.3.1.1.", "text": "General" },
+		{
+			"type": "table",
+			"columns": ["Stat", "Points"],
+			"rows": [
+				["Receptions", "0.5 Points"],
+				["Fumble lost", "-2 Points"],
+				["Fumble recovered for TD", "6 Points"],
+				["2-Pt-Conversion", "2 Points"]
+			]
+		},
+		{ "type": "heading", "level": 5, "number": "2.3.1.2.", "text": "Receiving" },
+		{
+			"type": "table",
+			"columns": ["Stat", "Points"],
+			"rows": [
+				["Receiving Yards", "1 Point per 10 Yards"],
+				["Receiving TD", "6 Points"]
+			]
+		},
+		{ "type": "heading", "level": 5, "number": "2.3.1.3.", "text": "Rushing" },
+		{
+			"type": "table",
+			"columns": ["Stat", "Points"],
+			"rows": [
+				["Rushing Yards", "1 Point per 10 Yards"],
+				["Rushing TD", "6 Points"]
+			]
+		},
+		{ "type": "heading", "level": 5, "number": "2.3.1.4.", "text": "Passing" },
+		{
+			"type": "table",
+			"columns": ["Stat", "Points"],
+			"rows": [
+				["Passing Yards", "1 Point per 25 Yards"],
+				["Passing TD", "4 Points"],
+				["Interception thrown", "-2 Points"]
+			]
+		},
+
+		{ "type": "heading", "level": 4, "number": "2.3.2.", "text": "Defense" },
+		{ "type": "heading", "level": 5, "number": "2.3.2.1.", "text": "D/ST" },
+		{
+			"type": "table",
+			"columns": ["Stat", "Points"],
+			"rows": [
+				["Sacks", "1 point"],
+				["Interceptions", "2 points"],
+				["Fumbles Recovered", "2 points"],
+				["Safeties", "2 points"],
+				["Touchdowns", "6 points"],
+				["Points Allowed 0", "10 points"],
+				["Points Allowed 1-6", "7 points"],
+				["Points Allowed 7-13", "4 points"],
+				["Points Allowed 14-20", "1 point"],
+				["Points Allowed 21-27", "0 points"],
+				["Points Allowed 28-34", "-1 points"],
+				["Points Allowed 35+", "-4 points"],
+				["Team Def 2-point Return", "2 points"],
+				["Return Touchdowns", "6 points"]
+			]
+		},
+
+		{ "type": "heading", "level": 3, "number": "2.4.", "text": "Regular Season" },
+		{ "type": "paragraph", "text": "The Regular Season will start with Week 1 of the NFL. The last games of the regular Season will be played in Week 15 of the NFL." },
+
+		{ "type": "heading", "level": 3, "number": "2.5.", "text": "Playoffs" },
+		{ "type": "paragraph", "text": "Playoffs will be played in Week 16 and Week 17 of the regular season of the NFL. The Regular Season standing will determine the Playoff eligibility. Teams ranked from 5-8 will be eligible for Runner-up-Playoffs. Teams ranked from 1-4 will be eligible for Championship Playoffs. Team#1 plays Team#4 and Team#5 plays Team#8 and so on. Teams placed 9th and 10th will be eliminated from the playoffs. Full Details see Chapter 4.1." },
+		{ "type": "paragraph", "text": "The Playoffs will determine the Chances for the Draft Lottery. Full Details see Chapter 4.1." },
+
+		{ "type": "heading", "level": 3, "number": "2.6.", "text": "Tie-Breaker for league standings" },
+		{ "type": "paragraph", "text": "If two or more teams have the same winning percentage, the tie breaker will determine the ranking of those teams. The tie-breaking hierarchy will be executed as follows:" },
+		{ "type": "list", "ordered": true, "items": ["Winning percentage", "Points for", "Points against"] },
+
+		{ "type": "heading", "level": 3, "number": "2.7.", "text": "Roster Lock" },
+		{ "type": "paragraph", "text": "The Roster Lock setting used will be “Game-Time”." },
+		{ "type": "paragraph", "text": "A player will be locked at game time of his corresponding team matchup in the NFL" },
+
+		{ "type": "heading", "level": 2, "number": "3.", "text": "Participation" },
+		{ "type": "heading", "level": 3, "number": "3.1.", "text": "Confirmed Participation" },
+		{ "type": "paragraph", "text": "Each Owner will confirm his participation through the Buy-In and active participation in the respective WhatsApp Group." },
+
+		{ "type": "heading", "level": 3, "number": "3.2.", "text": "Buy-In" },
+		{ "type": "paragraph", "text": "The Buy-In for the league is: 100 €. The Buy-in has to be transferred to the publicly announced bank/paypal account. (Point of Contact: Leo Glaser)" },
+
+		{ "type": "heading", "level": 3, "number": "3.3.", "text": "Pay-out structure" },
+		{ "type": "paragraph", "text": "The pay-out will be done according to the following structure" },
+		{
+			"type": "table",
+			"columns": ["Regular season", "Pay-out"],
+			"rows": [
+				["1st Place", "450€"],
+				["2nd Place", "250€"],
+				["3rd Place", "100€"],
+				["Most Points", "100€"]
+			]
+		},
+		{
+			"type": "table",
+			"columns": ["Playoffs", "Pay-out"],
+			"rows": [["Winner", "100€ + Ring + 1 year trophy ownership and team engraving."]]
+		},
+
+		{ "type": "heading", "level": 2, "number": "4.", "text": "Draft" },
+		{ "type": "heading", "level": 3, "number": "4.1.", "text": "Draft order" },
+		{ "type": "paragraph", "text": "The draft order is determined through a hierarchical picking system. The order of the picks is determined by a lottery during the offseason. Details see 5.4." },
+		{ "type": "paragraph", "text": "During the Draft the order will be reversed after each round leading to a snake draft." },
+
+		{ "type": "heading", "level": 3, "number": "4.2.", "text": "Staging" },
+		{ "type": "heading", "level": 4, "number": "4.2.1.", "text": "Online" },
+		{ "type": "paragraph", "text": "The Draft is generally to be conducted via the selected Platform of the league. The Draft shall be held between the NFL Pre-Season and the regular season. Time per pick see 5.3.2." },
+		{ "type": "heading", "level": 4, "number": "4.2.2.", "text": "Offline" },
+		{ "type": "paragraph", "text": "If all owners are concluding that an offline draft is the more suitable way to conduct the draft, details to it shall be mentioned under this paragraph. Time per pick see 5.3.2." },
+
+		{ "type": "heading", "level": 3, "number": "4.3.", "text": "Modus" },
+		{ "type": "heading", "level": 4, "number": "4.3.1.", "text": "Standard Draft" },
+		{ "type": "paragraph", "text": "The Draft will follow the rules of the standard setting on NFL.com." },
+		{ "type": "heading", "level": 4, "number": "4.3.2.", "text": "Time per pick" },
+		{ "type": "paragraph", "text": "Each owner will have 120 seconds for his pick." },
+
+		{ "type": "heading", "level": 3, "number": "4.4.", "text": "Lottery Rules" },
+		{ "type": "paragraph", "text": "The lottery will be conducted by the commissioner or a person enabled by the commissioner. The results shall be published in close time. The lottery shall be supervised by at least one other person than the commissioner or the co-commissioner." },
+		{ "type": "heading", "level": 4, "number": "4.4.1.", "text": "Picking order lottery" },
+		{ "type": "paragraph", "text": "The Lottery for the picking order shall take place before the regular season, best during the NFL Pre-season and is done annually." },
+		{ "type": "paragraph", "text": "The lottery will determine the picking hierarchy for the upcoming draft pick selection. Each team has a certain amount of balls in the pot. The amount of balls is either determined by the standing of the previous regular season (9th + 10thplace) or by the result of the playoffs. See the following playoff structure for the chances for the first pick:" },
+		{
+			"type": "image",
+			"file": "playoff-structure.png",
+			"alt": "Playoff structure diagram showing the championship bracket, the runner-up bracket and the eliminated teams, each with its percentage chance at the first draft pick.",
+			"caption": "Playoff structure and first-pick chances, reproduced from the rulebook PDF."
+		},
+		{
+			"type": "table",
+			"caption": "The same chances as text. Transcribed from the diagram above; they total 100%.",
+			"columns": ["Bracket", "Outcome", "Chance at first pick"],
+			"rows": [
+				["Championship game", "Winner", "1%"],
+				["Championship game", "Loser", "2%"],
+				["Game for third", "Winner", "5%"],
+				["Game for third", "Loser", "3%"],
+				["Game for 5th", "Winner", "16%"],
+				["Game for 5th", "Loser", "12%"],
+				["Game for 7th", "Winner", "10%"],
+				["Game for 7th", "Loser", "6%"],
+				["Eliminated", "9th place regular season", "20%"],
+				["Eliminated", "10th place regular season", "25%"]
+			]
+		},
+		{ "type": "heading", "level": 4, "number": "4.4.2.", "text": "Procedure" },
+		{ "type": "paragraph", "text": "The Lottery starts with the first selection to be determined; therefore, the commissioner draws a ball from the pool and announces the team name. Afterwards all remaining balls of the drawn team must be removed from the pot. The commissioner than draws a ball for each of the remaining selections following the same procedure. The last draw determines the last selection." },
+		{ "type": "paragraph", "text": "The lottery shall be supervised by at least one other person than the commissioner or the co-commissioner." },
+
+		{ "type": "heading", "level": 3, "number": "4.5.", "text": "Undrafted players – Post draft" },
+		{ "type": "paragraph", "text": "Undrafted Players are placed on the waiver wire after the draft." },
+
+		{ "type": "heading", "level": 2, "number": "5.", "text": "Waiver Wire" },
+		{ "type": "paragraph", "text": "Players will be on the Waiver Wire if, (but not limited to):" },
+		{
+			"type": "list",
+			"items": [
+				"their team already played this week",
+				"they have been owned and dropped by another owner in the previous week",
+				"they have been owned and dropped by another owner for more than 24 hours",
+				"they have not been drafted"
+			]
+		},
+		{ "type": "paragraph", "text": "General NFL.com Waiver logic applies." },
+
+		{ "type": "heading", "level": 3, "number": "5.1.", "text": "Waiver Order/Priority" },
+		{ "type": "paragraph", "text": "Move to Last After Claim - the waiver order is not reset every week, instead waiver priority is based on a continual rolling list, where a team will be moved to the end after a successful waiver claim." },
+		{ "type": "paragraph", "text": "Waiver bids are conducted using the FAAB system. The highest offer will be rewarded the player. If 2 or more teams submit the same offer, the waiver priority will determine which teams is awarded with the respective player." },
+		{ "type": "paragraph", "text": "FAAB Points per team and season: 1000" },
+
+		{ "type": "heading", "level": 3, "number": "5.2.", "text": "Waiver Period" },
+		{ "type": "paragraph", "text": "The Waiver period will be 2 days. Therefore, the first waiver of a week will take place on Thursday morning." },
+
+		{ "type": "heading", "level": 3, "number": "5.3.", "text": "Keeper Rules for Waiver adds" },
+		{ "type": "paragraph", "text": "Players waived off the Waiver Wire will be treated specially concerning the procedure when it comes to keeping a player." },
+		{ "type": "paragraph", "text": "“Waiver Keeper” will have a set Draft Value and can be kept for a 10th Round Draft Pick. If a team wants to keep more than 1 Player from the Waiver Wire, the second player can be kept for a 9th Round Draft Pick, the third for an 8th Round Draft Pick." },
+		{ "type": "paragraph", "text": "A player that has been drafted and placed on the waiver wire during the season keeps his initial draft value. A player that has not been drafted, receives the value of his last corresponding transaction on the waiver wire/free agents market." },
+		{ "type": "paragraph", "text": "A Team who wants to keep a drafted player with the same value as the corresponding “Waiver Keeper” must give up one higher draft position. (e.g. Team A wants to keep a player that was drafted in the 10th round and also wants to keep a player from the waiver wire, than the team must give up its 9th round pick for the player from the waiver wire.)" },
+
+		{ "type": "heading", "level": 2, "number": "6.", "text": "Trades" },
+		{ "type": "paragraph", "text": "There will be no maximum number of trades during a week or throughout the season." },
+
+		{ "type": "heading", "level": 3, "number": "6.1.", "text": "Trade Announcement" },
+		{ "type": "paragraph", "text": "Every trade must be announced to the commissioner after its proceeding on nfl.com." },
+		{ "type": "paragraph", "text": "The announcement must be made according to the following time table:" },
+		{
+			"type": "list",
+			"items": [
+				"From Monday to Friday, trades can only be announced to the commissioner between 08.00 and 23.00 o’clock.",
+				"On Sundays, trades can only be announced to the commissioner between 10.00 and 18.00 o’clock or until 1 hour prior to the respecting kickoff times of the players involved in the trade (e.g. 21:05, 21:25 etc.). Trades involving players in a Sunday night game can only be announced until 23:00 on Sunday evening."
+			]
+		},
+
+		{ "type": "heading", "level": 3, "number": "6.2.", "text": "Review Mode" },
+		{ "type": "paragraph", "text": "Every Trade will undergo a Review by the commissioner. If there are concerns about the legality of the trade, the trade might be subject to a vote and if needed rejected by the commissioner. If the trade is about to be rejected, the vote must be unanimously (all owners, except the involved parties, must vote against the trade)." },
+
+		{ "type": "heading", "level": 3, "number": "6.3.", "text": "Conditions for Rejection" },
+		{ "type": "paragraph", "text": "Subject for rejection is the fulfillment of one or more of the following:" },
+		{ "type": "paragraph", "text": "The Trade" },
+		{ "type": "list", "items": ["is solely made up to damage another owner.", "is against the general code of conduct."] },
+		{ "type": "paragraph", "text": "All other reasons may be subject for rejection if all owners votes against a trade." },
+
+		{ "type": "heading", "level": 3, "number": "6.4.", "text": "Trade types" },
+		{ "type": "heading", "level": 4, "number": "6.4.1.", "text": "Trades only involving players" },
+		{ "type": "paragraph", "text": "Trades not involving any draft pick may be conducted at any time during the regular season." },
+		{ "type": "heading", "level": 4, "number": "6.4.2", "text": "Trades involving players and/or draft picks" },
+		{ "type": "paragraph", "text": "If an owner trades for a Draft Pick it must be ensured, that no team has more or less than 15 picks in total for any season." },
+		{ "type": "heading", "level": 4, "number": "6.4.3", "text": "Off-season Trades" },
+		{ "type": "paragraph", "text": "Off-Season trades are not allowed until 24h before the scheduled draft time." },
+
+		{ "type": "heading", "level": 3, "number": "6.5.", "text": "Trade Deadline" },
+		{ "type": "paragraph", "text": "The Trade Deadline will be in Week 10." },
+		{ "type": "paragraph", "text": "2025 Season: 14.11.2025" },
+
+		{ "type": "heading", "level": 2, "number": "7.", "text": "Adds" },
+		{ "type": "paragraph", "text": "There will be no maximum number of acquisitions during a week or throughout the season." },
+		{ "type": "heading", "level": 3, "number": "7.1.", "text": "Free Agents Rules" },
+		{ "type": "paragraph", "text": "Players become Free Agents when nobody has waived them off the Waiver Wire and they haven’t played this week yet. Free Agents will be locked at game time. A Free Agent can be kept in exchange for a 12th round pick in the next draft." },
+
+		{ "type": "heading", "level": 2, "number": "8.", "text": "Drops" },
+		{ "type": "heading", "level": 3, "number": "8.1.", "text": "Undroppable Player List" },
+		{ "type": "paragraph", "text": "No undroppable player list will be used." },
+
+		{ "type": "heading", "level": 2, "number": "9.", "text": "Injury Reserve Spots" },
+		{ "type": "paragraph", "text": "In general, the eligibility for an IR spot will be determined by the NFL.com rules and logic. If a player is placed in the IR spot as is not eligibile for IR anymore, all roster moves (trades, waiver, adds etc.) are prohibited as long as the player is on IR." },
+
+		{ "type": "heading", "level": 2, "number": "10.", "text": "Keeper Settings" },
+		{ "type": "heading", "level": 3, "number": "10.1.", "text": "Keepable Players" },
+		{ "type": "paragraph", "text": "All players can be kept, except Players who were drafted in the first round in the previous draft." },
+		{ "type": "heading", "level": 3, "number": "10.2.", "text": "Keeper Rules" },
+		{ "type": "paragraph", "text": "Each owner may keep up to 3 players from the previous season and carry them on for the next season. If the player was picked up from the waiver wire, the owner shall give up the Draft picks mentioned under 6.3. If the player was picked as a free agent during the season, the owner shall give up the Draft picks mentioned under 7.1. Every Player that has been drafted or was already a keeper before the season, will receive a keeper value equal to its draft/keeper position. This Value will be reduced by 1 in order to determine the actual Draft pick an owner must give up in order to keep the player." },
+		{ "type": "heading", "level": 3, "number": "10.3.", "text": "Keeper Time" },
+		{ "type": "paragraph", "text": "A player can be kept for an unspecified time and can also be kept multiple years in a row. The keeping period ends after the keeper was kept in exchange for a first round pick." },
+		{ "type": "heading", "level": 3, "number": "10.4.", "text": "Keeper Deadline" },
+		{ "type": "paragraph", "text": "All Keepers must be announced until noon on the day before the day the draft will be held or until the communicated Keeper deadline." },
+
+		{ "type": "heading", "level": 2, "number": "11.", "text": "Change-Management" },
+		{ "type": "heading", "level": 3, "number": "11.1.", "text": "Release of new Rules" },
+		{ "type": "paragraph", "text": "The latest version of this rulebook will be published befoe the Regular Season. An actual version of it is accessible via WhatsApp. A request for a new rule or rule change must be announced to the commissioner." },
+		{ "type": "paragraph", "text": "The league should hold an annual Owners Meeting approximately 2 weeks before the NFL All rule changes must be agreed before or during the Owners Meeting. The rulebook shall be updated afterwards." },
+		{ "type": "paragraph", "text": "If a poll is tied after all owners have submitted their vote, the vote will be rejected. The requested rule change will be rejected." },
+		{ "type": "paragraph", "text": "All votes shall be held discrete and non-public until final results are in, unless requested by the majority of owners." },
+		{ "type": "heading", "level": 3, "number": "11.2.", "text": "Changes during the Season" },
+		{ "type": "paragraph", "text": "Changes to this rulebook during an ongoing Season shall be prevented in any way possible. Though if necessary, all changes must be subject of a League poll with more than 75% owners’ acceptance." },
+		{ "type": "heading", "level": 3, "number": "11.3.", "text": "Commissioner Rights" },
+		{ "type": "paragraph", "text": "The Commissioner has several rights, those rights can only be executed through a majority vote of the league owners (e.g. Draft Time, League Size, League Members, Buy In, Editing Teams…)" },
+		{ "type": "heading", "level": 3, "number": "11.4.", "text": "Votes and Polls" },
+		{ "type": "paragraph", "text": "Polls are online for a limited time and will be closed as soon as a majority is reached. A majority is reached when 51% or more Owners have voted the same. Every Change to this Rulebook is set to be reviewed by all Owners." },
+		{ "type": "heading", "level": 3, "number": "11.5.", "text": "Change History" },
+		{ "type": "paragraph", "text": "After the initial release of this document, every change to it must be documented in the change history. See table on Page 3 for details." },
+
+		{ "type": "heading", "level": 2, "number": "12.", "text": "Agreement of Honor" },
+		{ "type": "paragraph", "text": "With my participation and buy-in, I commit myself to the rules and the Code of Conduct stated in the “FailMaryFisters Rulebook” and that any violation of these rules will result in the according punishment. Furthermore, I commit myself to cash in the relevant amount of Buy-In prior to the Deadline." },
+		{ "type": "paragraph", "text": "HAPPY FUCKING FANTASY HERE WE GO", "emphasis": "shout" },
+
+		{ "type": "heading", "level": 2, "text": "Change history" },
+		{ "type": "paragraph", "text": "Page 3 of the PDF. Reproduced here at the end, where it does not sit between a reader and the rules." },
+		{
+			"type": "table",
+			"columns": ["Ver.", "Status", "Edited by", "Affected topics", "Released"],
+			"rows": [
+				["1.0", "First issue", "M.Overbeck", "All", ""],
+				["1.1", "Update 1", "M.Overbeck", "4.3, 5.5, 7.1, 11.4", "11.10.18"],
+				["2.0", "Second Issue", "M.Overbeck", "Yearly Update", ""],
+				["3.0", "Third issue", "M.Overbeck", "FAAB, Keeper rules, Draft lottery,", ""]
+			]
+		}
+	]
+}
