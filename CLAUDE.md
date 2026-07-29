@@ -12,18 +12,55 @@ A static website showing nine seasons (2017–2025) of a private fantasy footbal
 
 ---
 
+## Where the data actually lives
+
+```
+raw-data/
+  5613993-failmaryfisters/          league folder: <leagueId>-<slug>
+    players.json                    global player registry, all seasons
+    2017/ … 2025/                   one folder per season, ten JSON files each
+      draft-history.json
+      end-roster-history.json
+      end-standings-history.json
+      managers-history.json
+      matchup-history.json
+      player-matchup-statistics-history.json
+      playoff-history.json
+      regular-season-standings-history.json
+      settings-history.json
+      trade-history.json
+```
+
+**Discover the league folder and the season folders by reading the directory. Never hardcode `5613993-failmaryfisters` or the year range** — the loader should work if a 2026 folder appears or a second league is added.
+
+Where rules below say `raw-data/players.json`, the real path is `raw-data/<leagueFolder>/players.json`.
+
+**Not yet present, and expected to be hand-written later:**
+
+| File | When it can be written |
+|---|---|
+| `raw-data/<leagueFolder>/manager-aliases.json` | Only **after** `npm run audit:managers` reports the real manager list. Never generate it from guesswork — see rule 16. |
+| `raw-data/<leagueFolder>/league-rules.json` | Any time. Keeper limits, trade deadline, waiver type. |
+| `raw-data/<leagueFolder>/assets/` | Avatar download step, see rule 19. |
+
+Their absence is expected during early stages, not a data error. Stage 1 should report them as missing and continue.
+
+---
+
 ## Commands
 
 ```bash
 npm run build          # full pipeline: load → normalize → aggregate → render → dist/
 npm run build:data     # stages 1–3 only, writes dist/data/ and dist/_validation.json
 npm run typecheck      # tsc --noEmit on both tsconfigs
-npm run test           # unit tests for the aggregate stage
+npm run test           # unit tests (stage 1 loader today, stage 3 aggregate later)
 npm run serve          # local static server on dist/
 npm run audit:managers # D2 manager identity report — run this before trusting cross-season data
 ```
 
 Run `npm run typecheck` and `npm run test` before considering any change done.
+
+**Current state: stage 1 only.** `build` exits 1 by design until stages 2–4 exist, and `build:data` runs the load+validate stage — writing `dist/_validation.json` and `dist/.nojekyll` but not yet `dist/data/`. It exits non-zero if validation reports any error.
 
 ---
 
@@ -31,15 +68,17 @@ Run `npm run typecheck` and `npm run test` before considering any change done.
 
 These come from real defects found in the 2025 export. Violating any of them produces a page that looks right and is wrong. If a task seems to require breaking one, stop and ask.
 
-1. **`teamId` is season-scoped, and it looks deceptively stable.** In both 2017 and 2025, nine of ten `teamId`s map to the same manager — but `teamId` 5 is Alex (`2035166`) in 2017 and Christian (`19557057`) in 2025. Joining on `teamId` merges two different people and produces a wrong all-time table that looks completely plausible. Cross-season identity is `userId` from `managers-history.json`, always. Any unresolvable `(year, teamId)` pair is a build failure, not a warning.
+1. **`teamId` is season-scoped, and it looks deceptively stable.** Nine of ten `teamId`s map to the same manager in all nine seasons — stable enough to look joinable. But `teamId` 5 changed hands twice: Alex (`2035166`, 2017–2018) → Christian (`21881840`, 2019–2024) → Christian (`19557057`, 2025). Joining on `teamId` merges three different people's careers and produces a wrong all-time table that looks completely plausible. Cross-season identity is `userId` from `managers-history.json`, always. Any unresolvable `(year, teamId)` pair is a build failure, not a warning — stage 1 enforces this.
 
-2. **`matchup-history.json` contains playoff and consolation games too.** Classify by whether the `matchupId` appears in `playoff-history.json`. Summing both files double-counts weeks 16–17.
+2. **`matchup-history.json` contains playoff and consolation games too.** Classify by whether the `matchupId` appears in `playoff-history.json`. Summing both files double-counts the playoff weeks — which are 16–17 in most seasons but **15–16 in 2018–2020**, so never hardcode them either.
 
-3. **Regular-season length is derived per season:** `wins + losses + draws` from `regular-season-standings-history.json`. Never hardcode 13, 14, or 15. Verified for 2025: 15 games, and weeks 1–15 of `matchup-history.json` sum exactly to `pointsFor` for all ten teams.
+3. **Regular-season length is derived per season:** `wins + losses + draws` from `regular-season-standings-history.json`. **It really does vary — 15 games, except 14 in 2018, 2019 and 2020.** Never hardcode it. Verified in all nine seasons: weeks 1..N of `matchup-history.json` sum exactly to `pointsFor` for all ten teams.
 
-4. **Team scores come from `matchup-history.json` and nowhere else.** Never recompute a team's score by summing its starters. Two 2025 matchups and six 2017 matchups genuinely don't reconcile, and one 2017 lineup has 8 starters instead of 9 — post-hoc NFL stat corrections. Log to the validation report; never "fix" the displayed score.
+4. **Team scores come from `matchup-history.json` and nowhere else.** Never recompute a team's score by summing its starters. **72 team-games across all nine seasons don't reconcile** (every year has between 2 and 15), and two lineups carry one starter fewer than the slot count. Every delta points the same way — the matchup file is never lower than the starter sum — consistent with player records missing from the stats export. Log to the validation report; never "fix" the displayed score.
 
-5. **`pos` in the roster files is the lineup slot, not the player's position.** A bench player has `pos: "BN"`. Real positions come only from `raw-data/players.json`, a global registry of 725 players (`playerId`, `playerName`, `pos`) covering all seasons. It has no duplicates and covers 100% of 2025 references — but coverage for 2017–2024 is unverified, so unresolved IDs go to the validation report and render as `Unknown Player (<id>)`.
+5. **`pos` in the roster files is the lineup slot, not the player's position.** A bench player has `pos: "BN"`. Real positions come only from `raw-data/<leagueFolder>/players.json`, a global registry of 725 players (`playerId`, `playerName`, `pos`) covering all seasons. It has no duplicates. Coverage is now measured across every season and reference site: **exactly four ids are missing** — `2506467` (2017), `2553568` (2018), `2555464` (2019), `2572042` (2024). Those go to the validation report and render as `Unknown Player (<id>)`.
+
+5a. **Slot names differ between `settings-history.json` and the roster files.** Settings declare `WRRB_FLEX` and `IR`; the roster and player-stat files spell the same slots `FLEX` and `RES`. The string `WRRB_FLEX` never appears as a `pos` value anywhere in the export. Any code joining declared slots to actual lineup records must map between the two vocabularies — see D16. This bites optimal-lineup logic and starter counting first.
 
 6. **Win % is `(W + 0.5·D) / G`.** Ties exist (`draws` field). Never `W / (W + L)`.
 
@@ -51,23 +90,23 @@ These come from real defects found in the 2025 export. Violating any of them pro
 
 10. **`player-matchup-statistics-history.json` has no `year` or `week` field.** Parse both from `matchupId` (`year-week-teamA-teamB`) during normalization and materialize them. Downstream code must never parse that string again.
 
-11. **Resolve roster and scoring rules per season. Never generalise from 2025.** 2025 has a full `dstSettings` block but no DEF roster slot and no DEF player anywhere — vestigial platform default, filter it out by `rosterPositions`. 2017, by contrast, has `K 1` and `DEF 1` slots, a populated `kickingSettings`, `WRRB_FLEX: 1` instead of 3, and no `IR` slot at all (so no `RES` status). Any position-aware code reads that season's slot definition; nothing hardcodes the position set.
+11. **Resolve roster and scoring rules per season. Never generalise from 2025.** All nine seasons have a populated `dstSettings`, including 2025 which has no DEF roster slot and no DEF player anywhere — vestigial platform default, filter it out by `rosterPositions`. Measured transitions: **K dropped in 2019, IR added in 2020, DEF dropped in 2025**, and `WRRB_FLEX` went 1 → 2 (2021) → 3 (2025). Starter counts are 9, except **8 in 2019 and 2020**. Any position-aware code reads that season's slot definition; nothing hardcodes the position set.
 
 12. **`WRRB_FLEX` accepts WR and RB only.** Not TE. Relevant to any optimal-lineup logic.
 
-13. **Never match on `roundLabel`.** The final is `"Championship"` in 2017 and `"Fantasy Super Bowl"` in 2025. Identify it as `bracketType === "Championship"` with the highest `round` that season. Early consolation rounds have `roundLabel: ""`.
+13. **Never match on `roundLabel`.** The final is `"Championship"` in **2017–2018** and `"Fantasy Super Bowl"` from **2019 on**. Identify it as `bracketType === "Championship"` with the highest `round` that season. Early consolation rounds have `roundLabel: ""`.
 
-14. **The `stats` object shape varies by season.** 2017 has 14 keys 2025 lacks (`fgm_*`, `xpm`, `sack`, `int`, `safe`, `pts_allow`, `def_td`, `def_st_td`, `fum_rec`, `def_2pt`). Type it `Record<string, number>`. And `pts_allow`/`def_st_td` have no counterpart in `dstSettings` — stat keys and scoring keys are not 1:1, never derive one from the other.
+14. **The `stats` object shape varies by season, in three tiers:** 25 keys in 2017–2018, 19 in 2019–2024 (kicking keys drop with the K slot), 11 in 2025 (defensive keys drop with the DEF slot). Type it `Record<string, number>`. And `pts_allow`/`def_st_td` have no counterpart in `dstSettings` — stat keys and scoring keys are not 1:1, never derive one from the other.
 
 15. **Never use `managerName` as an identifier or a label.** Two different people are named "Christian" (`21881840` through 2024, `19557057` from 2025). The display name is the manager's **latest team name** — verified unique across every manager, with Benjamin the only renamer (LarsVegasRaiders → Saintology). Collisions are a build failure, never auto-numbered.
 
-16. **Display name and slug are different things.** The display name is derived and may change when someone renames a team. The slug is frozen in `raw-data/manager-aliases.json` and never changes — a team-name-derived slug would break every link already shared in the group chat. Emit HTML redirect pages for retired slugs.
+16. **Display name and slug are different things.** The display name is derived and may change when someone renames a team. The slug is frozen in `raw-data/<leagueFolder>/manager-aliases.json` and never changes — a team-name-derived slug would break every link already shared in the group chat. Emit HTML redirect pages for retired slugs.
 
 17. **The canonical display name is used everywhere, including historical pages.** The 2017 standings read "Saintology", not "LarsVegasRaiders" — in a ten-person league the team name is the person's identity, and nobody remembers the old one. The per-season name lives in `teamsByYear` and is rendered only as muted secondary text where it differs ("Saintology · played as LarsVegasRaiders"). Never use a per-season team name as a primary label.
 
 18. **Keepers are out of scope. Do not attempt to derive them.** The league does use keepers (max 3, from 2018), but they are indistinguishable from ordinary draft picks. The obvious heuristic was tested on 2024 → 2025 and produced 40 candidates with 8 of 10 teams over the limit. If someone asks for keeper display, the answer is a hand-maintained `keepers.json`, not a derivation.
 
-19. **Never fetch from `fantasy.nfl.com` at runtime.** Avatars are downloaded once into `raw-data/assets/`, committed, and referenced locally.
+19. **Never fetch from `fantasy.nfl.com` at runtime.** Avatars are downloaded once into `raw-data/<leagueFolder>/assets/`, committed, and referenced locally.
 
 ---
 
@@ -92,14 +131,25 @@ Nine years of exports from a platform that redesigned itself will contain surpri
 
 **TypeScript 7, strict mode is a hard default.** Do not weaken it, do not add `any`, do not use `@ts-ignore`. If types fight you, the model is probably wrong.
 
-**No bundler. Browser code uses native ES modules.** Relative imports in `src/web/` must carry the `.js` extension:
+**Import extensions differ between the two source trees. This is deliberate, and it is the most common failure mode in this setup.**
+
+`src/web/` is compiled to `.js` and loaded by the browser as native ES modules with no bundler, so relative imports carry the **`.js`** extension:
 
 ```ts
 import { renderMatrix } from "./matrix.js";   // correct
-import { renderMatrix } from "./matrix";      // breaks at runtime
+import { renderMatrix } from "./matrix";      // breaks at runtime, silently
 ```
 
-This is the most common failure mode in this setup. Check it every time.
+`pipeline/` is never compiled — Node runs the `.ts` files directly via native type stripping — so relative imports carry the **`.ts`** extension:
+
+```ts
+import { loadRawData } from "./index.ts";     // correct
+import { loadRawData } from "./index.js";     // no such file
+```
+
+The asymmetry is forced: browsers cannot run `.ts`, and Node's type stripping does not rewrite import specifiers. The web side is the dangerous one, because a wrong extension there fails only at runtime; in `pipeline/` it is a hard `tsc --noEmit` error. Check the web side every time.
+
+**Pipeline code must be erasable-syntax-only** (`erasableSyntaxOnly` is on): no `enum`, no parameter properties, no experimental decorators. Type stripping removes types, it does not transform code.
 
 **No frontend framework, no runtime dependencies in `src/web/`.** Pipeline dependencies are fine (Node, dev-only).
 
@@ -144,12 +194,7 @@ Full list in `requirements-specification.md` §13. The ones that bite immediatel
 - **Site language is English**, `<html lang="en">`. Team and manager names appear exactly as exported.
 - **Never call `toLocaleString()` without a locale.** On a German browser 1848.60 renders as `1.848,60`. Use a single shared `Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })`. Points 2 decimals, percentages 1, records as `12–3` with an en dash.
 - **`dist/.nojekyll` must exist.** GitHub Pages runs Jekyll, which silently drops underscore-prefixed paths — `_validation.json` would vanish in production with no error.
-- **Base path**: this deploys as a GitHub **project** site at
-  `https://davidgro23.github.io/FailMaryFisters/`. `BASE_PATH` is `/FailMaryFisters/`.
-  Every absolute URL — pages, CSS, JSON fetches in `src/web/`, rule 16 redirect pages —
-  must be constructed through that constant. Never hardcode a leading `/`.
-  `npm run serve` must mirror this prefix locally, or production-only link breakage
-  will not be caught in development.
+- **Base path**: publishing as a user site (`<user>.github.io`) keeps it `/`. If it becomes a project site, every absolute URL must go through a `BASE_PATH` constant.
 - **`esc()` every interpolated value.** Player names contain apostrophes (`Ja'Marr Chase`). Templating is plain tagged template literals — no engine, no dependency.
 - **Never re-sort standings.** Use `overallRank` from the export; it already carries the league's tiebreak. 2025 has three teams at 7-8.
 - **Tests use `node:test`.** Do not add vitest or jest.
@@ -158,23 +203,27 @@ Full list in `requirements-specification.md` §13. The ones that bite immediatel
 ## Data quirks worth remembering
 
 - Files are named `*-history.json` but each contains **only its own season**. The pipeline concatenates across folders.
-- `end-roster-history.json` gives 15–17 players per team, varying — do not assume a fixed roster size.
+- All ten per-season files are JSON **arrays** at top level — including `settings-history.json`, which is a one-element array wrapping the settings object, not a bare object.
+- `end-roster-history.json` gives **exactly 15 players per team in 2017–2019**, then 14–17 from 2020 once the IR slot exists. Do not assume a fixed roster size.
 - `trade-history.json` uses `teamId` for `from`/`to` but `transactionOwnerUserId` for the initiator. Different identifier spaces in the same record.
-- Trades can include **future-year** draft picks (2025 trades move 2026 picks).
+- Trades include **future-year** draft picks in every season from 2018 onward.
 - `roundLabel` in `playoff-history.json` can be an empty string for early consolation rounds. Handle it; don't render a blank heading.
-- `transactionDate` is ISO-8601 **without timezone**. Treat as local, do not convert.
-- `transactionWeek` can be `0` (a 2017 December trade). Do not assume `1..17`.
-- 2017 trades move players only; 2025 trades move future draft picks too. Both shapes are valid.
-- `players.json` is incomplete: `2506467` is referenced in 2017 but missing from it. The `Unknown Player (<id>)` fallback is required.
-- Field names are **identical** between the 2017 and 2025 exports across all ten files. No schema drift — only content drift.
-- **The league has manager turnover.** Alex (`2035166`) left after 2024, Christian (`19557057`) took over `teamId` 5 for 2025. A new `userId` in a season is a legitimate roster change, not a data error — report it, never fail on it. Expect more changes in 2018–2024.
+- `transactionDate` is ISO-8601 **without timezone**, in every record. Treat as local, do not convert.
+- `transactionWeek` can be `0` — in 2017, 2018, 2019, 2023 and 2024. Do not assume `1..17`.
+- 2017 is the only season whose trades move players exclusively; every later season also moves future draft picks. Both shapes are valid.
+- `players.json` is incomplete in exactly four places: `2506467` (2017), `2553568` (2018), `2555464` (2019), `2572042` (2024). The `Unknown Player (<id>)` fallback is required.
+- `nflTeam` is an empty string on 96 records spread over 2017–2023. Present but empty is valid — those players have no season-accurate team.
+- Field names are **identical across all nine seasons** for all ten files. No schema drift — only content drift. Every `year` field agrees with its folder, and every `teamId` reference resolves.
+- All IDs (`teamId`, `userId`, `playerId`) are JSON **strings** everywhere. Never compare them as numbers.
+- **The league has manager turnover, all of it on `teamId` 5.** The measured chain is Alex (`2035166`) 2017–2018 → Christian (`21881840`) 2019–2024 → Christian (`19557057`) 2025. **Two** handovers, not one, and Alex left after **2018**, not 2024. Every other `teamId` kept the same `userId` for all nine seasons. A new `userId` in a season is a legitimate roster change, not a data error — report it, never fail on it. Run `npm run audit:managers` to reproduce this; do not trust recollection.
 - **A manager is a person, not a franchise.** Successive managers of the same `teamId` are separate careers with separate records, even though the incoming one inherits the roster, keepers, and picks. Lineage is displayed via the `succession` field but never affects a computed statistic. See §9.7.
 - **Succession is derived by the audit, never hand-written.** Walk each `teamId` chronologically and report every `userId` change. Recollection and the export have already disagreed once — trust the data.
-- **Keepers are not flagged in the export.** They appear as ordinary draft picks (every 2025 team has exactly 15 picks and 15 rounds = a full roster). Derive them per §9.8 and validate on 2024 → 2025 before trusting the result.
-- **Traded picks are best-effort, not reliable.** Diff the actual draft order against the computed snake, then cross-check the previous year's trade file. They disagree: an entire 2024 trade between teams 5 and 4 never appeared in the 2025 draft. Trust the draft order, annotate only where both agree, and log every mismatch.
-- **`transactionOwnerUserId` is not necessarily a participant.** A 2024 trade between teams 5 and 4 carries moritz (team 1), presumably the commissioner. Use `from`/`to` on the legs to identify participants.
-- **Roster shape changes constantly.** 2017 had K, DEF and 1 flex; 2024 had DEF, 2 flex and IR; 2025 has 3 flex and no defense. Always read the season's own `rosterPositions`.
-- **`settings-history.json` covers scoring and roster slots only.** Keeper limits, trade deadline, and waiver type live in the hand-maintained `raw-data/league-rules.json`. Draft type (snake) and playoff format are derivable — derive them, don't hardcode.
+- **Keepers are not flagged in the export.** They appear as ordinary draft picks (every 2025 team has exactly 15 picks and 15 rounds = a full roster), which is *why* rule 18 puts them out of scope. §9.8 describes a derivation that was tested and failed — do not implement it. This entry exists to explain the decision, not to reopen it.
+- **Traded picks are best-effort, not reliable.** Diff the actual draft order against the computed snake, then cross-check the previous year's trade file. They disagree: an entire 2024 trade between teams 5 and 4 never appeared in the 2025 draft. Trust the draft order, annotate only where both agree, and log every mismatch. **Do not derive the snake baseline from round 1** — in 2023 round 1 itself contains a traded pick (teamId 4 twice, no teamId 10), so it is not a permutation of the ten teams.
+- **`transactionOwnerUserId` is not necessarily a participant.** Six trades across 2018–2024 have a non-participant owner, and it is moritz (`5076030`, team 1) in every one — the commissioner recording them. Use `from`/`to` on the legs to identify participants.
+- **Roster shape changes constantly**, five distinct shapes over nine seasons. Always read the season's own `rosterPositions`; the full table is in §7 D7.
+- **Draft `pick` is the global pick number (1–150), not the pick within the round.** Round 2 is picks 11–20. Every season is 15 rounds × 10 teams.
+- **`settings-history.json` covers scoring and roster slots only.** Keeper limits, trade deadline, and waiver type live in the hand-maintained `raw-data/<leagueFolder>/league-rules.json`. Draft type (snake) and playoff format are derivable — derive them, don't hardcode.
 - `players.json` has no `nflTeam` field. Per-record `nflTeam` in `end-roster-history.json` and `player-matchup-statistics-history.json` is season-accurate — use those instead.
 - DEF entries in `players.json` use a separate ID space (`1000xx`); player IDs range from 3 to 7 digits. Treat them as opaque strings, never as numbers.
 

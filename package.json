@@ -6,14 +6,18 @@
   "description": "Static site for a private fantasy football league, 2017-2025",
   "license": "UNLICENSED",
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "scripts": {
-    "build": "echo \"not implemented\" && exit 1",
-    "build:data": "echo \"not implemented\" && exit 1",
-    "typecheck": "echo \"not implemented\" && exit 1",
-    "test": "echo \"not implemented\" && exit 1",
-    "serve": "echo \"not implemented\" && exit 1",
-    "audit:managers": "echo \"not implemented\" && exit 1"
+    "build": "echo \"stages 2-4 not implemented\" && exit 1",
+    "build:data": "node pipeline/cli/build-data.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.pipeline.json && tsc --noEmit -p tsconfig.web.json",
+    "test": "node --test \"pipeline/**/*.test.ts\"",
+    "serve": "node pipeline/cli/serve.ts",
+    "audit:managers": "node pipeline/cli/audit-managers.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "typescript": "^7.0.2"
   }
 }

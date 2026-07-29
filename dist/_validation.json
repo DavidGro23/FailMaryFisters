@@ -1,0 +1,168 @@
+{
+	"issues": [
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "hand-written-file-absent",
+			"message": "Hand-maintained assets is not present; avatars are not yet vendored locally.",
+			"league": "5613993-failmaryfisters",
+			"file": "assets"
+		},
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "hand-written-file-absent",
+			"message": "Hand-maintained league-rules.json is not present; keeper limits and trade deadline are unavailable.",
+			"league": "5613993-failmaryfisters",
+			"file": "league-rules.json"
+		},
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "hand-written-file-absent",
+			"message": "Hand-maintained manager-aliases.json is not present; URL slugs stay underived until it exists.",
+			"league": "5613993-failmaryfisters",
+			"file": "manager-aliases.json"
+		},
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "empty-field",
+			"message": "8 record(s) have an empty nflTeam; those players have no season-accurate team.",
+			"league": "5613993-failmaryfisters",
+			"year": 2017,
+			"file": "player-matchup-statistics-history.json",
+			"field": "nflTeam"
+		},
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "player-not-in-registry",
+			"message": "playerId \"2506467\" is referenced but absent from players.json.",
+			"league": "5613993-failmaryfisters",
+			"year": 2017,
+			"file": "players.json",
+			"field": "playerId"
+		},
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "empty-field",
+			"message": "1 record(s) have an empty nflTeam; those players have no season-accurate team.",
+			"league": "5613993-failmaryfisters",
+			"year": 2018,
+			"file": "end-roster-history.json",
+			"field": "nflTeam"
+		},
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "empty-field",
+			"message": "18 record(s) have an empty nflTeam; those players have no season-accurate team.",
+			"league": "5613993-failmaryfisters",
+			"year": 2018,
+			"file": "player-matchup-statistics-history.json",
+			"field": "nflTeam"
+		},
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "player-not-in-registry",
+			"message": "playerId \"2553568\" is referenced but absent from players.json.",
+			"league": "5613993-failmaryfisters",
+			"year": 2018,
+			"file": "players.json",
+			"field": "playerId"
+		},
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "empty-field",
+			"message": "15 record(s) have an empty nflTeam; those players have no season-accurate team.",
+			"league": "5613993-failmaryfisters",
+			"year": 2019,
+			"file": "player-matchup-statistics-history.json",
+			"field": "nflTeam"
+		},
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "player-not-in-registry",
+			"message": "playerId \"2555464\" is referenced but absent from players.json.",
+			"league": "5613993-failmaryfisters",
+			"year": 2019,
+			"file": "players.json",
+			"field": "playerId"
+		},
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "empty-field",
+			"message": "9 record(s) have an empty nflTeam; those players have no season-accurate team.",
+			"league": "5613993-failmaryfisters",
+			"year": 2020,
+			"file": "player-matchup-statistics-history.json",
+			"field": "nflTeam"
+		},
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "empty-field",
+			"message": "1 record(s) have an empty nflTeam; those players have no season-accurate team.",
+			"league": "5613993-failmaryfisters",
+			"year": 2021,
+			"file": "end-roster-history.json",
+			"field": "nflTeam"
+		},
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "empty-field",
+			"message": "25 record(s) have an empty nflTeam; those players have no season-accurate team.",
+			"league": "5613993-failmaryfisters",
+			"year": 2021,
+			"file": "player-matchup-statistics-history.json",
+			"field": "nflTeam"
+		},
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "empty-field",
+			"message": "11 record(s) have an empty nflTeam; those players have no season-accurate team.",
+			"league": "5613993-failmaryfisters",
+			"year": 2022,
+			"file": "player-matchup-statistics-history.json",
+			"field": "nflTeam"
+		},
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "empty-field",
+			"message": "8 record(s) have an empty nflTeam; those players have no season-accurate team.",
+			"league": "5613993-failmaryfisters",
+			"year": 2023,
+			"file": "player-matchup-statistics-history.json",
+			"field": "nflTeam"
+		},
+		{
+			"stage": "load",
+			"severity": "info",
+			"code": "player-not-in-registry",
+			"message": "playerId \"2572042\" is referenced but absent from players.json.",
+			"league": "5613993-failmaryfisters",
+			"year": 2024,
+			"file": "players.json",
+			"field": "playerId"
+		}
+	],
+	"summary": {
+		"errors": 0,
+		"warnings": 0,
+		"infos": 16,
+		"byCode": {
+			"empty-field": 9,
+			"hand-written-file-absent": 3,
+			"player-not-in-registry": 4
+		}
+	}
+}
