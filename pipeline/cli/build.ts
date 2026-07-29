@@ -42,5 +42,5 @@ const written = renderSite(
 	result.rulebook,
 	result.leagueFolder,
 );
-for (const file of written) console.log(`  wrote dist/${file.replace(/\\/g, "/")}`);
+for (const file of written) console.log(`  wrote docs/${file.replace(/\\/g, "/")}`);
 console.log("");

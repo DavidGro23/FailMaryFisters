@@ -1,5 +1,5 @@
 /**
- * `npm run serve` — a local static server over `dist/`.
+ * `npm run serve` — a local static server over `docs/`.
  *
  * Deliberately minimal and dependency-free. It exists to preview the built site,
  * not to emulate GitHub Pages precisely.
@@ -10,7 +10,7 @@ import { createServer } from "node:http";
 import { extname, join, normalize } from "node:path";
 
 import { BASE_PATH } from "../render/base-path.ts";
-import { DIST_DIR } from "../paths.ts";
+import { OUTPUT_DIR } from "../paths.ts";
 
 const PORT = Number(process.env["PORT"] ?? 8080);
 
@@ -29,8 +29,8 @@ const MIME: Record<string, string> = {
 	".pdf": "application/pdf",
 };
 
-if (!existsSync(DIST_DIR)) {
-	console.error(`dist/ does not exist yet. Run \`npm run build:data\` first.`);
+if (!existsSync(OUTPUT_DIR)) {
+	console.error(`docs/ does not exist yet. Run \`npm run build\` first.`);
 	process.exit(1);
 }
 
@@ -38,11 +38,11 @@ const server = createServer((req, res) => {
 	const url = new URL(req.url ?? "/", `http://localhost:${PORT}`);
 	const pathname = decodeURIComponent(url.pathname);
 
-	// This deploys as a GitHub project site, so production serves everything
-	// under /FailMaryFisters/. Mirroring the prefix locally is what makes a
-	// missing BASE_PATH show up in development instead of after the link is
-	// shared (CLAUDE.md, §13.2).
-	if (pathname === "/" || `${pathname}/` === BASE_PATH) {
+	// Production serves under BASE_PATH; mirroring it locally is what makes a
+	// missing prefix show up in development instead of after the link is shared
+	// (CLAUDE.md, §13.2). On the custom domain BASE_PATH is "/", so this
+	// redirect must not fire for the root itself — it would 302 to itself.
+	if (BASE_PATH !== "/" && (pathname === "/" || `${pathname}/` === BASE_PATH)) {
 		res.writeHead(302, { location: BASE_PATH }).end();
 		return;
 	}
@@ -54,11 +54,11 @@ const server = createServer((req, res) => {
 	}
 
 	// `normalize` collapses `..` segments; the prefix check then rejects anything
-	// that still points outside dist/.
+	// that still points outside docs/.
 	const requested = normalize(pathname.slice(BASE_PATH.length)).replace(/^(\.\.[/\\])+/, "");
-	let filePath = join(DIST_DIR, requested);
+	let filePath = join(OUTPUT_DIR, requested);
 
-	if (!filePath.startsWith(DIST_DIR)) {
+	if (!filePath.startsWith(OUTPUT_DIR)) {
 		res.writeHead(403).end("Forbidden");
 		return;
 	}
@@ -78,5 +78,5 @@ const server = createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-	console.log(`Serving ${DIST_DIR} at http://localhost:${PORT}${BASE_PATH}`);
+	console.log(`Serving ${OUTPUT_DIR} at http://localhost:${PORT}${BASE_PATH}`);
 });

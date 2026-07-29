@@ -1,5 +1,5 @@
 /**
- * The validation report is a build artefact committed to `dist/`, so NFR-9
+ * The validation report is a build artefact committed to `docs/`, so NFR-9
  * applies to it: identical input must produce byte-identical output.
  */
 

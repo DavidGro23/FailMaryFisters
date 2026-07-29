@@ -14,8 +14,9 @@ import type { BracketView } from "../aggregate/playoffs.ts";
 import type { StandingsTable } from "../aggregate/standings.ts";
 import { AVATAR_MANIFEST } from "../avatars.ts";
 import { rulebookDir, type Rulebook } from "../normalize/rulebook.ts";
-import { DIST_DIR, RAW_DATA_DIR, REPO_ROOT } from "../paths.ts";
+import { OUTPUT_DIR, RAW_DATA_DIR, REPO_ROOT } from "../paths.ts";
 import { renderAllTimePage } from "./all-time-page.ts";
+import { CUSTOM_DOMAIN } from "./base-path.ts";
 import { renderDraftPage } from "./draft-page.ts";
 import { renderLandingPage } from "./landing-page.ts";
 import { renderManagerPage } from "./manager-page.ts";
@@ -38,7 +39,7 @@ import { renderStandingsPage } from "./standings-page.ts";
 /** Emitted as `<route>/index.html` so URLs need no extension (§13.3). */
 function writePage(route: string, contents: string): string {
 	const clean = route.replace(/\/+$/, "");
-	const dir = join(DIST_DIR, clean);
+	const dir = join(OUTPUT_DIR, clean);
 	mkdirSync(dir, { recursive: true });
 	writeFileSync(join(dir, "index.html"), contents, "utf8");
 	// The site root is the empty route, which would otherwise read "/index.html".
@@ -46,7 +47,7 @@ function writePage(route: string, contents: string): string {
 }
 
 /**
- * Copies vendored avatars into `dist/`. Reads only committed local files — the
+ * Copies vendored avatars into `docs/`. Reads only committed local files — the
  * build never touches the network (rule 19). If `fetch:avatars` has not been
  * run, there is nothing to copy and every team renders its initial instead.
  */
@@ -173,7 +174,7 @@ export function renderSite(
 		}
 	}
 
-	const assets = join(DIST_DIR, "assets");
+	const assets = join(OUTPUT_DIR, "assets");
 	mkdirSync(assets, { recursive: true });
 	copyFileSync(join(REPO_ROOT, "src", "styles", "site.css"), join(assets, "site.css"));
 	written.push("assets/site.css");
@@ -185,8 +186,13 @@ export function renderSite(
 	if (rulebookFiles > 0) written.push(`assets/rulebook/ (${rulebookFiles} files)`);
 
 	// Public because it needs no login, not because it wants an audience (§13.2).
-	writeFileSync(join(DIST_DIR, "robots.txt"), "User-agent: *\nDisallow: /\n", "utf8");
+	writeFileSync(join(OUTPUT_DIR, "robots.txt"), "User-agent: *\nDisallow: /\n", "utf8");
 	written.push("robots.txt");
+
+	// Tells GitHub Pages which host to answer on. Emitted every build because
+	// `docs/` is generated — see CUSTOM_DOMAIN (§13.2).
+	writeFileSync(join(OUTPUT_DIR, "CNAME"), `${CUSTOM_DOMAIN}\n`, "utf8");
+	written.push("CNAME");
 
 	return written;
 }

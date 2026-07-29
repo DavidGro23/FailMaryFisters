@@ -3,7 +3,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 
 import { serializeReport, type ValidationReport } from "../load/validation.ts";
-import { DIST_DIR, VALIDATION_REPORT } from "../paths.ts";
+import { OUTPUT_DIR, VALIDATION_REPORT } from "../paths.ts";
 
 export function summarize(report: ValidationReport): void {
 	const { errors, warnings, infos, byCode } = report.summary;
@@ -35,13 +35,13 @@ export function summarize(report: ValidationReport): void {
 }
 
 export function writeValidationReport(report: ValidationReport): void {
-	mkdirSync(DIST_DIR, { recursive: true });
+	mkdirSync(OUTPUT_DIR, { recursive: true });
 	writeFileSync(VALIDATION_REPORT, serializeReport(report), "utf8");
 
 	// GitHub Pages runs Jekyll, which silently drops underscore-prefixed paths.
 	// Without this, `_validation.json` would not exist in production and nothing
 	// would report an error (§13.2).
-	writeFileSync(`${DIST_DIR}/.nojekyll`, "", "utf8");
+	writeFileSync(`${OUTPUT_DIR}/.nojekyll`, "", "utf8");
 
 	console.log("");
 	console.log(`  wrote ${VALIDATION_REPORT}`);

@@ -14,7 +14,7 @@
     "verbatimModuleSyntax": true,
     "erasableSyntaxOnly": true,
 
-    "outDir": "dist/assets/js",
+    "outDir": "docs/assets/js",
     "rootDir": "src/web",
 
     "skipLibCheck": true,

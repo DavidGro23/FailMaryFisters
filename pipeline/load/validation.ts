@@ -1,6 +1,6 @@
 /**
  * The validation report: the pipeline's honest account of what it could not
- * resolve. Written to `dist/_validation.json` and surfaced on `/about/`.
+ * resolve. Written to `docs/_validation.json` and surfaced on `/about/`.
  */
 
 export type Severity = "error" | "warning" | "info";

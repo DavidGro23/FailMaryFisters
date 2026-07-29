@@ -521,9 +521,9 @@ Trade-off accepted: templating lives in the pipeline, and a data change requires
 ### 11.2 Pipeline stages
 
 ```
-raw-data/  →  [1 load+validate]  →  [2 normalize]  →  [3 aggregate]  →  [4 render]  →  dist/
+raw-data/  →  [1 load+validate]  →  [2 normalize]  →  [3 aggregate]  →  [4 render]  →  docs/
                       ↓                    ↓                ↓
-                 validation report (dist/_validation.json + console summary)
+                 validation report (docs/_validation.json + console summary)
 ```
 
 1. **Load + validate** — parse every file, check against the §6.2 schemas. Unknown fields are logged, not fatal (the export shape may drift across years). Missing required fields are fatal.
@@ -537,10 +537,10 @@ Stage separation matters more than usual here: nine years of exports from a plat
 
 | File | Size est. | Consumer |
 |---|---|---|
-| `dist/data/h2h.json` | ~80 KB | `/h2h/` matrix, both scopes |
-| `dist/data/managers.json` | ~5 KB | `/h2h/` selector |
-| `dist/data/week/<year>-<week>.json` | ~150 KB | box-score expansion, lazy-loaded on click |
-| `dist/_validation.json` | small | `/about/` |
+| `docs/data/h2h.json` | ~80 KB | `/h2h/` matrix, both scopes |
+| `docs/data/managers.json` | ~5 KB | `/h2h/` selector |
+| `docs/data/week/<year>-<week>.json` | ~150 KB | box-score expansion, lazy-loaded on click |
+| `docs/_validation.json` | small | `/about/` |
 
 `player-matchup-statistics-history.json` (~9 MB across all seasons) is **never shipped whole**. It is split per season-week and loaded only on demand.
 
@@ -559,7 +559,7 @@ Stage separation matters more than usual here: nine years of exports from a plat
   /load/  /normalize/  /aggregate/  /render/  /templates/
 /src/web/                   browser TypeScript (h2h, sorting, lazy-load)
 /src/styles/                CSS
-/dist/                      generated output — COMMITTED (GitHub Pages serves it)
+/docs/                      generated output — COMMITTED (GitHub Pages serves it)
 /CLAUDE.md
 /requirements-specification.md
 tsconfig.pipeline.json
@@ -568,7 +568,7 @@ tsconfig.web.json
 
 ### 11.6 Hosting: GitHub Pages (decided)
 
-The repository and CI are already there; one fewer account and one fewer moving part. Cloudflare Pages is marginally faster on cold cache and irrelevant at this traffic level. `dist/` is committed and served directly; a GitHub Action rebuilds on push to `main`.
+The repository and CI are already there; one fewer account and one fewer moving part. Cloudflare Pages is marginally faster on cold cache and irrelevant at this traffic level. `docs/` is committed and served directly; a GitHub Action rebuilds on push to `main`.
 
 ---
 
@@ -674,10 +674,12 @@ Mechanical decisions that would otherwise be guessed. None are interesting; all 
 
 ### 13.2 Hosting mechanics
 
-- **Decided: project site.** The repository is `DavidGro23/FailMaryFisters`, so it serves at `https://davidgro23.github.io/FailMaryFisters/` and **`BASE_PATH` is `/FailMaryFisters/`**. Every emitted URL — pages, CSS, JSON fetched by `src/web/`, and the §6.5 retired-slug redirects — is constructed through that constant; never hardcode a leading `/`. `npm run serve` mounts `dist/` under the same prefix so that production-only link breakage is caught in development.
-- **`dist/.nojekyll` is required.** GitHub Pages runs Jekyll by default, which silently drops files and folders beginning with an underscore. Without it, `dist/_validation.json` will not exist in production and there will be no error.
-- **`dist/robots.txt`** with `Disallow: /`, plus `<meta name="robots" content="noindex">`. The site is public because it needs no login, not because it wants an audience. Unlisted is the intent.
-- `dist/` is committed. A GitHub Action rebuilds on push to `main` and fails the build on any hard validation error.
+- **The output directory is `docs/`, not `dist/`.** GitHub Pages offers exactly two source folders for a branch — the repository root or `docs/` — and nothing else is selectable, so this is the platform's constraint rather than a naming preference. `OUTPUT_DIR` in [pipeline/paths.ts](pipeline/paths.ts) is the only place the directory is named; `VALIDATION_REPORT`, the renderer, the avatar copy step and `npm run serve` all derive from it. Note that the name collides with the everyday meaning of "docs" — `requirements-specification.md` and `CLAUDE.md` are the actual documentation and live at the repository root.
+- **Decided: custom domain at the root.** The site serves from `https://www.failmaryfisters.com/`, so **`BASE_PATH` is `/`**. It began as a GitHub project site on `DavidGro23/FailMaryFisters` where `BASE_PATH` was `/FailMaryFisters/`; the domain change is the only difference. Every emitted URL — pages, CSS, JSON fetched by `src/web/`, and the §6.5 retired-slug redirects — is still constructed through `url()` in [pipeline/render/base-path.ts](pipeline/render/base-path.ts). **The constant is kept even though it is now a single slash**, because a literal `/seasons/2025/` is correct today and would break silently if the site moved back under a prefix — a project site again, a staging path, a second league. The indirection costs nothing and makes the reverse a one-line change. `npm run serve` mounts `docs/` at the same base so a mismatch still surfaces in development.
+- **`docs/CNAME` is required, containing `www.failmaryfisters.com`.** GitHub Pages reads it to decide which host the site answers on. It is emitted by the build from `CUSTOM_DOMAIN` rather than hand-placed, because `docs/` is generated output: a CNAME lost to a clean rebuild reverts the site to `davidgro23.github.io` with no error, breaking every link already shared. DNS itself is configured outside this repository — a `CNAME` record for `www` pointing at `davidgro23.github.io`.
+- **`docs/.nojekyll` is required.** GitHub Pages runs Jekyll by default, which silently drops files and folders beginning with an underscore. Without it, `docs/_validation.json` will not exist in production and there will be no error.
+- **`docs/robots.txt`** with `Disallow: /`, plus `<meta name="robots" content="noindex">`. The site is public because it needs no login, not because it wants an audience. Unlisted is the intent.
+- `docs/` is committed. A GitHub Action rebuilds on push to `main` and fails the build on any hard validation error.
 
 ### 13.3 Rendering
 

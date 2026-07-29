@@ -6,7 +6,7 @@ Project context for Claude Code. Read `requirements-specification.md` for the fu
 
 ## What this is
 
-A static website showing nine seasons (2017–2025) of a private fantasy football league. Read-only, no backend, no database. A build pipeline reads raw JSON exports from the NFL Fantasy site and emits finished HTML into `dist/`, which GitHub Pages serves.
+A static website showing nine seasons (2017–2025) of a private fantasy football league. Read-only, no backend, no database. A build pipeline reads raw JSON exports from the NFL Fantasy site and emits finished HTML into `docs/`, which GitHub Pages serves.
 
 **The users are ten friends who will argue about these numbers.** Correctness beats features. A page that renders beautifully with a wrong win percentage is worse than no page.
 
@@ -50,11 +50,11 @@ Their absence is expected during early stages, not a data error. Stage 1 should 
 ## Commands
 
 ```bash
-npm run build          # full pipeline: load → normalize → aggregate → render → dist/
-npm run build:data     # stages 1–3 only, writes dist/data/ and dist/_validation.json
+npm run build          # full pipeline: load → normalize → aggregate → render → docs/
+npm run build:data     # stages 1–3 only, writes docs/data/ and docs/_validation.json
 npm run typecheck      # tsc --noEmit on both tsconfigs
 npm run test           # unit tests (stage 1 loader today, stage 3 aggregate later)
-npm run serve          # local static server on dist/
+npm run serve          # local static server on docs/
 npm run audit:managers # D2 manager identity report — run this before trusting cross-season data
 npm run fetch:avatars  # MANUAL, network-touching. Downloads avatars into raw-data/<league>/assets/
 ```
@@ -63,7 +63,9 @@ npm run fetch:avatars  # MANUAL, network-touching. Downloads avatars into raw-da
 
 Run `npm run typecheck` and `npm run test` before considering any change done.
 
-**Current state: stage 1 only.** `build` exits 1 by design until stages 2–4 exist, and `build:data` runs the load+validate stage — writing `dist/_validation.json` and `dist/.nojekyll` but not yet `dist/data/`. It exits non-zero if validation reports any error.
+**Output goes to `docs/`, not `dist/`.** GitHub Pages will only serve a branch's root or its `docs/` folder — no other directory is selectable — so the folder name is the platform's requirement, not a preference. `docs/` is committed. The single source of truth is `OUTPUT_DIR` in `pipeline/paths.ts`; nothing else names the directory.
+
+**Current state: all four stages exist.** `build` compiles `src/web/` then renders every page. `build:data` runs stages 1–3 and writes `docs/_validation.json` and `docs/.nojekyll`; `docs/data/` stays empty until a JS-enhanced page needs JSON, which none does yet. Both exit non-zero if validation reports any error.
 
 ---
 
@@ -118,7 +120,7 @@ These come from real defects found in the 2025 export. Violating any of them pro
 ## Architecture
 
 ```
-raw-data/  →  [1 load+validate]  →  [2 normalize]  →  [3 aggregate]  →  [4 render]  →  dist/
+raw-data/  →  [1 load+validate]  →  [2 normalize]  →  [3 aggregate]  →  [4 render]  →  docs/
 ```
 
 Stage boundaries are strict:
@@ -198,17 +200,25 @@ Full list in `requirements-specification.md` §13. The ones that bite immediatel
 
 - **Site language is English**, `<html lang="en">`. Team and manager names appear exactly as exported.
 - **Never call `toLocaleString()` without a locale.** On a German browser 1848.60 renders as `1.848,60`. Use a single shared `Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })`. Points 2 decimals, percentages 1, records as `12–3` with an en dash.
-- **`dist/.nojekyll` must exist.** GitHub Pages runs Jekyll, which silently drops underscore-prefixed paths — `_validation.json` would vanish in production with no error.
-- **Base path**: this deploys as a GitHub **project** site at
-  `https://davidgro23.github.io/FailMaryFisters/`. `BASE_PATH` is `/FailMaryFisters/`.
+- **`docs/.nojekyll` must exist.** GitHub Pages runs Jekyll, which silently drops underscore-prefixed paths — `_validation.json` would vanish in production with no error.
+- **Base path**: the site serves from the custom domain `https://www.failmaryfisters.com/`,
+  so it sits at the domain root and `BASE_PATH` is `/`. It was previously a GitHub
+  **project** site at `https://davidgro23.github.io/FailMaryFisters/` with
+  `BASE_PATH` = `/FailMaryFisters/`.
   Every absolute URL — pages, CSS, JSON fetches in `src/web/`, rule 16 redirect pages —
-  must be constructed through that constant. Never hardcode a leading `/`.
-  `npm run serve` must mirror this prefix locally, or production-only link breakage
-  will not be caught in development.
+  must still be constructed through `url()` from `pipeline/render/base-path.ts`.
+  **A hardcoded `/seasons/2025/` is correct today, which is exactly why it is a trap:**
+  it would break silently if the site ever moves back under a prefix, and that
+  migration has already happened once in this direction. `npm run serve` mounts
+  `docs/` at the same base, so a prefix mismatch still surfaces in development.
+- **`docs/CNAME` must exist and must contain `www.failmaryfisters.com`.** GitHub Pages
+  reads it to decide which host to answer on. The build emits it (`CUSTOM_DOMAIN` in
+  `base-path.ts`) because `docs/` is generated — a hand-placed CNAME would be lost to a
+  clean rebuild and the site would silently revert to `davidgro23.github.io`.
 - **`esc()` every interpolated value.** Player names contain apostrophes (`Ja'Marr Chase`). Templating is plain tagged template literals — no engine, no dependency.
 - **Never re-sort standings.** Use `overallRank` from the export; it already carries the league's tiebreak. 2025 has three teams at 7-8.
 - **Tests use `node:test`.** Do not add vitest or jest.
-- `dist/robots.txt` disallows all, plus a `noindex` meta tag. Public for convenience, not for an audience.
+- `docs/robots.txt` disallows all, plus a `noindex` meta tag. Public for convenience, not for an audience.
 
 ## Data quirks worth remembering
 
@@ -248,4 +258,4 @@ Full list in `requirements-specification.md` §13. The ones that bite immediatel
 
 Ask rather than guess. Every metric definition, scope decision, and edge-case rule is written down in `requirements-specification.md` §7 and §9. If the answer is not there, it is an open question — surface it instead of inventing a reasonable-sounding default. A silently invented rule in a stats site is a bug that nobody notices until someone loses an argument with it.
 
-Unresolved data problems go to `dist/_validation.json` and are surfaced on `/about/`. The site is honest about its gaps rather than hiding them.
+Unresolved data problems go to `docs/_validation.json` and are surfaced on `/about/`. The site is honest about its gaps rather than hiding them.

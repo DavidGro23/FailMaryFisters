@@ -7,5 +7,11 @@ import { fileURLToPath } from "node:url";
 export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
 export const RAW_DATA_DIR = join(REPO_ROOT, "raw-data");
-export const DIST_DIR = join(REPO_ROOT, "dist");
-export const VALIDATION_REPORT = join(DIST_DIR, "_validation.json");
+
+/**
+ * Build output. `docs/` and not `dist/` because GitHub Pages will only serve a
+ * branch's root or its `docs/` folder — no other directory is selectable. The
+ * name is the platform's, not a preference.
+ */
+export const OUTPUT_DIR = join(REPO_ROOT, "docs");
+export const VALIDATION_REPORT = join(OUTPUT_DIR, "_validation.json");

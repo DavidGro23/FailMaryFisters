@@ -1,9 +1,9 @@
 /**
  * `npm run build:data`
  *
- * Documented contract (CLAUDE.md): stages 1-3, writing `dist/data/` and
- * `dist/_validation.json`. It runs load -> normalize -> aggregate and writes the
- * validation report; `dist/data/` stays empty until a JS-enhanced page needs
+ * Documented contract (CLAUDE.md): stages 1-3, writing `docs/data/` and
+ * `docs/_validation.json`. It runs load -> normalize -> aggregate and writes the
+ * validation report; `docs/data/` stays empty until a JS-enhanced page needs
  * JSON, which none does yet.
  *
  * Exits non-zero if any error-severity issue was raised, so CI fails the build
