@@ -12,7 +12,7 @@ import { renderBracket } from "./bracket.ts";
 import { points, percent, record } from "./format.ts";
 import { html, type SafeHtml } from "./html.ts";
 import { draftRoute, seasonRoute } from "./nav.ts";
-import { renderPage, renderTeamCell, sortableCell, sortableHeader, type TeamCell } from "./page.ts";
+import { renderPage, renderTeamCell, sortableCell, sortableHeader, tableWrap, type TeamCell } from "./page.ts";
 
 export function renderStandingsPage(
 	table: StandingsTable,
@@ -58,7 +58,7 @@ ${allYears.map((year) =>
  * the league's own tiebreak is not something we can reconstruct.
  */
 function renderTable(table: StandingsTable): SafeHtml {
-	return html`<table class="standings" data-sortable>
+	return tableWrap("t-wide", html`<table class="standings" data-sortable>
 <thead>
 <tr>
 <th class="col-rank" scope="col">#</th>
@@ -73,7 +73,7 @@ ${sortableHeader("pointsPerGame", "PPG")}
 <tbody>
 ${table.rows.map(renderRow)}
 </tbody>
-</table>`;
+</table>`);
 }
 
 function renderRow(row: StandingsTableRow): SafeHtml {

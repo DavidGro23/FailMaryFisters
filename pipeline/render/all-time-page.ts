@@ -17,7 +17,7 @@
 import type { AllTimeRow, AllTimeTable } from "../aggregate/all-time.ts";
 import { points, percent, record } from "./format.ts";
 import { html, type SafeHtml } from "./html.ts";
-import { renderPage, renderTeamCell, sortableCell, sortableHeader, type TeamCell } from "./page.ts";
+import { renderPage, renderTeamCell, sortableCell, sortableHeader, tableWrap, type TeamCell } from "./page.ts";
 
 export function renderAllTimePage(table: AllTimeTable): string {
 	const years = table.seasonsCovered;
@@ -37,7 +37,7 @@ ${renderTable(table)}
 }
 
 function renderTable(table: AllTimeTable): SafeHtml {
-	return html`<table class="standings" data-sortable>
+	return tableWrap("t-widest", html`<table class="standings" data-sortable>
 <thead>
 <tr>
 <th class="col-rank" scope="col">#</th>
@@ -53,7 +53,7 @@ ${sortableHeader("pointsPerGame", "PPG")}
 <tbody>
 ${table.rows.map((row) => renderRow(row, table.seasonsCovered.length))}
 </tbody>
-</table>`;
+</table>`);
 }
 
 function renderRow(row: AllTimeRow, totalSeasons: number): SafeHtml {

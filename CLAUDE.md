@@ -184,7 +184,7 @@ If a design question comes up that §12 doesn't answer, pick the quieter option.
 
 - Everything renders as static HTML at build time. JavaScript is **progressive enhancement only**: H2H matrix interaction, table sorting, lazy-loading box scores. Every page must show its data with JS disabled, except `/h2h/`.
 - **Mobile is the primary device, not an afterthought.** Write CSS mobile-first: base styles are the phone layout, media queries add the desktop. Never the reverse.
-- **Test at 360px.** Standings, records, and draft boards collapse to stacked cards below 600px — never a horizontally scrolling standings table. The H2H matrix is the only element allowed to scroll horizontally, and it needs a sticky first column.
+- **Test at 360px.** Tables show as real tables whenever they fit and collapse to stacked cards when they do not — decided per table by a **container query on its own wrapper**, not by a viewport breakpoint, because a 3-column draft board fits a phone while the 8-column all-time table needs ~470px. Wrap tables in `<div class="table-wrap t-narrow|t-medium|t-wide|t-widest">`; cards are the default and the query only overrides custom properties, so the layout rules live in one place. **Never a horizontally scrolling standings table.** The H2H matrix is the only element allowed to scroll horizontally, and it needs a sticky first column.
 - All interactive targets ≥ 44px.
 - Navigation is one set of markup: CSS moves it from a bottom bar (mobile) to a top band (≥900px). Never duplicate the nav in the DOM.
 - No page ships more than ~150 KB of JSON. `player-matchup-statistics` (~9 MB total) is split per season-week and loaded on demand only.

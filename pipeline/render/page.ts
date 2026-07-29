@@ -42,6 +42,26 @@ ${options.body}
 `);
 }
 
+/**
+ * How much room a table needs before it can render as a real table rather than
+ * stacked cards. The CSS turns these into container-query thresholds, so each
+ * table measures its own column, not the viewport.
+ *
+ * Chosen from measured content widths (compact metrics, page padding included):
+ * draft 235 · career 303 · most-started 343 · h2h 386 · standings 394 ·
+ * all-time 457.
+ */
+export type TableWidth = "t-narrow" | "t-medium" | "t-wide" | "t-widest";
+
+/**
+ * Wraps a table so it can query its own available width. The width class sits on
+ * the wrapper because that is the query container; the CSS then targets the
+ * table inside it.
+ */
+export function tableWrap(width: TableWidth, table: SafeHtml): SafeHtml {
+	return html`<div class="table-wrap ${width}">${table}</div>`;
+}
+
 /** Columns the browser may re-sort. The key also labels the mobile sort bar. */
 export const SORT_KEYS = ["record", "winPct", "pointsFor", "pointsAgainst", "pointsPerGame"] as const;
 export type SortKey = (typeof SORT_KEYS)[number];

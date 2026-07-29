@@ -635,7 +635,7 @@ The site is dark-only. There is no light mode and no `prefers-color-scheme` bloc
 
 Concrete requirements:
 
-- **Standings, records, and draft boards collapse to stacked cards below 600px** — rank badge, manager name with team name beneath, key figures right-aligned. Never a horizontally scrolling standings table.
+- **Tables render as real tables whenever they fit, and collapse to stacked cards when they do not.** Each table measures **its own container** with a CSS container query rather than the viewport, because the tables differ enormously in width: a 3-column draft board needs ~235px while the 8-column all-time table needs ~457px. A single 600px breakpoint hid tables that had plenty of room. Thresholds, with headroom over measured content: `t-narrow` 300px (draft board, career row), `t-medium` 350px (most-started players), `t-wide` 405px (head-to-head, season standings), `t-widest` 470px (all-time). Wrap a table in `<div class="table-wrap t-*">`; the card layout is the default and the query only overrides custom properties, so the layout rules exist **once** and cannot drift between breakpoints. **Still never a horizontally scrolling standings table** — cards remain the fallback, and the H2H matrix is the only element allowed to scroll (that page is not built yet).
 - **The H2H matrix is the only element allowed to scroll horizontally**, and it must have a sticky first column.
 - **All interactive targets ≥ 44px** (`--tap`). Nav items, sortable table headers, expandable week rows.
 - Navigation is the same markup at both sizes — only CSS moves it from bottom bar to top band. No duplicated nav in the DOM.

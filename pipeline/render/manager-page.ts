@@ -18,7 +18,7 @@ import { url } from "./base-path.ts";
 import { points, percent, record } from "./format.ts";
 import { html, type SafeHtml } from "./html.ts";
 import { managerRoute, seasonRoute } from "./nav.ts";
-import { renderPage, renderTeamCell, sortableCell, sortableHeader, type TeamCell } from "./page.ts";
+import { renderPage, renderTeamCell, sortableCell, sortableHeader, tableWrap, type TeamCell } from "./page.ts";
 
 export function renderManagerPage(profile: ManagerProfile, all: readonly ManagerProfile[]): string {
 	const span =
@@ -87,7 +87,9 @@ function renderCareer(profile: ManagerProfile): SafeHtml {
 	return html`<section>
 <h2 class="section-title">Career, regular season</h2>
 <p class="section-note">All-time rank ${c.rank} of ${c.seasonsPlayed === 0 ? "—" : "12"}. Same figures as the all-time table.</p>
-<table class="standings">
+${tableWrap(
+		"t-narrow",
+		html`<table class="standings">
 <thead>
 <tr>
 <th class="col-num" scope="col">Seasons</th>
@@ -108,7 +110,8 @@ function renderCareer(profile: ManagerProfile): SafeHtml {
 <td class="col-num col-emph" data-label="PPG">${points(c.pointsPerGame)}</td>
 </tr>
 </tbody>
-</table>
+</table>`,
+	)}
 </section>`;
 }
 
@@ -177,7 +180,9 @@ function renderH2hTable(label: string, rows: readonly HeadToHeadRow[]): SafeHtml
 
 	return html`<div class="scope">
 <h3 class="bracket-round-title">${label} · ${rows.length} opponent${rows.length === 1 ? "" : "s"}</h3>
-<table class="standings" data-sortable>
+${tableWrap(
+		"t-wide",
+		html`<table class="standings" data-sortable>
 <thead>
 <tr>
 <th class="col-team" scope="col">Opponent</th>
@@ -191,7 +196,8 @@ ${sortableHeader("pointsPerGame", "PPG")}
 <tbody>
 ${rows.map(renderH2hRow)}
 </tbody>
-</table>
+</table>`,
+	)}
 </div>`;
 }
 
@@ -215,7 +221,9 @@ function renderStarters(profile: ManagerProfile): SafeHtml {
 	return html`<section>
 <h2 class="section-title">Most-started players</h2>
 <p class="section-note">Games in a lineup slot, not games on the roster. Points are those scored while started.</p>
-<table class="standings" data-sortable>
+${tableWrap(
+		"t-medium",
+		html`<table class="standings" data-sortable>
 <thead>
 <tr>
 <th class="col-rank" scope="col">#</th>
@@ -228,7 +236,8 @@ ${sortableHeader("pointsPerGame", "Per start")}
 <tbody>
 ${profile.topStarters.map((row, index) => renderStarter(row, index + 1))}
 </tbody>
-</table>
+</table>`,
+	)}
 </section>`;
 }
 

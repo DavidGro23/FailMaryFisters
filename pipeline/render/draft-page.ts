@@ -9,7 +9,7 @@ import type { DraftTeam, SeasonDraftView } from "../aggregate/drafts.ts";
 import { url } from "./base-path.ts";
 import { html, type SafeHtml } from "./html.ts";
 import { draftRoute } from "./nav.ts";
-import { renderPage, renderTeamCell, type TeamCell } from "./page.ts";
+import { renderPage, renderTeamCell, tableWrap, type TeamCell } from "./page.ts";
 
 export function renderDraftPage(
 	view: SeasonDraftView,
@@ -55,7 +55,7 @@ ${view.teams.map((team) => {
 }
 
 function renderPicks(team: DraftTeam): SafeHtml {
-	return html`<table class="standings">
+	return tableWrap("t-narrow", html`<table class="standings">
 <thead>
 <tr>
 <th class="col-rank" scope="col">Rd</th>
@@ -76,5 +76,5 @@ ${team.picks.map(
 </tr>`,
 	)}
 </tbody>
-</table>`;
+</table>`);
 }
