@@ -60,9 +60,9 @@ function profile(
 		topScorerSeasons: [],
 		career: row(id, displayName, 1),
 		regular: scope(best),
-		postseason: scope(playoff),
+		playoff: scope(playoff),
 		h2hRegular: [],
-		h2hPostseason: [],
+		h2hPlayoff: [],
 		topStarters: [],
 		tradesByYear: [],
 		tradeCount: 0,
@@ -242,7 +242,7 @@ describe("best player performances", () => {
 
 	test("excludes playoff performances from the regular-season group (rule 7)", () => {
 		const view = buildLandingView(profiles, years(2025), [
-			pg({ playerName: "PlayoffHero", points: 54.7, type: "postseason" }),
+			pg({ playerName: "PlayoffHero", points: 54.7, type: "playoff" }),
 			pg({ playerName: "RegularHero", points: 30 }),
 		]);
 		const group = view.recordGroups.find((g) => g.title === PLAYER_GAME);

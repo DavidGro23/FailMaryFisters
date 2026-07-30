@@ -114,10 +114,25 @@ export interface PlayoffBracket {
 }
 
 /**
- * Regular season and postseason are never merged — not in H2H, not in
+ * Regular season and playoffs are never merged — not in H2H, not in
  * leaderboards, not in any record (rule 7, §9.1).
+ *
+ * **Three values, not two.** `playoff-history.json` holds two brackets, and
+ * "after the regular season" is not the same thing as "a playoff game". The
+ * league counts only the `Championship` bracket — semifinals, the final, and the
+ * third-place game — as playoffs. The `Consolation` bracket (its first round,
+ * plus the 5th- and 7th-place games) decides finishing order among teams that
+ * did not qualify, and the league does not regard those as playoff games.
+ *
+ * They are `consolation` rather than `regular`, because folding them into the
+ * regular season would corrupt every regular-season record and W-L. They are
+ * kept in the model rather than dropped so the distinction stays visible and
+ * checkable; no page currently shows them.
+ *
+ * The old two-value type made `postseason` mean "in playoff-history.json at
+ * all", which silently put a 7th-place game into the playoff records.
  */
-export type GameType = "regular" | "postseason";
+export type GameType = "regular" | "playoff" | "consolation";
 
 /** One team's side of one game. Every game produces two of these. */
 export interface TeamGame {

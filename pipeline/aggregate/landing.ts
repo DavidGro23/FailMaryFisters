@@ -32,7 +32,7 @@ export interface LeagueRecord {
 /**
  * Records that share a scope and a span, so the heading can say it once instead
  * of every tile repeating it. Keeping the groups distinct is also what makes
- * rule 7's regular/postseason split visible rather than implied.
+ * rule 7's regular/playoff split visible rather than implied.
  */
 export interface LeagueRecordGroup {
 	title: string;
@@ -81,7 +81,9 @@ export function buildLandingView(
 	// to displace the regular-season record.
 	const groups: LeagueRecordGroup[] = [
 		{ title: "Regular season · single game", records: gameExtremes(profiles, "regular") },
-		{ title: "Playoffs · single game", records: gameExtremes(profiles, "postseason") },
+		// Semifinals, the final and the third-place game. Consolation games — the
+		// 5th- and 7th-place brackets — are not playoff games to this league (D20).
+		{ title: "Playoffs · single game", records: gameExtremes(profiles, "playoff") },
 		{ title: "Regular season · full season", records: seasonRecords(profiles, seasons) },
 		{
 			title: "Regular season · best player, single game",
@@ -107,7 +109,7 @@ interface Extreme {
 
 function gameExtremes(
 	profiles: readonly ManagerProfile[],
-	scopeKey: "regular" | "postseason",
+	scopeKey: "regular" | "playoff",
 ): LeagueRecord[] {
 	let highest: Extreme | null = null;
 	let lowest: Extreme | null = null;

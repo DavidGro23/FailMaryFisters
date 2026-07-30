@@ -116,15 +116,19 @@ ${tableWrap(
 }
 
 /**
- * Rule 7: regular season and postseason are never merged. Each scope gets its
- * own pair, so a playoff blowout cannot displace a regular-season high.
+ * Rule 7: regular season and playoffs are never merged. Each scope gets its own
+ * pair, so a playoff blowout cannot displace a regular-season high.
+ *
+ * "Playoffs" means the championship bracket only (D20). Consolation games are
+ * excluded, which the note says out loud — a reader comparing these figures
+ * against the season pages would otherwise wonder where a low score went.
  */
 function renderRecords(profile: ManagerProfile): SafeHtml {
 	return html`<section>
 <h2 class="section-title">Best and worst games</h2>
-<p class="section-note">Regular season and postseason are kept separate — the samples are not comparable.</p>
+<p class="section-note">Regular season and playoffs are kept separate — the samples are not comparable. Playoffs are the semifinals, the final and the third-place game; consolation games do not count.</p>
 ${renderScope("Regular season", profile.regular)}
-${renderScope("Postseason", profile.postseason)}
+${renderScope("Playoffs", profile.playoff)}
 </section>`;
 }
 
@@ -164,9 +168,9 @@ ${game.won ? html`<span class="record-outcome-won">won</span>` : html`<span clas
 function renderHeadToHead(profile: ManagerProfile): SafeHtml {
 	return html`<section>
 <h2 class="section-title">Head to head</h2>
-<p class="section-note">Ordered by record. Regular season and postseason are kept separate.</p>
+<p class="section-note">Ordered by record. Regular season and playoffs are kept separate; consolation games do not count.</p>
 ${renderH2hTable("Regular season", profile.h2hRegular)}
-${renderH2hTable("Postseason", profile.h2hPostseason)}
+${renderH2hTable("Playoffs", profile.h2hPlayoff)}
 </section>`;
 }
 

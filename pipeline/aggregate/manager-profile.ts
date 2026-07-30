@@ -1,9 +1,15 @@
 /**
  * One profile per manager. Pure functions, no I/O.
  *
- * Scope discipline (rule 7): regular season and postseason are computed
- * separately and never merged. Best and worst game are records, so each exists
- * once per scope rather than once overall.
+ * Scope discipline (rule 7): regular season and playoffs are computed separately
+ * and never merged. Best and worst game are records, so each exists once per
+ * scope rather than once overall.
+ *
+ * **The playoff scope is the `Championship` bracket only** (D20) — semifinals,
+ * the final, and the third-place game. Consolation games are classified in the
+ * model but deliberately absent from every scope here: the league does not count
+ * them as playoff games, and they must not be folded into the regular season
+ * either.
  */
 
 import type {
@@ -87,10 +93,11 @@ export interface ManagerProfile {
 	topScorerSeasons: Year[];
 	career: AllTimeRow;
 	regular: ScopeRecords;
-	postseason: ScopeRecords;
+	/** `Championship` bracket only — never consolation games (D20). */
+	playoff: ScopeRecords;
 	/** Head-to-head, per scope. Rule 7 names H2H explicitly: never merged. */
 	h2hRegular: HeadToHeadRow[];
-	h2hPostseason: HeadToHeadRow[];
+	h2hPlayoff: HeadToHeadRow[];
 	topStarters: StarterRow[];
 	tradesByYear: SeasonTrades[];
 	tradeCount: number;
@@ -134,9 +141,9 @@ export function buildManagerProfiles(inputs: ProfileInputs): ManagerProfile[] {
 			topScorerSeasons: [...topScorersByYear].filter(([, w]) => w === id).map(([y]) => y).sort((a, b) => a - b),
 			career,
 			regular: scopeRecords(mine, "regular", nameOf),
-			postseason: scopeRecords(mine, "postseason", nameOf),
+			playoff: scopeRecords(mine, "playoff", nameOf),
 			h2hRegular: headToHead(mine, "regular", inputs.managers),
-			h2hPostseason: headToHead(mine, "postseason", inputs.managers),
+			h2hPlayoff: headToHead(mine, "playoff", inputs.managers),
 			topStarters: topStarters(inputs.playerGames, id),
 			tradesByYear: tradesFor(inputs.trades, id, nameOf),
 			tradeCount: inputs.trades.filter((t) => t.participantIds.includes(id)).length,

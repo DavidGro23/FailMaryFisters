@@ -10,7 +10,7 @@
 import type { RawLeague, RawPlayer, RawSeason } from "../load/types.ts";
 import type { GameType, ManagerId, PlayerGame } from "../model.ts";
 import { CODES, type ValidationCollector } from "../load/validation.ts";
-import { playoffKeys } from "./games.ts";
+import { postseasonKeys } from "./games.ts";
 import { correctScore } from "./scoring.ts";
 
 export interface PlayerInfo {
@@ -41,7 +41,7 @@ export function normalizePlayerGames(
 ): PlayerGame[] {
 	const games: PlayerGame[] = [];
 	const unresolved = new Set<string>();
-	const playoffs = playoffKeys(season);
+	const postseason = postseasonKeys(season);
 	let corrections = 0;
 	let unparsed = 0;
 
@@ -58,7 +58,7 @@ export function normalizePlayerGames(
 			continue;
 		}
 		const week = Number(parsed[2]);
-		const type: GameType = playoffs.has(raw.matchupId) ? "postseason" : "regular";
+		const type: GameType = postseason.get(raw.matchupId) ?? "regular";
 
 		let info = registry.get(raw.playerId);
 		if (!info) {

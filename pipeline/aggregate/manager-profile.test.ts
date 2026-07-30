@@ -131,14 +131,14 @@ describe("top scorer seasons", () => {
 });
 
 describe("best and worst game, per scope (rule 7)", () => {
-	// The postseason high beats every regular-season score, and the postseason
-	// low undercuts every regular-season score. Merging the scopes would put
-	// both playoff games in the headline pair and hide the regular-season ones.
+	// The playoff high beats every regular-season score, and the playoff low
+	// undercuts every regular-season score. Merging the scopes would put both
+	// playoff games in the headline pair and hide the regular-season ones.
 	const games: TeamGame[] = [
 		teamGame({ managerId: "a", points: 150, week: 3, opponentPoints: 90 }),
 		teamGame({ managerId: "a", points: 60, week: 4, opponentPoints: 95 }),
-		teamGame({ managerId: "a", points: 200, week: 16, type: "postseason", opponentPoints: 110 }),
-		teamGame({ managerId: "a", points: 40, week: 17, type: "postseason", opponentPoints: 105 }),
+		teamGame({ managerId: "a", points: 200, week: 16, type: "playoff", opponentPoints: 110 }),
+		teamGame({ managerId: "a", points: 40, week: 17, type: "playoff", opponentPoints: 105 }),
 	];
 
 	test("keeps the regular-season records free of playoff games", () => {
@@ -148,11 +148,58 @@ describe("best and worst game, per scope (rule 7)", () => {
 		assert.equal(p.regular.games, 2);
 	});
 
-	test("reports the postseason records separately", () => {
+	// D20. The reported defect: consolation games were counted as playoff games,
+	// so a 7th-place blowout could hold the playoff record. The extremes here are
+	// both consolation, and both must be ignored by *both* scopes — landing in
+	// `regular` would be just as wrong as landing in `playoff`.
+	test("excludes consolation games from the playoff records", () => {
+		const p = profileFor("a", {
+			games: [
+				...games,
+				teamGame({ managerId: "a", points: 999, week: 16, type: "consolation", opponentPoints: 50 }),
+				teamGame({ managerId: "a", points: 1, week: 17, type: "consolation", opponentPoints: 120 }),
+			],
+		});
+		assert.equal(p.playoff.games, 2, "consolation games must not inflate the playoff count");
+		assert.equal(p.playoff.best?.points, 200, "a consolation game must not hold the playoff high");
+		assert.equal(p.playoff.worst?.points, 40, "a consolation game must not hold the playoff low");
+		assert.equal(p.regular.games, 2, "consolation games must not fall through to the regular season");
+		assert.equal(p.regular.best?.points, 150);
+		assert.equal(p.regular.worst?.points, 60);
+	});
+
+	test("a manager whose only postseason games are consolation reports no playoffs", () => {
+		const p = profileFor("a", {
+			games: [
+				teamGame({ managerId: "a", points: 100, week: 3 }),
+				teamGame({ managerId: "a", points: 130, week: 16, type: "consolation" }),
+			],
+		});
+		assert.equal(p.playoff.games, 0);
+		assert.equal(p.playoff.best, undefined);
+		assert.equal(p.playoff.worst, undefined);
+	});
+
+	test("excludes consolation meetings from the playoff head-to-head", () => {
+		const p = profileFor("a", {
+			games: [
+				teamGame({ managerId: "a", points: 120, opponentId: "b", opponentPoints: 90, type: "playoff" }),
+				teamGame({ managerId: "a", points: 130, opponentId: "c", opponentPoints: 80, type: "consolation" }),
+			],
+		});
+		assert.deepEqual(
+			p.h2hPlayoff.map((r) => r.opponentName),
+			["Beta"],
+			"a consolation opponent must not appear in the playoff H2H",
+		);
+		assert.equal(p.h2hRegular.length, 0, "nor fall through to the regular-season H2H");
+	});
+
+	test("reports the playoff records separately", () => {
 		const p = profileFor("a", { games });
-		assert.equal(p.postseason.best?.points, 200);
-		assert.equal(p.postseason.worst?.points, 40);
-		assert.equal(p.postseason.games, 2);
+		assert.equal(p.playoff.best?.points, 200);
+		assert.equal(p.playoff.worst?.points, 40);
+		assert.equal(p.playoff.games, 2);
 	});
 
 	test("carries the opponent, season, week and outcome", () => {
@@ -169,8 +216,8 @@ describe("best and worst game, per scope (rule 7)", () => {
 		const p = profileFor("a", {
 			games: [teamGame({ managerId: "a", points: 100 })],
 		});
-		assert.equal(p.postseason.games, 0);
-		assert.equal(p.postseason.best, undefined);
+		assert.equal(p.playoff.games, 0);
+		assert.equal(p.playoff.best, undefined);
 	});
 });
 
@@ -180,7 +227,7 @@ describe("head to head", () => {
 		teamGame({ managerId: "a", points: 120, opponentId: "b", opponentPoints: 100 }),
 		teamGame({ managerId: "a", points: 130, opponentId: "b", opponentPoints: 110 }),
 		teamGame({ managerId: "a", points: 90, opponentId: "b", opponentPoints: 140 }),
-		teamGame({ managerId: "a", points: 80, opponentId: "b", opponentPoints: 150, type: "postseason" }),
+		teamGame({ managerId: "a", points: 80, opponentId: "b", opponentPoints: 150, type: "playoff" }),
 		// vs Gamma: 3-0 in the regular season, never met in the playoffs.
 		teamGame({ managerId: "a", points: 100, opponentId: "c", opponentPoints: 50 }),
 		teamGame({ managerId: "a", points: 100, opponentId: "c", opponentPoints: 60 }),
@@ -205,7 +252,7 @@ describe("head to head", () => {
 		assert.equal(beta?.games, 3, "regular-season row must exclude the playoff meeting");
 		assert.equal(beta?.losses, 1);
 
-		const betaPost = p.h2hPostseason.find((r) => r.opponentName === "Beta");
+		const betaPost = p.h2hPlayoff.find((r) => r.opponentName === "Beta");
 		assert.equal(betaPost?.games, 1);
 		assert.equal(betaPost?.losses, 1);
 	});
@@ -213,7 +260,7 @@ describe("head to head", () => {
 	test("lists only opponents actually faced in that scope", () => {
 		const p = profileFor("a", { games });
 		assert.deepEqual(p.h2hRegular.map((r) => r.opponentName), ["Gamma", "Beta"]);
-		assert.deepEqual(p.h2hPostseason.map((r) => r.opponentName), ["Beta"]);
+		assert.deepEqual(p.h2hPlayoff.map((r) => r.opponentName), ["Beta"]);
 	});
 
 	test("orders by record, most wins first", () => {
