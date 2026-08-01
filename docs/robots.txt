@@ -1,2 +1,117 @@
+# Fail Mary Fisters — a private league's record book.
+#
+# Nothing here is for indexing, training, or republication. Every page also
+# carries <meta name="robots" content="noindex">.
+#
+# Note that this file is a request, not a control: it is honoured only by
+# crawlers that choose to.
+
 User-agent: *
+Disallow: /
+
+# Named explicitly, because several operators treat their own token as the
+# documented way to opt out.
+
+User-agent: AI2Bot
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Claude-SearchBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: cohere-training-data-crawler
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+User-agent: omgili
+Disallow: /
+
+User-agent: omgilibot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Perplexity-User
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+# Commercial SEO and link-graph harvesters.
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: rogerbot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: SeznamBot
 Disallow: /

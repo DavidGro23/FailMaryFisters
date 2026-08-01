@@ -37,6 +37,7 @@ import {
 	TEAMS_INDEX_ROUTE,
 } from "./nav.ts";
 import { renderRedirect } from "./redirect.ts";
+import { renderRobotsTxt } from "./robots.ts";
 import { renderRulebookPage } from "./rulebook-page.ts";
 import { renderStandingsPage } from "./standings-page.ts";
 
@@ -212,7 +213,8 @@ export function renderSite(
 	if (rulebookFiles > 0) written.push(`assets/rulebook/ (${rulebookFiles} files)`);
 
 	// Public because it needs no login, not because it wants an audience (§13.2).
-	writeFileSync(join(OUTPUT_DIR, "robots.txt"), "User-agent: *\nDisallow: /\n", "utf8");
+	// Advisory only — see the note in robots.ts.
+	writeFileSync(join(OUTPUT_DIR, "robots.txt"), renderRobotsTxt(), "utf8");
 	written.push("robots.txt");
 
 	// Tells GitHub Pages which host to answer on. Emitted every build because
