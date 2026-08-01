@@ -42,6 +42,21 @@ export function draftRoute(year: number, slug?: string): string {
 	return slug === undefined ? `drafts/${year}/` : `drafts/${year}/${slug}/`;
 }
 
+/** The season the keeper page prepares for — always the one after the latest. */
+export const KEEPER_YEAR = DEFAULT_SEASON + 1;
+
+/**
+ * A team's keeper values and draft picks for the coming season.
+ *
+ * **The route stays `keepers/` even though the page is titled by year.** Only one
+ * upcoming season exists at a time, so a `/2026/` URL would have to move every
+ * year and every link already shared would rot annually. The heading carries the
+ * year; the URL carries what the page is.
+ */
+export function keeperRoute(slug?: string): string {
+	return slug === undefined ? "keepers/" : `keepers/${slug}/`;
+}
+
 /** Where `/teams/<slug>/` used to live. Kept as redirects so old links survive. */
 export function legacyManagerRoute(slug: string): string {
 	return `managers/${slug}/`;
@@ -54,6 +69,7 @@ export const ROUTES = {
 	allTime: "all-time/",
 	managers: managerRoute(DEFAULT_MANAGER_SLUG),
 	drafts: draftRoute(DEFAULT_SEASON),
+	keepers: keeperRoute(),
 	rulebook: "rulebook/",
 } as const;
 
@@ -67,17 +83,24 @@ export const LEGACY_TEAMS_INDEX_ROUTE = "managers/";
 export type RouteKey = keyof typeof ROUTES;
 
 /**
- * Six items — one past the five §12.3 recommends for the mobile bottom bar.
- * That was a deliberate call: Drafts is a top-level section people look for in
- * the nav, not something to hunt for on a season page. The bar's type size drops
- * a step below 900px to keep six labels legible at 360px; a seventh would not
- * fit and would need a different pattern.
+ * Seven items, two past the five §12.3 recommends for the mobile bottom bar.
+ *
+ * That threshold has now been crossed twice deliberately: Drafts and Keepers are
+ * both top-level sections people look for in the nav rather than hunt for on
+ * another page. Seven genuinely does not fit one 360px row, which the earlier
+ * comment here predicted — so the bar wraps to two rows below 380px and returns
+ * to a single row above it. Every label stays full; nothing is abbreviated.
+ *
+ * The keeper item is labelled by year — it is the page for the season about to
+ * start, holding keeper values and draft picks. Derived from `DEFAULT_SEASON`
+ * rather than written out, so it advances with the data.
  */
 const ITEMS: Array<{ key: RouteKey; label: string }> = [
 	{ key: "home", label: "Home" },
 	{ key: "seasons", label: "Seasons" },
 	{ key: "drafts", label: "Drafts" },
 	{ key: "managers", label: "Teams" },
+	{ key: "keepers", label: String(KEEPER_YEAR) },
 	{ key: "allTime", label: "All-time" },
 	{ key: "rulebook", label: "Rulebook" },
 ];

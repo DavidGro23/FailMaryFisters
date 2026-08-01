@@ -11,6 +11,7 @@ import type {
 	ManagerId,
 	PlayerGame,
 	PlayoffBracket,
+	RosterEntry,
 	SeasonStandings,
 	SeasonDraft,
 	TeamGame,
@@ -18,11 +19,13 @@ import type {
 	Year,
 } from "../model.ts";
 import { ValidationCollector, type ValidationIssue } from "../load/validation.ts";
+import { loadAcquisitions, type Acquisitions } from "./acquisitions.ts";
 import { normalizeDraft } from "./drafts.ts";
 import { normalizeGames } from "./games.ts";
 import { buildManagerRegistry, resolveTeamsToManagers } from "./managers.ts";
 import { buildPlayerRegistry, normalizePlayerGames } from "./players.ts";
 import { normalizePlayoffs } from "./playoffs.ts";
+import { normalizeRosters } from "./rosters.ts";
 import { loadRulebook, type Rulebook } from "./rulebook.ts";
 import { normalizeStandings } from "./standings.ts";
 import { normalizeTrades } from "./trades.ts";
@@ -44,6 +47,13 @@ export interface NormalizedLeague {
 	trades: Trade[];
 	/** One per season, keyed by year. */
 	drafts: Map<Year, SeasonDraft>;
+	/** Every team's roster as the season ended, including IR. */
+	rosters: RosterEntry[];
+	/**
+	 * How undrafted players were acquired, per season. Empty when the
+	 * hand-maintained file is absent — the export does not carry this (D21).
+	 */
+	acquisitions: Acquisitions;
 	/** The league's own rulebook, or null if it has not been transcribed. */
 	rulebook: Rulebook | null;
 }
@@ -60,6 +70,7 @@ export function normalizeLeague(league: RawLeague): NormalizeResult {
 	const managers = buildManagerRegistry(league, v);
 	const players = buildPlayerRegistry(league.players);
 	const rulebook = loadRulebook(league, v);
+	const acquisitions = loadAcquisitions(league, v);
 
 	const seasons: SeasonStandings[] = [];
 	const playoffs = new Map<Year, PlayoffBracket>();
@@ -67,6 +78,7 @@ export function normalizeLeague(league: RawLeague): NormalizeResult {
 	const playerGames: PlayerGame[] = [];
 	const trades: Trade[] = [];
 	const drafts = new Map<Year, SeasonDraft>();
+	const rosters: RosterEntry[] = [];
 
 	for (const raw of league.seasons) {
 		const teamToManager = resolveTeamsToManagers(league, raw.year, v);
@@ -80,6 +92,7 @@ export function normalizeLeague(league: RawLeague): NormalizeResult {
 		games.push(...normalizeGames(league, raw, teamToManager, v));
 		playerGames.push(...normalizePlayerGames(league, raw, teamToManager, players, v));
 		trades.push(...normalizeTrades(league, raw, teamToManager, players, v));
+		rosters.push(...normalizeRosters(league, raw, teamToManager, players, v));
 
 		const draft = normalizeDraft(league, raw, teamToManager, players, v);
 		if (draft) drafts.set(raw.year, draft);
@@ -97,6 +110,8 @@ export function normalizeLeague(league: RawLeague): NormalizeResult {
 			playerGames,
 			trades,
 			drafts,
+			rosters,
+			acquisitions,
 			rulebook,
 		},
 		issues: v.issues,

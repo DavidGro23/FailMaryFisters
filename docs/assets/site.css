@@ -48,7 +48,12 @@ body {
 }
 
 /* Room for the fixed bottom bar so the last row is never hidden behind it. */
-body { padding-bottom: calc(var(--tap) + 16px); }
+/* Clears the fixed bottom nav, which wraps to two rows below 380px. */
+body { padding-bottom: calc(var(--tap) * 2 + 16px); }
+
+@media (min-width: 380px) {
+	body { padding-bottom: calc(var(--tap) + 16px); }
+}
 
 .page { padding: 20px 14px 40px; }
 
@@ -66,7 +71,23 @@ body { padding-bottom: calc(var(--tap) + 16px); }
 	border-top: var(--line-w) solid var(--navy-line);
 }
 
-.nav-inner { display: flex; }
+/*
+ * Seven items do not fit one row at 360px: the widest labels ("All-time",
+ * "Rulebook") need ~50px each at 12px, and 7 x 50 overflows a 360px bar.
+ *
+ * Mobile-first, so the base layout is the narrow case — a 4-column grid, which
+ * wraps seven items to 4 + 3. Every cell keeps its own >=44px target. From 380px
+ * there is room for a single row, which is where every common phone sits
+ * (390/412/430); only 360px and below get two rows.
+ */
+.nav-inner {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+@media (min-width: 380px) {
+	.nav-inner { display: flex; }
+}
 
 .nav-link {
 	flex: 1 1 0;
@@ -79,9 +100,9 @@ body { padding-bottom: calc(var(--tap) + 16px); }
 	color: var(--text-on-navy);
 	text-decoration: none;
 	/*
-	 * 12px rather than the 13px used elsewhere: six items share the width of a
-	 * 360px screen, so "All-time" and "Rulebook" need to fit a ~60px slot. Still
-	 * above the 11px floor §12.2 sets.
+	 * 12px rather than the 13px used elsewhere: seven items share the width of a
+	 * phone, so "All-time" and "Rulebook" need to fit a ~50px slot. Still above
+	 * the 11px floor §12.2 sets.
 	 */
 	font-size: 12px;
 	white-space: nowrap;
@@ -548,6 +569,17 @@ th[aria-sort="ascending"] .sort-btn { color: var(--text); }
 	font-variant-numeric: tabular-nums;
 }
 
+/* A shared record names its other holders, a step quieter than the holder line
+   so the tile still reads as one record rather than a list. */
+.record-shared {
+	margin: 3px 0 0;
+	font-size: 10px;
+	color: var(--text-muted);
+	opacity: 0.75;
+	font-variant-numeric: tabular-nums;
+	line-height: 1.4;
+}
+
 .record-detail a { color: var(--text-muted); }
 .record-outcome-won { color: var(--pos); }
 .record-outcome-lost { color: var(--neg); }
@@ -555,6 +587,35 @@ th[aria-sort="ascending"] .sort-btn { color: var(--text); }
 .manager-link { text-decoration: none; color: inherit; display: block; }
 .manager-link:hover .team-name,
 .manager-link:focus-visible .team-name { color: var(--red); }
+
+/* --- Keeper values ------------------------------------------------------ */
+
+/*
+ * A player who cannot be kept, or whose value is not yet known, is muted rather
+ * than flagged. Both are ordinary outcomes — a first-round pick is simply not
+ * keepable — so red would overstate them (§12.4 reserves the accent).
+ */
+.keeper-row-none .team-name,
+.keeper-row-none .col-num { color: var(--text-muted); }
+
+.keeper-none { color: var(--text-muted); }
+
+/*
+ * Explanatory prose, so it matches `.section-note` exactly — 11px, muted, and
+ * capped at 60ch. It previously ran at 13px and full width, which made the
+ * footnotes louder and wider than every other note on the site.
+ */
+.keeper-rules {
+	margin: -6px 0 14px;
+	padding-left: 16px;
+	font-size: 11px;
+	color: var(--text-muted);
+	max-width: 60ch;
+	line-height: 1.6;
+}
+
+.keeper-rules li + li { margin-top: 5px; }
+.keeper-rules strong { color: var(--text); font-weight: 500; }
 
 /* --- Trades ------------------------------------------------------------- */
 

@@ -140,3 +140,22 @@ function renderSecondary(cell: TeamCell): SafeHtml {
 	if (cell.secondary === undefined) return html``;
 	return html`<span class="team-alias"> · ${cell.secondary}</span>`;
 }
+
+/**
+ * A **player** name in a table cell.
+ *
+ * Deliberately not `renderTeamCell`: there are no player avatars anywhere in the
+ * export — `teamImgUrl` on `managers-history.json` is the only image field it
+ * has — so a player passed through the team cell always fell to the initial-letter
+ * bubble. Ten identical grey circles carry no information and read as a missing
+ * image rather than a design choice. Teams keep their avatars because theirs are
+ * real and distinguish one row from another.
+ *
+ * Same `team-cell`/`team-text` structure so the column metrics and the stacked
+ * card layout are shared; only the avatar box is gone.
+ */
+export function renderPlayerCell(name: string, secondary?: string): SafeHtml {
+	return html`<span class="team-cell"><span class="team-text"><span class="team-name">${name}</span>${
+		secondary === undefined ? html`` : html`<span class="team-alias"> · ${secondary}</span>`
+	}</span></span>`;
+}

@@ -298,7 +298,7 @@ These are **mandatory** pipeline behaviours. Each one, if ignored, produces a pa
 | D2 | **Verify manager identity across all 9 seasons before trusting it.** Emit a manager audit: any `userId` appearing under multiple `managerName`s, and any `managerName` under multiple `userId`s. If NFL Fantasy re-issued IDs at any point, add a manual `manager-aliases.json` override. Do not silently merge or split. **A new `userId` appearing in a season is a legitimate roster change, not an error** — the league has confirmed turnover (§9.7). Report it, do not fail on it. |
 | D3 | **`pos` in roster files is the lineup slot, not the player position.** Bench players have `pos: "BN"` — no position information. Real positions come from `players.json` only. |
 | D16 | **Slot names are not the same in `settings-history.json` and the roster files.** `rosterPositions` declares `WRRB_FLEX` and `IR`; those same slots appear as **`FLEX`** and **`RES`** in the `pos` and `status` fields of `end-roster-history.json` and `player-matchup-statistics-history.json`. Verified in all nine seasons: the string `WRRB_FLEX` never occurs as a `pos` value anywhere in the export, and `FLEX` never occurs as a `rosterPositions` key. Any code that joins a season's declared slots to actual lineup records — optimal lineup (§9.6), position filters, roster displays, starter counting — must map between the two vocabularies. Stage 2 owns that mapping; stage 1 records both verbatim. Counting starters as "every `rosterPositions` slot except `BN` and `IR`" gives 9 in 2017–18 and 2021–25 and 8 in 2019–20, which matches the lineups. |
-| D4 | **Playoff and consolation games are duplicated in `matchup-history.json`.** Classify by `matchupId` membership in `playoff-history.json`; never sum both files. |
+| D4 | **Playoff and consolation games are duplicated in `matchup-history.json`.** Find them by `matchupId` membership in `playoff-history.json`; never sum both files. Membership alone only proves the game is post-regular-season — split the two brackets with D20. |
 | D5 | **Regular season length is derived, not hardcoded.** `regularSeasonWeeks = wins + losses + draws` from `regular-season-standings-history.json`. **It genuinely varies: 15 games in 2017 and 2021–2025, but 14 in 2018, 2019 and 2020** — so the playoffs are weeks 16–17 in most years and weeks **15–16** in 2018–2020. Verified in all nine seasons: weeks `1..regularSeasonWeeks` of `matchup-history.json` sum to `pointsFor` **exactly** for all ten teams, every year. Any game with `week <= regularSeasonWeeks` that also appears in `playoff-history.json`, or any game beyond it that does not, goes to the validation report — measured zero violations in either direction across the whole export. |
 | D6 | **`matchup-history` points are authoritative.** Never recompute a team score from player stats. Measured across all nine seasons: **72 team-games** do not reconcile against the sum of their starters — 2017:6, 2018:9, 2019:7, 2020:8, 2021:5, 2022:9, 2023:11, 2024:15, 2025:2. **Every delta has the same sign: `matchupPoints − starterSum` is always negative**, i.e. the starters sum to *more* than the official team total, never less. These are **two distinct populations**: **65 of the 72 are sign loss (D17)**, a provable defect that stage 2 corrects — applying it across all positions leaves **7**. The remaining 7 are **yardage drift**, not stat corrections: the `stats` snapshot and the `pts` value disagree by whole-yard amounts. League-wide this affects 544 offensive records with deltas that are always whole-yard multiples (0.20 = 2 rushing/receiving yards; 0.02–0.04 = passing yards) and are **~95% negative** — a bidirectional correction process would not produce that skew. These records are **left exactly as exported**. Two of the 7 survivors do not fit even the drift pattern (`2024-9-6-10` at −2.00 and `2023-4-5-6` at −1.00) and are accepted as unexplained rather than chased. Separately, two lineups carry one starter fewer than that season's slot count: `2017-15-2-3` (team 3) and `2024-14-3-5` (team 3). Unreconciled games go to the validation report; **the team total in `matchup-history.json` is never altered, under any circumstance.** |
 | D7 | **Roster and scoring rules are resolved per season, never league-wide.** 2025 has a populated `dstSettings`, an empty `kickingSettings`, no K or DEF roster slot, and no K/DEF player in any lineup — so its DST rules are a vestigial platform default. **All nine seasons measured, five distinct roster shapes:**
@@ -323,6 +323,8 @@ Exact transitions: **kickers dropped in 2019** (and `kickingSettings` is empty f
 | D17 | **The export cannot represent a negative number. Every negative score is stored as its magnitude.** This is a property of the export as a whole, not of any one position: across **22,637** `player-matchup-statistics-history.json` records and every `end-roster-history.json` season total, the minimum value is **0** and there is not a single negative number anywhere. Any player whose true score is negative therefore appears with the minus sign stripped. Defenses reach negative scores through the `pts_allow_28_34`/`pts_allow_35p` tiers; **offensive players reach them through `fum_lost: -2` and `pass_int: -2`.** Measured by recomputing every record against that season's settings: **107 records have a negative true score and 106 of them lost the sign, with zero counter-examples** — DEF 78, RB 16, WR 8, QB 5. **65 sit in a starting lineup**, and correcting them is what takes the D6 unreconciled team-games from 72 down to 7. Worked examples: `2017-10-4-9` team 4, Denver allowed 41 with 1 sack, true **−3.00**, exported **3.00**; Dak Prescott **1.20 / −1.20**; AJ Dillon **0.70 / −0.70**; Chris Olave **1.00 / −1.00**; Bhayshul Tuten **1.50 / −1.50**. **Correction rule for stage 2:** recompute each player's score from that season's settings (`offenseSettings`, `kickingSettings`, or `dstSettings` with `def_st_td` at 6 per D12, and the D18 all-zero guard); **if and only if** the result is negative *and* the exported value equals its absolute value, negate the exported value. Never substitute a recomputed value in any other circumstance, never correct any other discrepancy, and **never alter a team total**. Log every correction to the validation report. |
 | D19 | **`WRRB_FLEX` accepts tight ends. The slot name is not the eligibility rule.** The league's rulebook (§2.2) defines the slot as "3 FLEX (RB/WR/TE)", and the export bears that out: across nine seasons there are **2459 FLEX starts — 1449 WR, 952 RB and 58 TE** — the earliest being Vernon Davis in 2017 week 10. An earlier version of this document asserted the opposite, inferred from the slot name alone; that inference was wrong and §9.6's optimal-lineup logic would have produced too-low a ceiling because of it. Read eligibility from the rulebook, and sanity-check it against what has actually been started. |
 | D18 | **An all-zero DEF stats row means "did not play", not "shutout".** `2022-17-5-6` (Buffalo, week 17 2022 — the cancelled Bills–Bengals game) has every stat at zero, including `pts_allow: 0`. A naive tier lookup reads that as a shutout and awards `pts_allow_0: 10`; the true score is **0**, which is what the export correctly records. Any DEF recomputation must check for an all-zero stats row *before* consulting the `pts_allow` tiers. This is one of the two DEF records that do not reconcile under D17; the other is `2023-4-5-6` (Philadelphia, exported 5.00 vs computed 4.00 — off by exactly 1.00, no structural explanation, left alone). |
+| D21 | **The export contains no waiver, free-agent, add or drop records — only trades.** Every field at every nesting depth across all ten files × nine seasons was searched; `trade-history.json` is the whole of it. `go-nfl-fantasy`, the tool that produced this export, has scrapers for eleven data types and none for transactions — its trades scraper reads `.../history/<year>/transactions?transactionType=trade`, i.e. the league's transaction log filtered to one type. The missing types matter because rulebook §5.3 prices an undrafted keeper on his last waiver/free-agent claim: **44 of the 150 players on the 2025 rosters are undrafted**. **Measured against the live log: the endpoint accepts only `add`, `drop`, `trade`, `roster`, `commish`; there is no `waiver` type, and an unrecognised value falls back to a default view instead of erroring** — so a guessed parameter returns a convincing page of the wrong rows. Waiver claims sit inside `add`, separated by the `transactionFrom` column, whose only two values there are `"Waivers"` and `"Free Agents"`. Player id comes from a `playerNameId-<id>` class; pages hold 20 rows and paginate on `offset=`; rows are newest-first, so the first `add` per player is the one that prices him (assert the ordering, do not assume it). Captured by a **local tool kept out of this repository** — the site needs no network code to build (rule 19, NFR-9) — and committed as `raw-data/<leagueFolder>/keeper-acquisitions.json`. Absence is expected and never an error; unpriced players render "not recorded". **Never default an undrafted player to round 10 or 12.** |
+| D20 | **A playoff game is a `Championship`-bracket game. Consolation games are not playoff games.** `playoff-history.json` holds exactly 8 games in each of the nine seasons — **4 `Championship`** (two semifinals, the final, the third-place game) and **4 `Consolation`** (an unlabelled first round, plus the 5th- and 7th-place games) — for 72 real playoff and 72 consolation team-games across the export. The league counts only the former. Discriminate on `bracketType`; never on `roundLabel` (D11), whose consolation first round is `""`. **Reported defect, since fixed:** classifying by mere membership in the file made "lowest playoff score" a 2017 consolation game at **54.04** instead of the true **66.40** (SG Drugs-Bucs, 2022 Fantasy Super Bowl), put a 5th-place game second on the highest-score list, and gave Crazy caught carps — who has never reached the championship bracket in nine seasons — a full set of playoff records off 10 consolation games. Consolation games stay classified in the model but appear in no scope and on no page. |
 | D13 | **`transactionWeek` can be `0`.** Occurs in 2017, 2018, 2019, 2023 and 2024 — it is a recurring pattern, not a one-off. Do not assume `1..17`. |
 | D10 | **Vendor remote assets.** `teamImgUrl` hotlinks `fantasy.nfl.com` and will eventually rot. Download once into `raw-data/assets/` at pipeline time, commit them, and reference locally. Fall back to a generated initial-letter avatar. |
 
@@ -345,7 +347,8 @@ interface Manager {
   succession?: { predecessorId?: ManagerId; successorId?: ManagerId; year: Year };
 }
 
-type GameType = "regular" | "championship" | "consolation";
+// Three values, and "playoff" is the Championship bracket only (D20).
+type GameType = "regular" | "playoff" | "consolation";
 
 interface GameSide {
   teamId: string;
@@ -398,9 +401,13 @@ Every one of these is a decision that would otherwise be guessed. They belong in
 All records, leaderboards, and H2H are computed **twice** and displayed **separately**, never merged:
 
 - **Regular season** — `type === "regular"`
-- **Postseason** — `type === "championship" || type === "consolation"`
+- **Playoffs** — `type === "playoff"`
 
-Rationale: postseason samples are tiny and unevenly distributed (a manager who never made the bracket has no postseason games), so blending them makes the all-time table misleading. Separating them is also what the league will actually argue about.
+**Consolation games are in neither scope** (D20). An earlier version of this section defined the second scope as `"championship" || "consolation"`, i.e. everything after the regular season. **The league has since ruled that wrong**: the 5th- and 7th-place bracket is not the playoffs, and a record set there is not a playoff record. Consolation games are still classified in the model — dropping them would hide the distinction — but no scope and no page uses them. They must never be folded into `regular` either, which would corrupt every regular-season W-L.
+
+Rationale for the split: playoff samples are tiny and unevenly distributed (a manager who never made the bracket has no playoff games at all — Crazy caught carps has none in nine seasons), so blending them makes the all-time table misleading. Separating them is also what the league will actually argue about.
+
+Prefer **playoff** over **postseason** in code, types, and page copy. "Postseason" naturally reads as "everything after week 15", which is precisely the ambiguity that produced the defect D20 records.
 
 Where a single headline number is needed (e.g. a manager card), use the regular-season figure and label it.
 
@@ -474,15 +481,58 @@ succession?: { predecessorId?: ManagerId; successorId?: ManagerId; year: Year };
 
 Populated by the audit, rendered on the manager page as one line ("Took over the franchise from Alex, who managed 2017–20XX") and on the season page where the handover occurred. It never affects a computed statistic.
 
-### 9.8 Keepers — out of scope
+### 9.8 Keepers — values are computed, past keepers are not derived
 
-Keepers are not displayed and not derived. They appear in the export as ordinary
-draft picks with no distinguishing flag. The derivation heuristic was tested on
-2024 → 2025 and produced 40 candidates with 8 of 10 teams exceeding the 3-keeper
-limit — it does not work.
+Two different questions, with two different answers.
 
-If keeper display is ever wanted, the answer is a hand-maintained
-`raw-data/<leagueFolder>/keepers.json`, never a derivation from draft data.
+**Which players were kept in a past season — still out of scope, still not
+derivable.** Keepers appear in the export as ordinary draft picks with no
+distinguishing flag. The derivation heuristic was tested on 2024 → 2025 and
+produced 40 candidates with 8 of 10 teams exceeding the 3-keeper limit. It does
+not work, and nothing should try again.
+
+**What a currently-rostered player costs to keep — computed, and shown at
+`/keepers/`.** This is a stated rule rather than an inference, so it carries none
+of the risk above:
+
+| Case | Value | Source |
+|---|---|---|
+| Drafted in the season just ended | draft round − 1 | rulebook §10.2 |
+| Drafted in round 1 | cannot be kept | rulebook §10.1 |
+| Undrafted, last claimed off waivers | round 10 | rulebook §5.3 |
+| Undrafted, last added as a free agent | round 12 | rulebook §7.1 |
+
+Applied to the **end-of-season roster excluding IR** — every 2025 team has
+exactly 15 such players (`ST` 90, `BN` 60, `RES` 8 across the league).
+
+Two invariants that are easy to get backwards, both stated by the league:
+
+- **Trades never change the value.** The draft is searched by `playerId` alone;
+  the drafting team is irrelevant. 37 of the 106 drafted players on the 2025
+  rosters are held by a team that did not draft them.
+- **Drops never change it either.** A drafted player who was cut and later
+  re-claimed still costs `round − 1`. The waiver/free-agent rule applies only to
+  players who were *never* drafted.
+
+**44 of the 150 players (29%) are undrafted and cannot be priced from the
+export**, which has no waiver or free-agent history at all (D21). They are
+supplied by `raw-data/<leagueFolder>/keeper-acquisitions.json`, captured from the
+league's transaction log — 20 waiver claims and 24 free-agent pickups for 2025.
+Any that were ever missing render "not recorded" and are **never** defaulted to
+10 or 12: a plausible wrong round is worse than a visible gap in a league that
+argues about these numbers.
+
+**"Last" acquisition is load-bearing and was verified against the live log.** 39
+players in 2025 have mixed waiver/free-agent histories, and the newest claim is
+the one that prices them — Cade Otton went waiver (wk 7) → waiver (wk 8) → free
+agent (wk 11) and is worth a 12th, while Malik Washington went free agent (wk 5)
+→ waiver (wk 11) and is worth a 10th. All 39 derive correctly.
+
+Not implemented: rulebook §5.3 prices a team's *second* waiver keeper at round 9
+and its *third* at round 8, plus a collision rule when a drafted keeper shares a
+round with a waiver keeper. Both depend on which players a team *chooses* to
+keep — a decision made at the keeper deadline, not data — so each player is
+priced standalone and the page says so.
 
 ## 10. Page Inventory
 
@@ -494,6 +544,7 @@ If keeper display is ever wanted, the answer is a hand-maintained
 | `/seasons/<year>/draft/` | Full draft board | No |
 | `/managers/` | Manager index | No |
 | `/managers/<slug>/` | Career page (FR-9) | No |
+| `/keepers/<slug>/` | Keeper values for the coming season, from the latest end-of-season roster (§9.8). No year in the URL — only the next season's values exist at a time | No |
 | `/h2h/` | Manager-vs-manager matrix + pair detail | **Yes** |
 | `/records/` | All-time leaderboards and records, both scopes | Only for table sorting |
 | `/trades/` | Trade log, all seasons, filterable by year | Only for filtering |
@@ -639,7 +690,8 @@ Concrete requirements:
 - **The H2H matrix is the only element allowed to scroll horizontally**, and it must have a sticky first column.
 - **All interactive targets ≥ 44px** (`--tap`). Nav items, sortable table headers, expandable week rows.
 - Navigation is the same markup at both sizes — only CSS moves it from bottom bar to top band. No duplicated nav in the DOM.
-- **Bottom nav holds 6 items: Home, Seasons, Drafts, Teams, All-time, Rulebook.** The original guidance was a maximum of 5, with the rest living on the pages they belong to; that was relaxed by one on request, because Drafts is a top-level section people expect in the nav rather than something to find on a season page. The bar's type drops from 13px to 12px below 900px so six labels still fit a 360px screen — "All-time" and "Rulebook" are the binding constraint at roughly 60px per slot. **A seventh item does not fit and needs a different pattern**, not a smaller font: 11px is the floor (§12.2).
+- **Bottom nav holds 7 items: Home, Seasons, Drafts, Teams, Keepers, All-time, Rulebook.** The original guidance was a maximum of 5, with the rest living on the pages they belong to; it has now been relaxed twice on request — Drafts and Keepers are both top-level sections people expect in the nav rather than something to find on another page. The bar's type drops from 13px to 12px below 900px.
+- **The seventh item is the one that broke a single row, exactly as this section predicted.** "All-time" and "Rulebook" need ~50px each, and 7 × 50 overflows 360px. The answer is **not** a smaller font — 11px is the floor (§12.2) — and not an abbreviation. Mobile-first, the base layout is a **4-column grid**, wrapping seven items to 4 + 3, each cell keeping its own ≥44px target; from **380px** it becomes a single flex row, which covers every common phone (390/412/430). Only 360px and below see two rows, and `body` padding-bottom tracks the taller bar. Still one set of markup — CSS alone moves it.
 - Test at 360px width. That is the realistic floor.
 
 ### 12.4 Component rules

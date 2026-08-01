@@ -9,7 +9,7 @@ import type { DraftTeam, SeasonDraftView } from "../aggregate/drafts.ts";
 import { url } from "./base-path.ts";
 import { html, type SafeHtml } from "./html.ts";
 import { draftRoute } from "./nav.ts";
-import { renderPage, renderTeamCell, tableWrap, type TeamCell } from "./page.ts";
+import { renderPage, renderPlayerCell, renderTeamCell, tableWrap, type TeamCell } from "./page.ts";
 
 export function renderDraftPage(
 	view: SeasonDraftView,
@@ -67,11 +67,11 @@ function renderPicks(team: DraftTeam): SafeHtml {
 ${team.picks.map(
 		(pick) => html`<tr>
 <td class="col-rank" data-label="Round"><span class="rank">${pick.round}</span></td>
-<td class="col-team" data-label="Player"><span class="team-cell"><span class="team-text"><span class="team-name">${pick.playerName}</span>${
+<td class="col-team" data-label="Player">${
 			pick.extraInRound
-				? html`<span class="team-alias"> · second pick this round</span>`
-				: html``
-		}</span></span></td>
+				? renderPlayerCell(pick.playerName, "second pick this round")
+				: renderPlayerCell(pick.playerName)
+		}</td>
 <td class="col-num" data-label="Pick">${pick.overall}</td>
 </tr>`,
 	)}

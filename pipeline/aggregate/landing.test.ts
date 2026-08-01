@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, test } from "node:test";
 
-import type { PlayerGame, SeasonStandings, StandingRow } from "../model.ts";
+import type { PlayerGame, SeasonStandings, StandingRow, TeamGame } from "../model.ts";
 import type { AllTimeRow } from "./all-time.ts";
 import { buildLandingView, type LandingView, type LeagueRecord } from "./landing.ts";
 import type { ManagerProfile, ScopeRecords } from "./manager-profile.ts";
@@ -296,5 +296,89 @@ describe("record groups as a whole", () => {
 	test("emits no groups at all when no team has played", () => {
 		const view = buildLandingView([profile("a", "Alpha", [])], years(2025));
 		assert.deepEqual(view.recordGroups, []);
+	});
+});
+
+describe("longest streaks", () => {
+	const STREAKS = "Regular season · longest streaks";
+	const PROFILES = [profile("a", "Alpha", []), profile("b", "Beta", [])];
+
+	/** `results` like "WWLLW"; weeks run 1..n inside `year`. */
+	function run(managerId: string, year: number, results: string, fromWeek = 1): TeamGame[] {
+		return [...results].map((outcome, i) => ({
+			year,
+			week: fromWeek + i,
+			type: "regular" as const,
+			managerId,
+			points: outcome === "W" ? 120 : outcome === "L" ? 80 : 100,
+			opponentId: "z",
+			opponentPoints: 100,
+		}));
+	}
+
+	function streak(games: TeamGame[], label: string): LeagueRecord | undefined {
+		return find(buildLandingView(PROFILES, years(2024, 2025), [], games), STREAKS, label);
+	}
+
+	test("finds the longest run of wins and of losses", () => {
+		const games = [...run("a", 2025, "WWWLWW"), ...run("b", 2025, "LLLLWL")];
+		assert.equal(streak(games, "Longest winning streak")?.value, "3");
+		assert.equal(streak(games, "Longest losing streak")?.value, "4");
+	});
+
+	// The point of the feature: a season boundary is just another gap.
+	test("a streak carries across seasons", () => {
+		const games = [...run("a", 2024, "LWWW", 12), ...run("a", 2025, "WWL")];
+		const won = streak(games, "Longest winning streak");
+		assert.equal(won?.value, "5", "3 to end 2024 plus 2 to open 2025");
+		assert.match(won?.detail ?? "", /2024 week 13 – 2025 week 2/);
+	});
+
+	test("a same-season streak reads as a week range", () => {
+		assert.match(
+			streak(run("a", 2025, "WWW"), "Longest winning streak")?.detail ?? "",
+			/2025 weeks 1–3/,
+		);
+	});
+
+	// Rule 7 and D20: neither scope counts, and a consolation game must not be
+	// spliced into the middle of a regular-season run.
+	test("playoff and consolation games neither extend nor break a streak", () => {
+		const games: TeamGame[] = [
+			...run("a", 2025, "WW"),
+			{ ...run("a", 2025, "L", 16)[0]!, type: "playoff" },
+			{ ...run("a", 2025, "L", 17)[0]!, type: "consolation" },
+			...run("a", 2025, "W", 18),
+		];
+		assert.equal(streak(games, "Longest winning streak")?.value, "3");
+		assert.equal(streak(games, "Longest losing streak"), undefined);
+	});
+
+	test("a draw breaks both streaks", () => {
+		assert.equal(streak(run("a", 2025, "WWDWW"), "Longest winning streak")?.value, "2");
+		assert.equal(streak(run("a", 2025, "LLDLLL"), "Longest losing streak")?.value, "3");
+	});
+
+	test("games out of order are sorted before the run is measured", () => {
+		const games = [...run("a", 2025, "WWW")].reverse();
+		assert.equal(streak(games, "Longest winning streak")?.value, "3");
+	});
+
+	test("a tie names the other holder and gives the tile to whoever got there first", () => {
+		const games = [...run("a", 2025, "WWW", 5), ...run("b", 2024, "WWW", 5)];
+		const won = streak(games, "Longest winning streak");
+		assert.equal(won?.value, "3");
+		assert.equal(won?.displayName, "Beta", "Beta reached it in 2024");
+		assert.match(won?.sharedWith ?? "", /Alpha/);
+	});
+
+	test("an outright record names no one else", () => {
+		const games = [...run("a", 2025, "WWW"), ...run("b", 2025, "WW")];
+		assert.equal(streak(games, "Longest winning streak")?.sharedWith, undefined);
+	});
+
+	test("the group is absent when no games are supplied", () => {
+		const view = buildLandingView(PROFILES, years(2025));
+		assert.equal(view.recordGroups.some((g) => g.title === STREAKS), false);
 	});
 });

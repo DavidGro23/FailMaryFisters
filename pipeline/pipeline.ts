@@ -7,6 +7,8 @@
 
 import { buildAllTimeTable, type AllTimeTable } from "./aggregate/all-time.ts";
 import { buildDraftViews, type SeasonDraftView } from "./aggregate/drafts.ts";
+import { buildFuturePicks, type FuturePicksView } from "./aggregate/draft-picks.ts";
+import { buildKeeperView, type SeasonKeeperView } from "./aggregate/keepers.ts";
 import { buildLandingView, type LandingView } from "./aggregate/landing.ts";
 import type { Rulebook } from "./normalize/rulebook.ts";
 import { buildManagerProfiles, type ManagerProfile } from "./aggregate/manager-profile.ts";
@@ -30,6 +32,10 @@ export interface PipelineResult {
 	/** One per manager, in all-time table order. */
 	profiles: ManagerProfile[];
 	drafts: SeasonDraftView[];
+	/** Keeper values for the latest season, or null if it has no draft. */
+	keepers: SeasonKeeperView | null;
+	/** Who holds which pick in the upcoming draft, reconstructed from trades. */
+	futurePicks: FuturePicksView | null;
 	landing: LandingView | null;
 	rulebook: Rulebook | null;
 	validation: ValidationReport;
@@ -52,6 +58,8 @@ export function runPipeline(): PipelineResult {
 	let allTime: AllTimeTable | null = null;
 	let profiles: ManagerProfile[] = [];
 	let drafts: SeasonDraftView[] = [];
+	let keepers: SeasonKeeperView | null = null;
+	let futurePicks: FuturePicksView | null = null;
 	let landing: LandingView | null = null;
 	let rulebook: Rulebook | null = null;
 	let ok = load.ok;
@@ -86,8 +94,33 @@ export function runPipeline(): PipelineResult {
 				profiles,
 				result.normalized.seasons,
 				result.normalized.playerGames,
+				// Streak records need every regular-season game in order, which the
+				// per-season standings cannot express.
+				result.normalized.games,
 			);
 			drafts = buildDraftViews(result.normalized.drafts, managers);
+
+			// Keeper values apply to the season about to start, so they are always
+			// computed from the latest season on file — never a hardcoded year.
+			const latest = result.normalized.seasons.at(-1);
+			if (latest) {
+				keepers = buildKeeperView({
+					rosters: result.normalized.rosters,
+					drafts: result.normalized.drafts,
+					managers,
+					acquisitions: result.normalized.acquisitions,
+					year: latest.year,
+				});
+
+				// Same target season as the keeper values: the draft about to happen.
+				futurePicks = buildFuturePicks(
+					result.normalized.trades,
+					managers,
+					latest.rows.map((r) => r.managerId),
+					latest.year + 1,
+				);
+			}
+
 			rulebook = result.normalized.rulebook;
 		}
 	} else {
@@ -100,6 +133,8 @@ export function runPipeline(): PipelineResult {
 		allTime,
 		profiles,
 		drafts,
+		keepers,
+		futurePicks,
 		landing,
 		rulebook,
 		validation: buildReport(issues),

@@ -18,7 +18,15 @@ import { url } from "./base-path.ts";
 import { points, percent, record } from "./format.ts";
 import { html, type SafeHtml } from "./html.ts";
 import { managerRoute, seasonRoute } from "./nav.ts";
-import { renderPage, renderTeamCell, sortableCell, sortableHeader, tableWrap, type TeamCell } from "./page.ts";
+import {
+	renderPage,
+	renderPlayerCell,
+	renderTeamCell,
+	sortableCell,
+	sortableHeader,
+	tableWrap,
+	type TeamCell,
+} from "./page.ts";
 
 export function renderManagerPage(profile: ManagerProfile, all: readonly ManagerProfile[]): string {
 	const span =
@@ -246,10 +254,9 @@ ${profile.topStarters.map((row, index) => renderStarter(row, index + 1))}
 }
 
 function renderStarter(row: StarterRow, rank: number): SafeHtml {
-	const cell: TeamCell = { displayName: row.playerName };
 	return html`<tr>
 <td class="col-rank" data-label="Rank"><span class="rank">${rank}</span></td>
-<td class="col-team" data-label="Player">${renderTeamCell(cell)}</td>
+<td class="col-team" data-label="Player">${renderPlayerCell(row.playerName)}</td>
 ${sortableCell("Starts", row.starts, String(row.starts))}
 ${sortableCell("Points", row.points, points(row.points))}
 ${sortableCell("Per start", row.pointsPerStart, points(row.pointsPerStart), true)}

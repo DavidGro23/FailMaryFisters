@@ -93,6 +93,11 @@ function renderRecordTile(entry: LeagueRecord): SafeHtml {
 <p class="record-label">${entry.label}</p>
 <p class="record-points">${entry.value}</p>
 <p class="record-detail"><a href="${url(managerRoute(entry.slug))}">${entry.detail}</a></p>
+${
+		entry.sharedWith === undefined
+			? html``
+			: html`<p class="record-shared">shared with ${entry.sharedWith}</p>`
+	}
 </div>`;
 }
 

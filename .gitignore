@@ -2,3 +2,19 @@ node_modules/
 *.log
 .DS_Store
 Thumbs.db
+
+# Local-only tooling. This repository is public — it is what serves the site —
+# so nothing here may ever be committed.
+#
+# `local/` holds the transaction fetcher and its raw HTML captures. The website
+# does not need that code to build, so it is deliberately not part of the repo;
+# only its derived output (raw-data/<league>/keeper-acquisitions.json) is
+# committed.
+local/
+
+# NFL_COOKIE lives here. It is a bearer token for a real account: committing it
+# would publish it, and deleting it later would not remove it from git history.
+.env
+.env.*
+!.env.example
+*.cookie

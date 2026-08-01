@@ -6,7 +6,7 @@
  * front page cannot drift from the pages it links to.
  */
 
-import type { ManagerId, PlayerGame, SeasonStandings, Year } from "../model.ts";
+import type { ManagerId, PlayerGame, SeasonStandings, TeamGame, Year } from "../model.ts";
 import type { ManagerProfile } from "./manager-profile.ts";
 
 const TOP_PLAYER_COUNT = 3;
@@ -27,6 +27,8 @@ export interface LeagueRecord {
 	detail: string;
 	slug: string;
 	displayName: string;
+	/** Set only when the record is shared, naming the other holders. */
+	sharedWith?: string;
 }
 
 /**
@@ -53,6 +55,7 @@ export function buildLandingView(
 	profiles: readonly ManagerProfile[],
 	seasons: readonly SeasonStandings[],
 	playerGames: readonly PlayerGame[] = [],
+	games: readonly TeamGame[] = [],
 ): LandingView {
 	const hallOfFame: ChampionEntry[] = [];
 	for (const profile of profiles) {
@@ -85,6 +88,7 @@ export function buildLandingView(
 		// 5th- and 7th-place brackets — are not playoff games to this league (D20).
 		{ title: "Playoffs · single game", records: gameExtremes(profiles, "playoff") },
 		{ title: "Regular season · full season", records: seasonRecords(profiles, seasons) },
+		{ title: "Regular season · longest streaks", records: streakRecords(profiles, games) },
 		{
 			title: "Regular season · best player, single game",
 			records: topPlayerGames(profiles, playerGames, "regular"),
@@ -183,6 +187,126 @@ function topPlayerGames(
 				},
 			];
 		});
+}
+
+/**
+ * The longest runs of consecutive wins and losses.
+ *
+ * **Streaks run across seasons.** A manager who ends one year on four wins and
+ * opens the next with three is on a seven-game streak — the calendar is not a
+ * reset. Both current records depend on this: the joint-best 7-win streak spans
+ * 2023-24, as does a 9-game losing run.
+ *
+ * **Regular season only** (rule 7, D20). Playoff *and* consolation games are
+ * excluded, which is why this reads `type === "regular"` rather than "not a
+ * playoff game" — treating consolation as regular would splice fixtures into the
+ * middle of a streak that the league does not count.
+ *
+ * **A draw breaks both streaks.** It is not a win and not a loss, and a "run of
+ * consecutive wins" interrupted by a tie has plainly stopped. Two drawn
+ * team-games exist, both in 2019.
+ */
+function streakRecords(
+	profiles: readonly ManagerProfile[],
+	games: readonly TeamGame[],
+): LeagueRecord[] {
+	if (games.length === 0) return [];
+
+	const byId = new Map(profiles.map((p) => [p.managerId, p]));
+
+	interface Streak {
+		managerId: ManagerId;
+		length: number;
+		from: TeamGame;
+		to: TeamGame;
+	}
+
+	const longest = (wanted: "W" | "L"): Streak[] => {
+		const perManager = new Map<ManagerId, TeamGame[]>();
+		for (const game of games) {
+			if (game.type !== "regular") continue;
+			const list = perManager.get(game.managerId);
+			if (list) list.push(game);
+			else perManager.set(game.managerId, [game]);
+		}
+
+		const best: Streak[] = [];
+		for (const [managerId, list] of perManager) {
+			// Chronological across the whole career — the season boundary is just
+			// another gap between two games.
+			list.sort((a, b) => a.year - b.year || a.week - b.week);
+
+			let run = 0;
+			let start: TeamGame | undefined;
+			let top: Streak | null = null;
+
+			for (const game of list) {
+				const outcome =
+					game.points > game.opponentPoints ? "W" : game.points < game.opponentPoints ? "L" : "D";
+				if (outcome !== wanted) {
+					run = 0;
+					continue;
+				}
+				if (run === 0) start = game;
+				run++;
+				if (start && (!top || run > top.length)) {
+					top = { managerId, length: run, from: start, to: game };
+				}
+			}
+			if (top) best.push(top);
+		}
+
+		// Longest first; ties broken by who got there first, so the order is total
+		// and the primary holder is the one who did it earliest.
+		return best.sort(
+			(a, b) =>
+				b.length - a.length ||
+				a.from.year - b.from.year ||
+				a.from.week - b.from.week ||
+				(a.managerId < b.managerId ? -1 : 1),
+		);
+	};
+
+	const span = (streak: Streak): string =>
+		streak.from.year === streak.to.year
+			? `${streak.from.year} weeks ${streak.from.week}–${streak.to.week}`
+			: `${streak.from.year} week ${streak.from.week} – ${streak.to.year} week ${streak.to.week}`;
+
+	const toRecord = (label: string, kind: "high" | "low", all: Streak[]): LeagueRecord | null => {
+		const top = all[0];
+		if (!top) return null;
+		const profile = byId.get(top.managerId);
+		if (!profile) return null;
+
+		const record: LeagueRecord = {
+			label,
+			kind,
+			value: String(top.length),
+			detail: `${profile.displayName} · ${span(top)}`,
+			slug: profile.slug,
+			displayName: profile.displayName,
+		};
+
+		// A shared record is named rather than hidden: the win streak really is
+		// tied, and showing one holder would read as an outright claim.
+		const shared = all
+			.filter((s) => s.length === top.length && s.managerId !== top.managerId)
+			.map((s) => {
+				const other = byId.get(s.managerId);
+				return other ? `${other.displayName} (${span(s)})` : null;
+			})
+			.filter((text): text is string => text !== null);
+
+		if (shared.length > 0) record.sharedWith = shared.join(", ");
+		return record;
+	};
+
+	const records: LeagueRecord[] = [];
+	const wins = toRecord("Longest winning streak", "high", longest("W"));
+	const losses = toRecord("Longest losing streak", "low", longest("L"));
+	if (wins) records.push(wins);
+	if (losses) records.push(losses);
+	return records;
 }
 
 /**

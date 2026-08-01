@@ -38,6 +38,8 @@ const written = renderSite(
 	result.allTime,
 	result.profiles,
 	result.drafts,
+	result.keepers,
+	result.futurePicks,
 	result.landing,
 	result.rulebook,
 	result.leagueFolder,

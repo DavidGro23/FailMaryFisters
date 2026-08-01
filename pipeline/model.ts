@@ -164,6 +164,28 @@ export interface PlayerGame {
 	points: number;
 }
 
+/**
+ * One player on a team's roster at the moment the season ended.
+ *
+ * This is a **snapshot**, not a season-long membership record: a player dropped
+ * in week 4 is absent, and a player added in week 16 is present. That is exactly
+ * the population the keeper rules apply to.
+ *
+ * `onIr` comes from `status === "RES"`, which the export uses for the IR slot.
+ * `pos` is deliberately not carried: on a roster record it is the lineup slot,
+ * not the player's position (rule 5), so the real position is resolved from
+ * `players.json` instead.
+ */
+export interface RosterEntry {
+	year: Year;
+	managerId: ManagerId;
+	playerId: string;
+	playerName: string;
+	/** Real position from `players.json`; `""` when the id is one of the four missing. */
+	position: string;
+	onIr: boolean;
+}
+
 export interface DraftPick {
 	/** Round, 1-15. A team can hold two picks in one round and none in another. */
 	round: number;

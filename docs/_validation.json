@@ -85,6 +85,15 @@
 			"field": "playerId"
 		},
 		{
+			"stage": "normalize",
+			"severity": "info",
+			"code": "player-not-resolved",
+			"message": "Season 2019: 1 rostered playerId(s) absent from players.json; rendered as \"Unknown Player (<id>)\".",
+			"league": "5613993-failmaryfisters",
+			"year": 2019,
+			"file": "end-roster-history.json"
+		},
+		{
 			"stage": "load",
 			"severity": "info",
 			"code": "empty-field",
@@ -231,12 +240,13 @@
 	"summary": {
 		"errors": 0,
 		"warnings": 0,
-		"infos": 24,
+		"infos": 25,
 		"byCode": {
 			"avatar-missing": 1,
 			"empty-field": 9,
 			"hand-written-file-absent": 1,
 			"player-not-in-registry": 4,
+			"player-not-resolved": 1,
 			"player-score-sign-corrected": 9
 		}
 	}

@@ -8,6 +8,8 @@ import { join } from "node:path";
 
 import type { AllTimeTable } from "../aggregate/all-time.ts";
 import type { SeasonDraftView } from "../aggregate/drafts.ts";
+import type { FuturePicksView } from "../aggregate/draft-picks.ts";
+import type { SeasonKeeperView } from "../aggregate/keepers.ts";
 import type { LandingView } from "../aggregate/landing.ts";
 import type { ManagerProfile } from "../aggregate/manager-profile.ts";
 import type { BracketView } from "../aggregate/playoffs.ts";
@@ -18,6 +20,7 @@ import { OUTPUT_DIR, RAW_DATA_DIR, REPO_ROOT } from "../paths.ts";
 import { renderAllTimePage } from "./all-time-page.ts";
 import { CUSTOM_DOMAIN } from "./base-path.ts";
 import { renderDraftPage } from "./draft-page.ts";
+import { renderKeeperPage } from "./keeper-page.ts";
 import { renderLandingPage } from "./landing-page.ts";
 import { renderManagerPage } from "./manager-page.ts";
 import {
@@ -25,6 +28,7 @@ import {
 	DEFAULT_SEASON,
 	DRAFTS_INDEX_ROUTE,
 	draftRoute,
+	keeperRoute,
 	LEGACY_TEAMS_INDEX_ROUTE,
 	legacyManagerRoute,
 	managerRoute,
@@ -102,6 +106,8 @@ export function renderSite(
 	allTime: AllTimeTable,
 	profiles: readonly ManagerProfile[],
 	drafts: readonly SeasonDraftView[],
+	keepers: SeasonKeeperView | null,
+	futurePicks: FuturePicksView | null,
 	landing: LandingView,
 	rulebook: Rulebook | null,
 	league: string,
@@ -147,6 +153,26 @@ export function renderSite(
 				renderRedirect(draftRoute(defaultDraft.year), `${defaultDraft.year} draft`),
 			),
 		);
+	}
+
+	// Keeper values: one page per team, plus a bare `/keepers/` that redirects to
+	// the first. Unlike drafts there is no year in the URL — the values only ever
+	// apply to the season about to start.
+	if (keepers) {
+		for (const team of keepers.teams) {
+			written.push(
+				writePage(
+					keeperRoute(team.slug),
+					renderKeeperPage(keepers, team, futurePicks?.teams.find((t) => t.managerId === team.managerId) ?? null),
+				),
+			);
+		}
+		const first = keepers.teams[0];
+		if (first) {
+			written.push(
+				writePage(keeperRoute(), renderRedirect(keeperRoute(first.slug), String(keepers.keeperYear))),
+			);
+		}
 	}
 
 	for (const profile of profiles) {
