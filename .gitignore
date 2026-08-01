@@ -1,7 +1,22 @@
 node_modules/
 *.log
+
+# OS and editor artefacts. A Vim swap file and a chunk of captured terminal
+# output had both been committed before these patterns existed — neither is part
+# of the site, and neither announced itself.
 .DS_Store
 Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*.swn
+*~
+*.bak
+*.orig
+*.rej
+*.tmp
+.vscode/
+.idea/
 
 # Local-only tooling. This repository is public — it is what serves the site —
 # so nothing here may ever be committed.
